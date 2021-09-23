@@ -1,0 +1,7 @@
+/opt/lampp/lampp startapache && /opt/lampp/lampp startmysql
+
+/opt/lampp/lampp stopapache && /opt/lampp/lampp stopmysql
+
+
+Admin berapa level? semua akses, penjualan, inventory, keuangan ?
+Member berapa level ? atau per level aksesnya sama cuma beda perhitungan bonus dan poin saja?
