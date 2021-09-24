@@ -86,6 +86,23 @@
   <script>
     $('#table_member').DataTable();
   </script>
+  <?php if ($title == "Detail Member") { ?>
+
+    <script src="<?php echo ASSETS ?>js/plugins/ekko-lightbox.min.js"></script>
+    <script src="<?php echo ASSETS ?>js/plugins/lightbox.min.js"></script>
+    <script src="<?php echo ASSETS ?>js/pages/ac-lightbox.js"></script>
+    <script>
+      // [ customer-scroll ] start
+      var px = new PerfectScrollbar('.cust-scroll', {
+        wheelSpeed: .5,
+        swipeEasing: 0,
+        wheelPropagation: 1,
+        minScrollbarLength: 40,
+      });
+      // [ customer-scroll ] end
+    </script>
+  <?php
+    } ?>
 <?php } elseif ($page == "product") { ?>
   <script src="<?php echo ASSETS ?>js/plugins/jquery.dataTables.min.js"></script>
   <script src="<?php echo ASSETS ?>js/plugins/dataTables.bootstrap4.min.js"></script>

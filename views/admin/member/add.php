@@ -26,155 +26,161 @@
                         <h5>Data Pribadi</h5>
                     </div>
                     <div class="card-body">
-                        <form>
-                            <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <label for="name">Nama Lengkap</label>
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="Nama Lengkap">
+                        <!-- <form> -->
+                        <?php echo form_open_multipart('admin/member/add/new', 'id="save"'); ?>
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="name">Nama Lengkap</label>
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Nama Lengkap" value="<?php echo set_value('name'); ?>">
+                                <?php echo form_error('name', '<small class="text-danger">', '</small>') ?>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="Email" value="<?php echo set_value('name'); ?>">
+                                <?php echo form_error('email', '<small class="text-danger">', '</small>') ?>
+                            </div>
+                            <div class="form-group col-md-3">
+                                <label for="phone">Nomor HP (WA)</label>
+                                <input type="number" class="form-control" id="phone" placeholder="Nomor Handphone" value="<?php echo set_value('name'); ?>">
+                                <?php echo form_error('phone', '<small class="text-danger">', '</small>') ?>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label>Jenis Kelamin</label>
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="genderl" name="gender" value="L" class="custom-control-input">
+                                    <label class="custom-control-label" for="genderl">Laki-laki</label>
                                 </div>
-                                <div class="form-group col-md-3">
-                                    <label for="email">Email</label>
-                                    <input type="email" class="form-control" id="email" placeholder="Email">
+                                <div class="custom-control custom-radio">
+                                    <input type="radio" id="genderp" name="gender" value="P" class="custom-control-input">
+                                    <label class="custom-control-label" for="genderp">Perempuan</label>
                                 </div>
-                                <div class="form-group col-md-3">
-                                    <label for="phone">Nomor HP (WA)</label>
-                                    <input type="number" class="form-control" id="phone" placeholder="Nomor Handphone">
-                                </div>
-                                <div class="form-group col-md-2">
-                                    <label>Jenis Kelamin</label>
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" id="genderl" name="gender" value="L" class="custom-control-input">
-                                        <label class="custom-control-label" for="genderl">Laki-laki</label>
-                                    </div>
-                                    <div class="custom-control custom-radio">
-                                        <input type="radio" id="genderp" name="gender" value="P" class="custom-control-input">
-                                        <label class="custom-control-label" for="genderp">Perempuan</label>
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label class="form-label">Foto</label>
-                                    <div>
-                                        <input type="file" class="validation-file" name="img">
-                                    </div>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="work">Pekerjaan</label>
-                                    <input type="text" class="form-control" name="work" id="work">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="nik">Nomor Induk Kependudukan (NIK/No KTP)</label>
-                                    <input type="number" class="form-control" name="nik" id="nik">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="nik_name">Nama Sesuai KTP</label>
-                                    <input type="text" class="form-control" name="nik_name" id="nik_name">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="npwp">Nomor NPWP (Opsional)</label>
-                                    <input type="text" class="form-control" name="npwp" id="npwp">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="npwp_name">Nama NPWP (Opsional)</label>
-                                    <input type="text" class="form-control" name="npwp_name" id="npwp_name">
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label>Provinsi</label>
-                                    <select class="js-example-basic-single form-control" name="province">
-                                        <?php foreach ($upline as $up) {
-                                            echo "<option value='$up->id'>$up->name ($up->phone)</option>";
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label>Kabupaten/Kota</label>
-                                    <select class="js-example-basic-single form-control" name="district">
-                                        <?php foreach ($upline as $up) {
-                                            echo "<option value='$up->id'>$up->name ($up->phone)</option>";
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label>Kecamatan</label>
-                                    <select class="js-example-basic-single form-control" name="subdistrict">
-                                        <?php foreach ($upline as $up) {
-                                            echo "<option value='$up->id'>$up->name ($up->phone)</option>";
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label>Desa/Kelurahan</label>
-                                    <select class="js-example-basic-single form-control" name="village">
-                                        <?php foreach ($upline as $up) {
-                                            echo "<option value='$up->id'>$up->name ($up->phone)</option>";
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-2">
-                                    <label for="postal_code">Kode Pos</label>
-                                    <input type="text" class="form-control" name="postal_code" id="postal_code">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <label for="alamat">Alamat Lengkap</label>
-                                    <input type="text" class="form-control" name="address" id="alamat" placeholder="1234 Main St">
+                                <?php echo form_error('gender', '<small class="text-danger">', '</small>') ?>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label class="form-label">Foto</label>
+                                <div>
+                                    <input type="file" class="validation-file" name="img">
                                 </div>
                             </div>
-
-                            <h5 class="mt-2">Data Membership</h5>
-                            <hr>
-                            <div class="form-row">
-                                <div class="form-group col-md-8">
-                                    <label>Member Upline (opsional)</label>
-                                    <select class="js-example-basic-single form-control" name="upline">
-                                        <?php foreach ($upline as $up) {
-                                            echo "<option value='$up->id'>$up->name ($up->phone)</option>";
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="level">Level</label>
-                                    <select class="js-example-basic-single form-control" id="level" name="level">
-                                        <?php foreach ($level as $lv) {
-                                            echo "<option>$lv->level_name</option>";
-                                        } ?>
-                                    </select>
-                                </div>
+                            <div class="form-group col-md-6">
+                                <label for="work">Pekerjaan</label>
+                                <input type="text" class="form-control" name="work" id="work">
                             </div>
-
-                            <div class="form-row">
-                                <div class="form-group col-md-4">
-                                    <label>Bank</label>
-                                    <select class="js-example-basic-single form-control" name="bank">
-                                        <?php foreach ($bank as $b) {
-                                            echo "<option value='$b->id'>$b->name</option>";
-                                        }
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="bank_account">Nomor Rekening</label>
-                                    <input type="number" class="form-control" name="bank_account" id="bank_account">
-                                </div>
-                                <div class="form-group col-md-4">
-                                    <label for="bank_account_name">Nama Rekening</label>
-                                    <input type="text" class="form-control" name="bank_account_name" id="bank_account_name">
-                                </div>
+                            <div class="form-group col-md-6">
+                                <label for="nik">Nomor Induk Kependudukan (NIK/No KTP)</label>
+                                <input type="number" class="form-control" name="nik" id="nik" value="<?php echo set_value('name'); ?>">
+                                <?php echo form_error('nik', '<small class="text-danger">', '</small>') ?>
                             </div>
-
-                            <div class="form-row">
-
+                            <div class="form-group col-md-6">
+                                <label for="nik_name">Nama Sesuai KTP</label>
+                                <input type="text" class="form-control" name="nik_name" id="nik_name">
                             </div>
-                            <!-- <div class="form-group">
+                            <div class="form-group col-md-6">
+                                <label for="npwp">Nomor NPWP (Opsional)</label>
+                                <input type="text" class="form-control" name="npwp" id="npwp">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="npwp_name">Nama NPWP (Opsional)</label>
+                                <input type="text" class="form-control" name="npwp_name" id="npwp_name">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>Provinsi</label>
+                                <select class="js-example-basic-single form-control" name="province">
+                                    <?php foreach ($upline as $up) {
+                                        echo "<option value='$up->id'>$up->name ($up->phone)</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>Kabupaten/Kota</label>
+                                <select class="js-example-basic-single form-control" name="district">
+                                    <?php foreach ($upline as $up) {
+                                        echo "<option value='$up->id'>$up->name ($up->phone)</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>Kecamatan</label>
+                                <select class="js-example-basic-single form-control" name="subdistrict">
+                                    <?php foreach ($upline as $up) {
+                                        echo "<option value='$up->id'>$up->name ($up->phone)</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label>Desa/Kelurahan</label>
+                                <select class="js-example-basic-single form-control" name="village">
+                                    <?php foreach ($upline as $up) {
+                                        echo "<option value='$up->id'>$up->name ($up->phone)</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="postal_code">Kode Pos</label>
+                                <input type="text" class="form-control" name="postal_code" id="postal_code">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="alamat">Alamat Lengkap</label>
+                                <input type="text" class="form-control" name="address" id="alamat" placeholder="1234 Main St">
+                            </div>
+                        </div>
+
+                        <h5 class="mt-2">Data Membership</h5>
+                        <hr>
+                        <div class="form-row">
+                            <div class="form-group col-md-8">
+                                <label>Member Upline (opsional)</label>
+                                <select class="js-example-basic-single form-control" name="upline">
+                                    <?php foreach ($upline as $up) {
+                                        echo "<option value='$up->id'>$up->name ($up->phone)</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="level">Level</label>
+                                <select class="js-example-basic-single form-control" id="level" name="level" value="<?php echo set_value('name'); ?>">
+                                    <?php foreach ($level as $lv) {
+                                        echo "<option>$lv->level_name</option>";
+                                    } ?>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label>Bank</label>
+                                <select class="js-example-basic-single form-control" name="bank">
+                                    <?php foreach ($bank as $b) {
+                                        echo "<option value='$b->id'>$b->name</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="bank_account">Nomor Rekening</label>
+                                <input type="number" class="form-control" name="bank_account" id="bank_account">
+                            </div>
+                            <div class="form-group col-md-4">
+                                <label for="bank_account_name">Nama Rekening</label>
+                                <input type="text" class="form-control" name="bank_account_name" id="bank_account_name">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+
+                        </div>
+                        <!-- <div class="form-group">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" id="gridCheck">
                                     <label class="form-check-label" for="gridCheck">Check me out</label>
                                 </div>
                             </div> -->
-                            <button type="submit" class="btn  btn-primary">Simpan</button>
+                        <button type="submit" class="btn  btn-primary">Simpan</button>
                         </form>
                     </div>
                 </div>

@@ -36,7 +36,7 @@ class Member extends CI_Controller
 	function detail($id)
 	{
 		$data['page'] = 'member';
-		$data['title'] = 'Detail Mitra';
+		$data['title'] = 'Detail Member';
 		$data['member'] = $this->Member_data->get_member_detail($id);
 		$this->load->view('admin/member/detail', $data);
 	}
@@ -48,29 +48,43 @@ class Member extends CI_Controller
 		$data['upline'] = $this->db->query("SELECT member.id,member.name,member.phone FROM member ORDER BY member.name ASC")->result();
 		$data['level'] = $this->db->query("SELECT id,level_name FROM member_level ORDER BY id ASC")->result();
 		$data['bank'] = $this->db->query("SELECT id,name FROM bank ORDER BY id ASC")->result();
-		$this->load->view('admin/member/add', $data);
-	}
 
-	function push_notification_msg()
-	{
-		$data['page'] 		= 'push_notification_msg';
-		$data['title'] 	 	= 'Pesan Notifikasi';
-		$data['msg']  		= $this->db->query("SELECT 	id_push_notification_msg,title,body,icon,action_link,id_member_level,last_update,
-																									(SELECT nama_level FROM member_level WHERE id_member_level=push_notification_msg.id_member_level) AS level_member
-																						FROM push_notification_msg")->result();
-		$data['level']  	= $this->db->query("SELECT * FROM member_level ORDER BY smp DESC")->result();
-		$this->load->view('admin/push_notification_msg', $data);
-	}
+		$this->form_validation->set_rules('name', 'Nama', 'required', ['required' => 'Nama member belum diisi!']);
+		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|trim|is_unique[member.email]', ['required' => 'Email belum diisi!', 'valid_email' => 'Format email salah!', 'is_unique' => 'Email sudah terdaftar']);
+		$this->form_validation->set_rules('phone', 'Nomor Handphone', 'required|trim|is_unique[member.phone]', ['required' => 'Nomor Handphone belum diisi!', 'is_unique' => 'Nomor Handphone sudah terdaftar']);
+		$this->form_validation->set_rules('gender', 'Jenis Kelamin', 'required', ['required' => 'Anda belum memilih jenis kelamin!']);
+		$this->form_validation->set_rules('nik', 'NIK', 'required|trim|is_unique[member.nik]', ['required' => 'NIK Handphone belum diisi!', 'is_unique' => 'NIK sudah terdaftar']);
+		$this->form_validation->set_rules('level', 'Level Member', 'required', ['required' => 'Anda belum memilih level member!']);
 
-	//ACT
-	function act_add($x)
-	{
-		date_default_timezone_set('Asia/Jakarta');
-		$now = date("Y-m-d h:i:s");
+		if ($this->form_validation->run() == false) {
+			$this->alert('warning', 'Ada beberapa field yang tidak sesuai...');
+			// $this->add('new');
+			// die('aaa');
+			$this->load->view('admin/member/add', $data);
 
-		if ($x == "member") {
+			// redirect('admin/member/add/new');
+		} else {
+			$config['upload_path']      = './public/upload/member/';
+			$config['allowed_types']    = 'jpg|jpeg|png|PNG|JPG';
+			$config['max_size']         = 1024;
+			$config['encrypt_name']     = TRUE;
+			$this->load->library('upload', $config);
+
+
+			if (!$this->upload->do_upload('img')) {
+
+				$error = $this->upload->display_errors();
+				$this->alert('danger', $error);
+
+				redirect('admin/member/add/new');
+			} else {
+				$up = $this->upload->data();
+				$img = $up['file_name'];
+			}
+
 			date_default_timezone_set('Asia/Jakarta');
 			$now = date("Y-m-d h:i:s");
+
 			$data = array(
 				'name' => $this->input->post('name'),
 				'upline' => $this->input->post('upline'),
@@ -78,7 +92,8 @@ class Member extends CI_Controller
 				'email' => $this->input->post('email'),
 				'password' => "e10adc3949ba59abbe56e057f20f883e",
 				'gender' => $this->input->post('gender'),
-				'img' => $this->input->post('img'), //file upload foto
+				// 'img' => $this->input->post('img'),
+				'img' => $img, //file upload foto
 				'nik' => $this->input->post('nik'),
 				'nik_name' => $this->input->post('nik_name'),
 				'npwp' => $this->input->post('npwp'),
@@ -103,19 +118,6 @@ class Member extends CI_Controller
 
 			$this->alert('info', 'Member berhasil ditambahkan...');
 			redirect(base_url('admin/member/all'));
-		} elseif ($x == "member_level") {
-			$data = array(
-				'nama_level'    => $this->input->post('nama_level'),
-				'nilai' 		=> $this->input->post('nilai'),
-				'smp' 			=> $this->input->post('smp'),
-				'diskon' 		=> $this->input->post('diskon'),
-				'keterangan'  	=> $this->input->post('keterangan')
-			);
-
-			$this->db->insert('member_level', $data);
-
-			$this->alert('info', 'Level Member berhasil ditambahkan...');
-			redirect(base_url('admin/master/level_member'));
 		}
 	}
 

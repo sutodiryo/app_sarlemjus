@@ -73,7 +73,7 @@ class Member_data extends CI_Model
     function get_member_detail($id)
     {
         $q = $this->db->query("SELECT   m1.id,m1.username,m1.name,m1.phone,m1.status,m1.registration_date,m1.gender,m1.address,m1.province,m1.district,m1.subdistrict,m1.village,m1.postal_code,m1.level,m1.bank_account,m1.bank_account_name,m1.bank,m1.email,m1.registration_date,
-                                        (SELECT nama_bank FROM bank WHERE bank.id=m1.bank LIMIT 1) AS bank,
+                                        (SELECT name FROM bank WHERE bank.id=m1.bank LIMIT 1) AS bank,
                                         (SELECT COUNT(*) FROM member m2 WHERE m2.upline=m1.id) AS downline,
                                         (SELECT level_name FROM member_level WHERE id=m1.level) AS level_name,
                                         (SELECT name FROM location_village WHERE id=m1.village) AS village_name,

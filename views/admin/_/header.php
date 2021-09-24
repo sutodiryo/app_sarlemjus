@@ -20,7 +20,12 @@
 
         <link rel="stylesheet" href="<?php echo ASSETS ?>css/plugins/select2.min.css">
         <link rel="stylesheet" href="<?php echo ASSETS ?>css/plugins/dataTables.bootstrap4.min.css">
-    <?php } ?>
+    <?php } elseif ($page == "member" || $title = "Detail Member") { ?>
+    
+	<link rel="stylesheet" href="<?php echo ASSETS ?>css/plugins/ekko-lightbox.css">
+	<link rel="stylesheet" href="<?php echo ASSETS ?>css/plugins/lightbox.min.css">
+    <?php
+    } ?>
 
     <link rel="stylesheet" href="<?php echo ASSETS ?>css/style.css">
 </head>
