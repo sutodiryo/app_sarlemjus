@@ -59,8 +59,8 @@
                                 <thead>
                                     <tr>
                                         <th width="5%">ID</th>
-                                        <th width="40%">Name</th>
-                                        <th width="20%">Alamat</th>
+                                        <th width="20%">Name</th>
+                                        <th width="40%">Alamat</th>
                                         <th width="10%">Email</th>
                                         <th width="10%">No HP</th>
                                         <th width="5%">Level</th>
@@ -73,8 +73,8 @@
                                     foreach ($member as $m) {
                                         echo "<tr>
                                         <td>#$m->id</td>
-                                        <td><img src='" . ASSETS . "images/upload/member/avatar-1.jpg' class='img-radius' width='30px' height='30px'> $m->name</td>
-                                        <td>$m->address</td>
+                                        <td><img src='".base_url()."public/upload/member/$m->img' class='img-radius' width='30px' height='30px'> $m->name</td>
+                                        <td><textarea class='form-control' disabled  style='font-size:80%;'>$m->address</textarea></td>
                                         <td>$m->email</td>
                                         <td>$m->phone</td>
                                         <td>$m->level_name</td>

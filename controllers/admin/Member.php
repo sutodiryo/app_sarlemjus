@@ -70,13 +70,13 @@ class Member extends CI_Controller
 			$config['encrypt_name']     = TRUE;
 			$this->load->library('upload', $config);
 
-
 			if (!$this->upload->do_upload('img')) {
 
-				$error = $this->upload->display_errors();
-				$this->alert('danger', $error);
+				// $error = $this->upload->display_errors();
+				// $this->alert('danger', $error);
 
-				redirect('admin/member/add/new');
+				// redirect('admin/member/add/new');
+				$img = "profile.jpg";
 			} else {
 				$up = $this->upload->data();
 				$img = $up['file_name'];

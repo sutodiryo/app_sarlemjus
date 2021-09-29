@@ -29,7 +29,7 @@
 									<a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										<div class="profile-dp">
 											<div class="position-relative d-inline-block">
-												<img class="img-radius img-fluid wid-100" src="<?php echo ASSETS ?>images/user/avatar-5.jpg" alt="User image">
+												<img class="img-radius img-fluid wid-100 hei-100" src="<?php echo "".base_url()."public/upload/member/$member->img"; ?>" alt="<?= $member->name ?>" style="object-fit: cover;">
 											</div>
 											<div class="overlay">
 												<span>change</span>

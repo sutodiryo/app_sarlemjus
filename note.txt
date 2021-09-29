@@ -2,7 +2,14 @@
 
 /opt/lampp/lampp stopapache && /opt/lampp/lampp stopmysql
 
+jst280 945673
 
 No olshop
 Admin berapa level? semua akses, penjualan, inventory, keuangan ?
 Member berapa level ? atau per level aksesnya sama cuma beda perhitungan bonus dan poin saja?
+
+
+zendesk color theme :
+    first = #03363d  (#ed1b23)
+    second = #17494d (#ed1b45)
+
