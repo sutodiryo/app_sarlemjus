@@ -58,7 +58,8 @@ class Member_data extends CI_Model
                         (SELECT level_name FROM member_level WHERE id=m1.level) AS level_name,
                         (SELECT name FROM location_district WHERE id=m1.district) AS district_name,
                         (SELECT id FROM member m2 WHERE m2.id=m1.upline) AS id_member_up
-                    FROM member m1";
+                    FROM member m1
+                    WHERE status != 9";
         return $q;
     }
 
@@ -85,4 +86,8 @@ class Member_data extends CI_Model
         return $q;
     }
 
+    function get_member_level_list()
+    {
+        return  $this->db->query("SELECT * FROM member_level")->result();
+    }
 }

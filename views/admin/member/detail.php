@@ -596,7 +596,7 @@ $member->postal_code"; ?></textarea>
 			<div class="col-md-4 order-md-1">
 				<div class="card new-cust-card">
 					<div class="card-header">
-						<h5>Daftar Transaksi</h5>
+						<h5>Downline</h5>
 						<div class="card-header-right">
 							<div class="btn-group card-option">
 								<button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -623,7 +623,7 @@ $member->postal_code"; ?></textarea>
 									<span class="status active"></span>
 								</div>
 							</div>
-							<div class="align-middle m-b-25">
+							<!-- <div class="align-middle m-b-25">
 								<img src="<?php echo ASSETS ?>images/user/avatar-2.jpg" alt="user image" class="img-radius align-top m-r-15">
 								<div class="d-inline-block">
 									<a href="#!">
@@ -692,7 +692,7 @@ $member->postal_code"; ?></textarea>
 									<p class="m-b-0">Cheers!</p>
 									<span class="status deactive">10 min ago</span>
 								</div>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</div>

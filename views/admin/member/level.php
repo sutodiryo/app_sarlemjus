@@ -7,10 +7,7 @@
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <div class="page-header-title">
-                            <h5 class="m-b-10"><?php echo $title;
-                                                if ($title2 != '') {
-                                                    echo " $title2->level_name";
-                                                } ?></h5>
+                            <h5 class="m-b-10"><?php echo $title; ?></h5>
                         </div>
                         <ul class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?php echo base_url('admin') ?>"><i class="feather icon-home"></i></a></li>
@@ -24,31 +21,11 @@
 
         <div class="row">
 
-            <?php
-            foreach ($member_stat as $ms) {
-
-                echo "<div class='col-lg-3 col-md-6'>
-                <a href='" . base_url('admin/member/') . "$ms->id' class='card'>
-                    <div class='card-body'>
-                        <div class='row align-items-center'>
-                            <div class='col-12'>
-                                <h4 class='text-c-default'>$ms->total $ms->level_name</h4>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>";
-            }
-            ?>
-
             <div class="col-md-12">
                 <div class="card">
 
                     <?php echo $this->session->flashdata('report'); ?>
 
-                    <!-- <div class="card-header">
-                        <h5>Parents List </h5>
-                    </div> -->
                     <div class="card-body">
                         <div class="row align-items-center m-l-1 mb-3">
                             <div class="col-sm-6">
@@ -63,35 +40,28 @@
                                 <thead>
                                     <tr>
                                         <th width="5%">ID</th>
-                                        <th width="20%">Name</th>
-                                        <th width="40%">Alamat</th>
-                                        <th width="10%">Email</th>
-                                        <th width="10%">No HP</th>
-                                        <th width="5%">Level</th>
-                                        <th width="10%" class="text-center"></th>
+                                        <th width="35%">Nama</th>
+                                        <th width="10%">Bonus</th>
+                                        <th width="15%">Minimal Pembelian</th>
+                                        <th width="15%">Diskon</th>
+                                        <th width="20%" class="text-center"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
                                     <?php
-                                    foreach ($member as $m) {
+                                    $i=0;
+                                    foreach ($level as $l) {
+                                        $i++;
                                         echo "<tr>
-                                        <td>#$m->id</td>
-                                        <td><img src='" . base_url() . "public/upload/member/$m->img' class='img-radius' width='30px' height='30px'> $m->name</td>
-                                        <td><textarea class='form-control' disabled  style='font-size:80%;'>$m->address</textarea></td>
-                                        <td>$m->email</td>
-                                        <td>$m->phone</td>
-                                        <td>$m->level_name</td>
+                                        <td>$i</td>
+                                        <td>$l->name</td>
+                                        <td>$l->value %</td>
+                                        <td>$l->min_deposit</td>
+                                        <td>$l->discount</td>
                                         <td class='text-center'>
-                                            <div class='btn-group mb-2 mr-2'>
-                                                <button class='btn btn-outline-secondary dropdown-toggle btn-sm has-ripple' type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Action<span class='ripple ripple-animate' style='height: 118.875px; width: 118.875px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(255, 255, 255); opacity: 0.4; top: -31.8125px; left: -7.5px;'></span></button>
-                                                <div class='dropdown-menu' style=''>
-                                                    <a class='dropdown-item' href='" . base_url('admin/member/detail/') . "$m->id' target='_blank'><i class='feather icon-eye'></i> Detail</a>
-                                                    <a class='dropdown-item' href='#!'><i class='feather icon-edit'></i> Edit</a>
-                                                    <div class='dropdown-divider'></div>
-                                                    <a class='dropdown-item' href='" . base_url('admin/member/del/') . "$m->id' onclick=\"return confirm('Anda yakin ingin menghapus data ini ?');\" ><i class='feather icon-trash-2'></i> Hapus</a>
-                                                </div>
-                                            </div>
+                                            <a href='#!' class='btn btn-info btn-sm'><i class='feather icon-edit'></i>&nbsp;Edit </a>
+                                            <a href='#!' class='btn btn-danger btn-sm'><i class='feather icon-trash-2'></i>&nbsp;Delete </a>
                                         </td>
                                     </tr>";
                                     }

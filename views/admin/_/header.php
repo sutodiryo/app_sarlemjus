@@ -70,44 +70,74 @@
                                             echo "active";
                                         } ?>"><a href="<?php echo base_url('admin/transaction/list/all') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-shopping-cart"></i></span><span class="pcoded-mtext">Transaksi</span></a></li>
 
-                    <li class="nav-item <?php if ($page == "member") {
-                                            echo "active";
-                                        } ?>"><a href="<?php echo base_url('admin/member/all') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-users"></i></span><span class="pcoded-mtext">Member</span></a></li>
-
                     <li class="nav-item pcoded-menu-caption">
                         <label>Master</label>
                     </li>
 
-                    <li class="nav-item <?php if ($page == "product") {
+                    <!-- <li class="nav-item <?php if ($page == "member") {
                                             echo "active";
-                                        } ?>"><a href="<?php echo base_url('admin/master/product/all') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-store"></i></span><span class="pcoded-mtext">Product</span></a></li>
+                                        } ?>"><a href="<?php echo base_url('admin/member/list/all') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-users"></i></span><span class="pcoded-mtext">Member</span></a></li> -->
 
-                    <li class="nav-item <?php if ($page == "course") {
+                    <li class="nav-item pcoded-hasmenu <?php if ($page == "member") {
+                                                            echo "active pcoded-trigger";
+                                                        } ?>">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="fas fa-users"></i></span><span class="pcoded-mtext">Member</span></a>
+                        <ul class="pcoded-submenu">
+                            <li class="<?php if ($title == "Daftar Semua Member" || $title == "Daftar Member") {
                                             echo "active";
-                                        } ?>"><a href="<?php echo base_url('admin/master/course') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-graduation-cap"></i></span><span class="pcoded-mtext">Course</span></a></li>
-
-                    <li class="nav-item <?php if ($page == "point") {
+                                        } ?>"><a href="<?= base_url('admin/member/list/all') ?>" class="has-ripple">Data Member<span class="ripple ripple-animate" style="height: 230px; width: 230px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(70, 128, 255); opacity: 0.4; top: -90px; left: 11px;"></span></a></li>
+                            <li class="<?php if ($title == "Brand Produk") {
                                             echo "active";
-                                        } ?>"><a href="<?php echo base_url('admin/master/point') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-star-half-alt"></i></span><span class="pcoded-mtext">Poin</span></a></li>
-
-                    <li class="nav-item <?php if ($page == "bonus") {
-                                            echo "active";
-                                        } ?>"><a href="<?php echo base_url('admin/master/bonus') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-gift"></i></span><span class="pcoded-mtext">Bonus</span></a></li>
-
-                    <li class="nav-item <?php if ($page == "member_level") {
-                                            echo "active";
-                                        } ?>"><a href="<?php echo base_url('admin/master/member_level') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-users-cog"></i></span><span class="pcoded-mtext">Level Member</span></a></li>
-
-                    <li class="nav-item pcoded-menu-caption">
-                        <label>Laporan</label>
+                                        } ?>"><a href="<?= base_url('admin/member/level') ?>">Member Level</a></li>
+                        </ul>
                     </li>
 
-                    <li class="nav-item <?php if ($page == "bonus") {
+                    <li class=" nav-item pcoded-hasmenu <?php if ($page == "product") {
+                                                            echo "active pcoded-trigger";
+                                                        } ?>">
+                        <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="feather icon-tag"></i></span><span class="pcoded-mtext">Produk</span></a>
+                        <ul class="pcoded-submenu">
+                            <li class="<?php if ($title == "Master Produk" || $title == "Tambah Produk") {
                                             echo "active";
-                                        } ?>"><a href="<?php echo base_url('report/bonus') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-gift"></i></span><span class="pcoded-mtext">Laporan Bonus</span></a></li>
+                                        } ?>"><a href="<?= base_url('admin/master/product/all') ?>" class="has-ripple">Data Produk<span class="ripple ripple-animate" style="height: 230px; width: 230px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(70, 128, 255); opacity: 0.4; top: -90px; left: 11px;"></span></a></li>
+                            <li class="<?php if ($title == "Brand Produk") {
+                                            echo "active";
+                                        } ?>"><a href="<?= base_url('admin/master/product_brand') ?>">Brand</a></li>
+                            <li class="<?php if ($title == "Kategori Produk") {
+                                            echo "active";
+                                        } ?>"><a href="<?= base_url('admin/master/product_category') ?>"">Kategori</a></li>
+                            <li class=" <?php if ($title == "Satuan Produk") {
+                                            echo "active";
+                                        } ?>"><a href="<?= base_url('admin/master/product_unit') ?>"">Satuan</a></li>
+                        </ul>
+                    </li>
+
+                            <li class=" nav-item <?php if ($page == "course") {
+                                                        echo "active";
+                                                    } ?>"><a href="<?php echo base_url('admin/master/course') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-graduation-cap"></i></span><span class="pcoded-mtext">Course</span></a></li>
+
+                            <!-- <li class="nav-item <?php if ($page == "point") {
+                                                            echo "active";
+                                                        } ?>"><a href="<?php echo base_url('admin/master/point') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-star-half-alt"></i></span><span class="pcoded-mtext">Poin</span></a></li>
+
+                            <li class="nav-item <?php if ($page == "bonus") {
+                                                    echo "active";
+                                                } ?>"><a href="<?php echo base_url('admin/master/bonus') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-gift"></i></span><span class="pcoded-mtext">Bonus</span></a></li> -->
+
+                            <li class="nav-item <?php if ($page == "member_level") {
+                                                    echo "active";
+                                                } ?>"><a href="<?php echo base_url('admin/master/member_level') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-users-cog"></i></span><span class="pcoded-mtext">Level Member</span></a></li>
+
+                            <li class="nav-item pcoded-menu-caption">
+                                <label>Laporan</label>
+                            </li>
+
+                            <li class="nav-item <?php if ($page == "bonus") {
+                                                    echo "active";
+                                                } ?>"><a href="<?php echo base_url('report/bonus') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-gift"></i></span><span class="pcoded-mtext">Laporan Bonus</span></a></li>
 
 
-                </ul>
+                        </ul>
 
             </div>
         </div>

@@ -104,6 +104,8 @@
   <?php
     } ?>
 <?php } elseif ($page == "product") { ?>
+  <script src="<?php echo ASSETS ?>js/plugins/select2.full.min.js"></script>
+  <script src="<?php echo ASSETS ?>js/pages/form-select-custom.js"></script>
   <script src="<?php echo ASSETS ?>js/plugins/jquery.dataTables.min.js"></script>
   <script src="<?php echo ASSETS ?>js/plugins/dataTables.bootstrap4.min.js"></script>
   <script>

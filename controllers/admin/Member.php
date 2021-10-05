@@ -12,6 +12,7 @@ class Member extends CI_Controller
 		if ($this->session->userdata('log_admin') == FALSE) {
 			redirect(base_url('member'));
 		}
+		$this->session->mark_as_temp('report', 1);
 		$this->load->model('admin/Member_data');
 	}
 
@@ -57,7 +58,7 @@ class Member extends CI_Controller
 		$this->form_validation->set_rules('level', 'Level Member', 'required', ['required' => 'Anda belum memilih level member!']);
 
 		if ($this->form_validation->run() == false) {
-			$this->alert('warning', 'Ada beberapa field yang tidak sesuai...');
+			// $this->alert('warning', 'Ada beberapa field yang tidak sesuai...');
 			// $this->add('new');
 			// die('aaa');
 			$this->load->view('admin/member/add', $data);
@@ -119,6 +120,14 @@ class Member extends CI_Controller
 			$this->alert('info', 'Member berhasil ditambahkan...');
 			redirect(base_url('admin/member/all'));
 		}
+	}
+
+	function level(){
+		
+		$data['page'] = 'member';
+		$data['title'] = 'Level Member';
+		$data['level'] = $this->Member_data->get_member_level_list();
+		$this->load->view('admin/member/level', $data);
 	}
 
 	function edit($x, $y)
@@ -209,21 +218,13 @@ class Member extends CI_Controller
 		echo json_encode($data);
 	}
 
-
-
-	function del($x, $id)
+	function del($id)
 	{
-		if ($x == "member_level") {
-			$this->db->delete($x, array('id_member_level'  => $id));
+		$this->db->query("UPDATE member SET status = 9 WHERE member.id = '$id'");
+		// $this->db->delete('member', array('id_member'  => $id));
 
-			$this->alert('danger', 'Level member telah dihapus...');
-			redirect(base_url('admin/master/level_member'));
-		} elseif ($x == "member") {
-			$this->db->delete($x, array('id_member'  => $id));
-
-			$this->alert('danger', 'Member berhasil dihapus...');
-			redirect(base_url('admin/member/all'));
-		}
+		$this->alert('danger', 'Member berhasil dihapus...');
+		redirect(base_url('admin/member/all'));
 	}
 
 	function send_push_notification($x, $y, $z)
@@ -282,6 +283,6 @@ class Member extends CI_Controller
 	{
 		// $x : warna
 		// $y : pesan
-		return $this->session->set_flashdata("report", "<div class='alert alert-$x alert-dismissible fade show' role='alert'><span class='alert-icon'><i class='ni ni-like-2'></i></span><span class='alert-text'><strong>$y</strong></span><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button></div>");
+		return $this->session->set_flashdata("report", "<div class='alert alert-$x alert-dismissible fade show' role='alert'><strong>$y</strong><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button></div>");
 	}
 }

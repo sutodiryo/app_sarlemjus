@@ -1,5 +1,6 @@
 <?php $this->load->view('admin/_/header'); ?>
 
+<!-- Pas mau keluar page ini harus muncul alert, ketika di klik yes hapus flashdata -->
 
 <section class="pcoded-main-container">
     <div class="pcoded-content">
@@ -22,6 +23,7 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
+                    <?php echo $this->session->flashdata('report'); ?>
                     <div class="card-header">
                         <h5>Data Pribadi</h5>
                     </div>

@@ -40,6 +40,12 @@ class Master_data extends CI_Model
         return $q;
     }
 
+    function get_product_brand()
+    {
+        $q = $this->db->query("SELECT * FROM product_brand")->result();
+        return $q;
+    }
+
     function get_course_category_list()
     {
         $q = $this->db->query("SELECT * FROM course_category")->result();

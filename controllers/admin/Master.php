@@ -30,11 +30,20 @@ class Master extends CI_Controller
   function product_stock($id_product)
   {
     $data['page'] = 'product';
-    $data['title'] = 'Master Produk';
+    $data['title'] = 'Stok Produk';
 
     $data['product'] = $this->Master_data->get_product_by_id($id_product);
     $data['product_stock'] = $this->Master_data->get_product_stock($id_product); //Import struktur data product dari ilufa
     $this->load->view('admin/master/product/stock', $data);
+  }
+
+  function product_brand()
+  {
+    $data['page'] = 'product';
+    $data['title'] = 'Brand Produk';
+
+    $data['brand'] = $this->Master_data->get_product_brand();
+    $this->load->view('admin/master/product/brand', $data);
   }
 
   function course()
@@ -95,40 +104,83 @@ class Master extends CI_Controller
       $this->alert('info', 'Member berhasil ditambahkan...');
       redirect(base_url('admin/member/all'));
     } elseif ($x == "product") {
-      $config['upload_path']      = './public/upload/produk/';
-      $config['allowed_types']    = 'jpg|jpeg|png|PNG|JPG';
-      $config['max_size']         = 1024;
-      $config['encrypt_name']     = FALSE;
-      $this->load->library('upload', $config);
 
-      if (!$this->upload->do_upload('image')) {
+      $data['page'] = 'product';
+      $data['title'] = 'Tambah Produk';
+      $data['upline'] = $this->db->query("SELECT member.id,member.name,member.phone FROM member ORDER BY member.name ASC")->result();
+      $data['level'] = $this->db->query("SELECT id,level_name FROM member_level ORDER BY id ASC")->result();
+      $data['bank'] = $this->db->query("SELECT id,name FROM bank ORDER BY id ASC")->result();
 
-        $error = $this->upload->display_errors();
-        $this->alert('danger', $error);
+      $this->form_validation->set_rules('name', 'Nama', 'required', ['required' => 'Nama member belum diisi!']);
+      $this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|trim|is_unique[member.email]', ['required' => 'Email belum diisi!', 'valid_email' => 'Format email salah!', 'is_unique' => 'Email sudah terdaftar']);
+      $this->form_validation->set_rules('phone', 'Nomor Handphone', 'required|trim|is_unique[member.phone]', ['required' => 'Nomor Handphone belum diisi!', 'is_unique' => 'Nomor Handphone sudah terdaftar']);
+      $this->form_validation->set_rules('gender', 'Jenis Kelamin', 'required', ['required' => 'Anda belum memilih jenis kelamin!']);
+      $this->form_validation->set_rules('nik', 'NIK', 'required|trim|is_unique[member.nik]', ['required' => 'NIK Handphone belum diisi!', 'is_unique' => 'NIK sudah terdaftar']);
+      $this->form_validation->set_rules('level', 'Level Member', 'required', ['required' => 'Anda belum memilih level member!']);
 
-        redirect('admin/product/add');
+      if ($this->form_validation->run() == false) {
+        $this->alert('warning', 'Ada beberapa field yang tidak sesuai...');
+        // $this->add('new');
+        // die('aaa');
+        $this->load->view('admin/master/product/add', $data);
+
+        // redirect('admin/member/add/new');
       } else {
-        $up     = $this->upload->data();
-        $img     = $up['file_name'];
+        $config['upload_path']      = './public/upload/member/';
+        $config['allowed_types']    = 'jpg|jpeg|png|PNG|JPG';
+        $config['max_size']         = 1024;
+        $config['encrypt_name']     = TRUE;
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('img')) {
+
+          // $error = $this->upload->display_errors();
+          // $this->alert('danger', $error);
+
+          // redirect('admin/member/add/new');
+          $img = "profile.jpg";
+        } else {
+          $up = $this->upload->data();
+          $img = $up['file_name'];
+        }
+
+        date_default_timezone_set('Asia/Jakarta');
+        $now = date("Y-m-d h:i:s");
+
+        $data = array(
+          'name' => $this->input->post('name'),
+          'upline' => $this->input->post('upline'),
+          'phone' => $this->input->post('phone'),
+          'email' => $this->input->post('email'),
+          'password' => "e10adc3949ba59abbe56e057f20f883e",
+          'gender' => $this->input->post('gender'),
+          // 'img' => $this->input->post('img'),
+          'img' => $img, //file upload foto
+          'nik' => $this->input->post('nik'),
+          'nik_name' => $this->input->post('nik_name'),
+          'npwp' => $this->input->post('npwp'),
+          'npwp_name' => $this->input->post('npwp_name'),
+          'bank' => $this->input->post('bank'),
+          'bank_account' => $this->input->post('bank_account'),
+          'bank_account_name' => $this->input->post('bank_account_name'),
+          'province' => $this->input->post('province'),
+          'district' => $this->input->post('district'),
+          'subdistrict' => $this->input->post('subdistrict'),
+          'village' => $this->input->post('village'),
+          'postal_code' => $this->input->post('postal_code'),
+          'work' => $this->input->post('work'),
+          'level' => $this->input->post('level'),
+          'address' => $this->input->post('address'),
+          'registration_date' => $now,
+          'notif_admin' => 1,
+          'status' => 1
+        );
+
+        $this->db->insert('member', $data);
+
+        $this->alert('info', 'Member berhasil ditambahkan...');
+        redirect(base_url('admin/member/all'));
       }
-
-      $data = array(
-        'slug' => $this->input->post('slug'),
-        'nama_produk' => $this->input->post('nama_produk'),
-        'harga' => $this->input->post('harga'),
-        'satuan'                      => $this->input->post('satuan'),
-        'berat'                          => $this->input->post('berat'),
-        'nilai'                          => $this->input->post('nilai'),
-        'waktu_input'              => $now,
-        'status'                      => 1,
-        'keterangan'              => $this->input->post('keterangan'),
-        'img_1'                          => $img
-      );
-
-      $this->db->insert('produk', $data);
-
-      $this->alert('info', 'Product berhasil ditambahkan...');
-      redirect(base_url('admin/product/all'));
     } elseif ($x == "produk_harga") {
       $data = array(
         'id_produk'         => $this->input->post('id_produk'),
@@ -653,5 +705,15 @@ class Master extends CI_Controller
       $this->alert('success', 'Event berhasil diubah...');
       redirect(base_url('admin/master/event'));
     }
+  }
+
+
+
+  // Flashdata Report
+  function alert($x, $y)
+  {
+    // $x : warna
+    // $y : pesan
+    return $this->session->set_flashdata("report", "<div class='alert alert-$x alert-dismissible fade show' role='alert'><strong>$y</strong><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button></div>");
   }
 }

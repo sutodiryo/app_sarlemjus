@@ -11,7 +11,7 @@ $route['do_login']              = 'auth/log/do_login';
 $route['logout']                = 'auth/log/out';
 
 $route['admin']                 = 'admin/dashboard';
-$route['admin/member/(:any)']   = 'admin/member/list/$1';
+// $route['admin/member/(:any)']   = 'admin/member/list/$1';
 
 $route['member']                = 'member/dashboard';
 
