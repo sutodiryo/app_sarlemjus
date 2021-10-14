@@ -50,15 +50,15 @@
                                 <tbody>
 
                                     <?php
-                                    $i=0;
+                                    $i = 0;
                                     foreach ($level as $l) {
                                         $i++;
                                         echo "<tr>
                                         <td>$i</td>
                                         <td>$l->name</td>
                                         <td>$l->value %</td>
-                                        <td>$l->min_deposit</td>
-                                        <td>$l->discount</td>
+                                        <td>Rp " . number_format($l->min_deposit, 0, ',', '.') . "</td>
+                                        <td>Rp " . number_format($l->discount, 0, ',', '.') . "</td>
                                         <td class='text-center'>
                                             <a href='#!' class='btn btn-info btn-sm'><i class='feather icon-edit'></i>&nbsp;Edit </a>
                                             <a href='#!' class='btn btn-danger btn-sm'><i class='feather icon-trash-2'></i>&nbsp;Delete </a>
@@ -367,7 +367,7 @@
     function edit_member(id_member) {
         //Ajax Load data from ajax
         $.ajax({
-            url: "<?php echo base_url('admin/get/member') ?>/" + id_member,
+            url: "<?php echo base_url('admin/member/get_by_id') ?>/" + id_member,
             type: "GET",
             dataType: "JSON",
             success: function(data) {

@@ -22,7 +22,7 @@ class Log extends CI_Controller
 		$password 	= md5($this->security->xss_clean($this->input->post('password')));
 
 		$member     = $this->db->query("SELECT 	id,username,name,email,phone,status,level,
-																						(SELECT level_name FROM member_level WHERE id=member.level) AS level_name
+																						(SELECT name FROM member_level WHERE id=member.level) AS level_name
 																		FROM member WHERE password = '" . $password . "' AND (phone= '" . $username . "' OR email = '" . $username . "')");
 		$member_cek	= $member->num_rows();
 		$member_row	= $member->row();

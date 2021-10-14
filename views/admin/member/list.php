@@ -32,7 +32,7 @@
                     <div class='card-body'>
                         <div class='row align-items-center'>
                             <div class='col-12'>
-                                <h4 class='text-c-default'>$ms->total $ms->level_name</h4>
+                                <h4 class='text-c-default'>$ms->total $ms->name</h4>
                             </div>
                         </div>
                     </div>
@@ -77,7 +77,7 @@
                                     foreach ($member as $m) {
                                         echo "<tr>
                                         <td>#$m->id</td>
-                                        <td><img src='" . base_url() . "public/upload/member/$m->img' class='img-radius' width='30px' height='30px'> $m->name</td>
+                                        <td><img src='" . base_url() . "public/upload/member/$m->img' class='img-radius' width='30px' height='30px'> " . substr($m->name, 0, 30) . "</td>
                                         <td><textarea class='form-control' disabled  style='font-size:80%;'>$m->address</textarea></td>
                                         <td>$m->email</td>
                                         <td>$m->phone</td>

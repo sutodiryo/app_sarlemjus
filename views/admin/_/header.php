@@ -124,9 +124,9 @@
                                                     echo "active";
                                                 } ?>"><a href="<?php echo base_url('admin/master/bonus') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-gift"></i></span><span class="pcoded-mtext">Bonus</span></a></li> -->
 
-                            <li class="nav-item <?php if ($page == "member_level") {
+                            <!-- <li class="nav-item <?php if ($page == "member_level") {
                                                     echo "active";
-                                                } ?>"><a href="<?php echo base_url('admin/master/member_level') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-users-cog"></i></span><span class="pcoded-mtext">Level Member</span></a></li>
+                                                } ?>"><a href="<?php echo base_url('admin/master/member_level') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-users-cog"></i></span><span class="pcoded-mtext">Level Member</span></a></li> -->
 
                             <li class="nav-item pcoded-menu-caption">
                                 <label>Laporan</label>

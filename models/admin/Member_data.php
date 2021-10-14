@@ -38,7 +38,7 @@ class Member_data extends CI_Model
 
     function get_member_stat()
     {
-        $query = $this->db->query("SELECT   id,level_name,
+        $query = $this->db->query("SELECT   id,name,
                                             (SELECT COUNT(id) FROM member WHERE level=member_level.id) AS total
                                     FROM member_level
                                     ORDER BY id ASC")->result();
@@ -55,7 +55,7 @@ class Member_data extends CI_Model
     function get_member_list()
     {
         $q = "SELECT    m1.id,m1.username,m1.name,m1.phone,m1.status,m1.registration_date,m1.gender,m1.level,m1.email,m1.address,m1.img,
-                        (SELECT level_name FROM member_level WHERE id=m1.level) AS level_name,
+                        (SELECT name FROM member_level WHERE id=m1.level) AS level_name,
                         (SELECT name FROM location_district WHERE id=m1.district) AS district_name,
                         (SELECT id FROM member m2 WHERE m2.id=m1.upline) AS id_member_up
                     FROM member m1
@@ -76,7 +76,7 @@ class Member_data extends CI_Model
         $q = $this->db->query("SELECT   m1.id,m1.username,m1.name,m1.phone,m1.status,m1.registration_date,m1.gender,m1.address,m1.province,m1.district,m1.subdistrict,m1.village,m1.postal_code,m1.level,m1.bank_account,m1.bank_account_name,m1.bank,m1.email,m1.registration_date,m1.img,
                                         (SELECT name FROM bank WHERE bank.id=m1.bank LIMIT 1) AS bank,
                                         (SELECT COUNT(*) FROM member m2 WHERE m2.upline=m1.id) AS downline,
-                                        (SELECT level_name FROM member_level WHERE id=m1.level) AS level_name,
+                                        (SELECT name FROM member_level WHERE id=m1.level) AS level_name,
                                         (SELECT name FROM location_village WHERE id=m1.village) AS village_name,
                                         (SELECT name FROM location_subdistrict WHERE id=m1.subdistrict) AS subdistrict_name,
                                         (SELECT name FROM location_district WHERE id=m1.district) AS district_name,

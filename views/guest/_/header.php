@@ -1,86 +1,91 @@
 <!DOCTYPE html>
-<html lang="zxx">
+
+<html lang="en">
 
 <head>
-  <title><?php echo MAIN_TITLE ?>Home Page</title>
   <meta charset="UTF-8">
+  <title>Sarlemjus | Minuman kesehatan yang sudah teruji khasiat dan manfaatnya</title>
+  <!-- <title><?php echo MAIN_TITLE ?>Home Page</title> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="<?php echo MAIN_DESC ?>">
   <meta name="keywords" content="<?php echo KEYWORDS ?>">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- <link href="<?php echo FRONT_ASSETS ?>img/favicon.ico" rel="shortcut icon" /> -->
+  <link rel="shortcut icon" href="<?php echo GUEST_ASSETS ?>img/fv.png" type="image/x-icon">
+  <!-- <link rel="shortcut icon" href="<?php echo FAVICON ?>" type="image/x-icon"> -->
 
-  <link href="<?php echo FAVICON ?>" rel="icon">
-
-  <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
-
-  <link rel="stylesheet" href="<?php echo FRONT_ASSETS ?>css/bootstrap.min.css" />
-  <link rel="stylesheet" href="<?php echo FRONT_ASSETS ?>css/font-awesome.min.css" />
-  <link rel="stylesheet" href="<?php echo FRONT_ASSETS ?>css/flaticon.css" />
-  <link rel="stylesheet" href="<?php echo FRONT_ASSETS ?>css/slicknav.min.css" />
-  <link rel="stylesheet" href="<?php echo FRONT_ASSETS ?>css/jquery-ui.min.css" />
-  <link rel="stylesheet" href="<?php echo FRONT_ASSETS ?>css/owl.carousel.min.css" />
-  <link rel="stylesheet" href="<?php echo FRONT_ASSETS ?>css/animate.css" />
-  <link rel="stylesheet" href="<?php echo FRONT_ASSETS ?>css/style.css" />
-
-  <style>
-    .product-img {
-      border-radius: 20px;
-    }
-  </style>
-
+  <link rel="stylesheet" href="<?php echo GUEST_ASSETS ?>css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo GUEST_ASSETS ?>css/fontawesome-all.css">
+  <link rel="stylesheet" href="<?php echo GUEST_ASSETS ?>css/flaticon-4.css">
+  <link rel="stylesheet" href="<?php echo GUEST_ASSETS ?>css/animate.css">
+  <link rel="stylesheet" href="<?php echo GUEST_ASSETS ?>css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="<?php echo GUEST_ASSETS ?>css/odometer-theme-default.css">
+  <link rel="stylesheet" href="<?php echo GUEST_ASSETS ?>css/owl.carousel.css">
+  <link rel="stylesheet" href="<?php echo GUEST_ASSETS ?>css/rs6.css">
+  <link rel="stylesheet" href="<?php echo GUEST_ASSETS ?>css/style.css">
+  <link rel="stylesheet" href="<?php echo GUEST_ASSETS ?>css/side-demo.css">
+  <link rel="stylesheet" href="<?php echo GUEST_ASSETS ?>css/gym.css">
 </head>
 
-<body>
-  <div id="preloder">
-    <div class="loader"></div>
+<body class="app-gym">
+  <!-- <div id="app-gym-preloader"></div> -->
+  <div class="up">
+    <a href="#" class="scrollup text-center"><i class="fas fa-angle-up"></i></a>
   </div>
-
-  <header class="header-section">
-    <div class="header-top">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-2 text-center text-lg-left">
-            <a href="<?php echo base_url() ?>" class="site-logo">
-              <img src="<?php echo FRONT_ASSETS ?>img/logo.png" alt="">
-            </a>
-          </div>
-          <div class="col-xl-6 col-lg-5">
-            <form class="header-search-form">
-              <input type="text" placeholder="Search on Sarlemjus ....">
-              <button><i class="flaticon-search"></i></button>
-            </form>
-          </div>
-          <div class="col-xl-4 col-lg-5">
-            <div class="user-panel">
-              <div class="up-item">
-                <i class="flaticon-profile"></i>
-                <a href="<?php echo base_url('login') ?>">Log In</a>
-              </div>
-              <div class="up-item">
-                <div class="shopping-card">
-                  <i class="flaticon-bag"></i>
-                  <span>0</span>
-                </div>
-                <a href="#">Cart</a>
-              </div>
+  <header id="app-gym-header" class="app-gym-main-header">
+    <div class="container">
+      <div class="app-gym-brand-logo float-left">
+        <a href="#"><img src="<?php echo GUEST_ASSETS ?>img/logo.png" alt=""></a>
+      </div>
+      <div class="app-gym-main-header-menu clearfix">
+        <div class="header-gym-cta-btn text-center float-right">
+          <a href="#">Get A Quote</a>
+        </div>
+        <nav class="app-gym-main-navigation float-right clearfix ul-li">
+          <ul id="app-gym-main-nav" class="nav navbar-nav clearfix">
+            <li class="side-demo position-relative"><a href="#!">Demos</a> <span>New</span></li>
+            <li><a href="about.html" target="_blank">About</a></li>
+            <li><a href="team.html" target="_blank">Team</a></li>
+            <li><a href="service.html" target="_blank">Service</a></li>
+            <li><a href="contact.html" target="_blank">Contact</a></li>
+            <li class="dropdown">
+              <a href="#">Blog</a>
+              <ul class="dropdown-menu clearfix">
+                <li><a target="_blank" href="blog.html">Blog Page</a></li>
+                <li><a target="_blank" href="blog-single.html">Blog Details</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="app-gym-mobile_menu position-relative">
+        <div class="app-gym-mobile_menu_button app-gym-open_mobile_menu">
+          <i class="fas fa-bars"></i>
+        </div>
+        <div class="app-gym-mobile_menu_wrap">
+          <div class="mobile_menu_overlay app-gym-open_mobile_menu"></div>
+          <div class="app-gym-mobile_menu_content">
+            <div class="app-gym-mobile_menu_close app-gym-open_mobile_menu">
+              <i class="fas fa-times"></i>
             </div>
+            <div class="m-brand-logo text-center">
+              <a href="%21.html#"><img src="<?php echo GUEST_ASSETS ?>img/gym/logo/logo1.png" alt=""></a>
+            </div>
+            <nav class="app-gym-mobile-main-navigation  clearfix ul-li">
+              <ul id="m-main-nav" class="navbar-nav text-capitalize clearfix">
+                <li><a href="#">Demos</a></li>
+                <li><a href="about.html" target="_blank">About</a></li>
+                <li><a href="team.html" target="_blank">Team</a></li>
+                <li><a href="service.html" target="_blank">Service</a></li>
+                <li><a href="contact.html" target="_blank">Contact</a></li>
+                <li class="dropdown">
+                  <a href="#">Blog</a>
+                  <ul class="dropdown-menu clearfix">
+                    <li><a target="_blank" href="blog.html">Blog Page</a></li>
+                    <li><a target="_blank" href="blog-single.html">Blog Details</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
           </div>
         </div>
       </div>
-    </div>
-    <nav class="main-navbar">
-      <div class="container">
-        <ul class="main-menu">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Join Bisnis
-            </a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Contact Us</a>
-          </li>
-          <li>
-            <a href="#">Join Us <span class="new">New</span></a>
-          </li>
-        </ul>
-      </div>
-    </nav>
   </header>

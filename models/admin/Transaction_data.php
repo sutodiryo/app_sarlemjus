@@ -23,7 +23,7 @@ class Transaction_data extends CI_Model
 
     function get_transaction_stat()
     {
-        $query = $this->db->query("SELECT   id,level_name,
+        $query = $this->db->query("SELECT   id,name,
                                             (SELECT COUNT(id) FROM member WHERE level=member_level.id) AS total
                                     FROM member_level
                                     ORDER BY id ASC")->result();

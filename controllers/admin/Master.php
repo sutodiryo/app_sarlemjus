@@ -46,6 +46,24 @@ class Master extends CI_Controller
     $this->load->view('admin/master/product/brand', $data);
   }
 
+  function product_category()
+  {
+    $data['page'] = 'product';
+    $data['title'] = 'Kategori Produk';
+
+    $data['brand'] = $this->Master_data->get_product_category();
+    $this->load->view('admin/master/product/category', $data);
+  }
+
+  function product_unit()
+  {
+    $data['page'] = 'product';
+    $data['title'] = 'Satuan Produk';
+
+    $data['brand'] = $this->Master_data->get_product_unit();
+    $this->load->view('admin/master/product/unit', $data);
+  }
+
   function course()
   {
     $data['page'] = 'course';

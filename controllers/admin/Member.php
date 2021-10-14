@@ -47,7 +47,7 @@ class Member extends CI_Controller
 		$data['page'] = 'member';
 		$data['title'] = 'Tambah Member Baru';
 		$data['upline'] = $this->db->query("SELECT member.id,member.name,member.phone FROM member ORDER BY member.name ASC")->result();
-		$data['level'] = $this->db->query("SELECT id,level_name FROM member_level ORDER BY id ASC")->result();
+		$data['level'] = $this->db->query("SELECT id,name FROM member_level ORDER BY id ASC")->result();
 		$data['bank'] = $this->db->query("SELECT id,name FROM bank ORDER BY id ASC")->result();
 
 		$this->form_validation->set_rules('name', 'Nama', 'required', ['required' => 'Nama member belum diisi!']);
