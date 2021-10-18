@@ -85,15 +85,6 @@ class Master extends CI_Controller
     $this->load->view('admin/master/course/list_course', $data);
   }
 
-  function member_level()
-  {
-    $data['page'] = 'member_level';
-
-    $data['title'] = 'Master Data Level Member';
-
-    $data['course'] = $this->Master_data->get_member_level();
-    $this->load->view('admin/master/member_level', $data);
-  }
   //ACT
   function add($x)
   {
@@ -126,7 +117,7 @@ class Master extends CI_Controller
       $data['page'] = 'product';
       $data['title'] = 'Tambah Produk';
       $data['upline'] = $this->db->query("SELECT member.id,member.name,member.phone FROM member ORDER BY member.name ASC")->result();
-      $data['level'] = $this->db->query("SELECT id,level_name FROM member_level ORDER BY id ASC")->result();
+      $data['level'] = $this->db->query("SELECT id,name FROM member_level ORDER BY id ASC")->result();
       $data['bank'] = $this->db->query("SELECT id,name FROM bank ORDER BY id ASC")->result();
 
       $this->form_validation->set_rules('name', 'Nama', 'required', ['required' => 'Nama member belum diisi!']);

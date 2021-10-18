@@ -88,6 +88,6 @@ class Member_data extends CI_Model
 
     function get_member_level_list()
     {
-        return  $this->db->query("SELECT * FROM member_level")->result();
+        return  $this->db->query("SELECT * FROM member_level ORDER BY id DESC")->result();
     }
 }

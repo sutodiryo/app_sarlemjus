@@ -10,7 +10,7 @@
           <div class="app-gym-footer-widget  app-gym-headline pera-content ul-li-block">
             <div class="app-gym-logo-widget">
               <div class="app-gym-footer-logo">
-                <a href="#"><img src="<?php echo GUEST_ASSETS ?>img/gym/logo/logo1.png" alt=""></a>
+                <a href="#"><img src="<?php echo GUEST_ASSETS ?>img/logo.png" alt=""></a>
               </div>
               <p>Hedatat non proident, sunt in culpa qui offic ia dolore eu fugiat nul lamco laboris nisi ut aliq uip ex ea commodo consequat. Duis aute irure dolor in reprehe fugiat </p>
               <div class="app-gym-footer-social">

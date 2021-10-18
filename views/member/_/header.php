@@ -30,6 +30,7 @@
                 <div class="">
                     <div class="main-menu-header">
                         <img class="img-radius" src="<?php echo ASSETS ?>images/user/avatar-2.jpg" alt="User-Profile-Image">
+                        <small><?php echo $this->session->userdata('log_name') ?></small>
                         <div class="user-details">
                             <div id="more-details"><?php echo $this->session->userdata('log_level_name') ?> <i class="fa fa-caret-down"></i></div>
                         </div>

@@ -32,7 +32,7 @@
                                 <button class="btn btn-secondary btn-sm btn-round has-ripple" data-toggle="modal" data-target="#modal_tambah_member"><i class="feather icon-filter"></i> Filter</button>
                             </div>
                             <div class="col-sm-6 text-right ">
-                                <a class="btn btn-info btn-sm btn-round has-ripple" href="<?= base_url('admin/member/add/new') ?>"><i class="feather icon-plus"></i> Tambah Member</a>
+                                <a class="btn btn-info btn-sm btn-round has-ripple" href="<?= base_url('admin/member/add/new') ?>"><i class="feather icon-plus"></i> Tambah Level</a>
                             </div>
                         </div>
                         <div class="table-responsive">
@@ -41,9 +41,9 @@
                                     <tr>
                                         <th width="5%">ID</th>
                                         <th width="35%">Nama</th>
-                                        <th width="10%">Bonus</th>
-                                        <th width="15%">Minimal Pembelian</th>
                                         <th width="15%">Diskon</th>
+                                        <!-- <th width="10%">Bonus</th> -->
+                                        <th width="25%">Minimal Pembelian</th>
                                         <th width="20%" class="text-center"></th>
                                     </tr>
                                 </thead>
@@ -56,9 +56,8 @@
                                         echo "<tr>
                                         <td>$i</td>
                                         <td>$l->name</td>
-                                        <td>$l->value %</td>
-                                        <td>Rp " . number_format($l->min_deposit, 0, ',', '.') . "</td>
-                                        <td>Rp " . number_format($l->discount, 0, ',', '.') . "</td>
+                                        <td>" . number_format($l->discount, 0, ',', '.') . "%</td>
+                                        <td></td>
                                         <td class='text-center'>
                                             <a href='#!' class='btn btn-info btn-sm'><i class='feather icon-edit'></i>&nbsp;Edit </a>
                                             <a href='#!' class='btn btn-danger btn-sm'><i class='feather icon-trash-2'></i>&nbsp;Delete </a>

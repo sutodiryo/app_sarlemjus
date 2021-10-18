@@ -9,7 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="<?php echo MAIN_DESC ?>">
   <meta name="keywords" content="<?php echo KEYWORDS ?>">
-  <link rel="shortcut icon" href="<?php echo GUEST_ASSETS ?>img/fv.png" type="image/x-icon">
+  <link rel="shortcut icon" href="<?php echo FAVICON ?>" type="image/x-icon">
   <!-- <link rel="shortcut icon" href="<?php echo FAVICON ?>" type="image/x-icon"> -->
 
   <link rel="stylesheet" href="<?php echo GUEST_ASSETS ?>css/bootstrap.min.css">
@@ -37,22 +37,22 @@
       </div>
       <div class="app-gym-main-header-menu clearfix">
         <div class="header-gym-cta-btn text-center float-right">
-          <a href="#">Get A Quote</a>
+          <a href="#">Join Us</a>
         </div>
         <nav class="app-gym-main-navigation float-right clearfix ul-li">
           <ul id="app-gym-main-nav" class="nav navbar-nav clearfix">
-            <li class="side-demo position-relative"><a href="#!">Demos</a> <span>New</span></li>
-            <li><a href="about.html" target="_blank">About</a></li>
-            <li><a href="team.html" target="_blank">Team</a></li>
-            <li><a href="service.html" target="_blank">Service</a></li>
-            <li><a href="contact.html" target="_blank">Contact</a></li>
-            <li class="dropdown">
+            <!-- <li class="side-demo position-relative"><a href="#!">Demos</a> <span>New</span></li> -->
+            <li><a href="about.html" target="_blank">Home</a></li>
+            <li><a href="team.html" target="_blank">Join Bisnis</a></li>
+            <li><a href="service.html" target="_blank">About Us</a></li>
+            <li><a href="contact.html" target="_blank">Contact Us</a></li>
+            <!-- <li class="dropdown">
               <a href="#">Blog</a>
               <ul class="dropdown-menu clearfix">
                 <li><a target="_blank" href="blog.html">Blog Page</a></li>
                 <li><a target="_blank" href="blog-single.html">Blog Details</a></li>
               </ul>
-            </li>
+            </li> -->
           </ul>
         </nav>
       </div>

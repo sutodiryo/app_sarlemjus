@@ -265,7 +265,7 @@
 				<div class="col-lg-6 wow fadeFromUp" data-wow-delay="0ms" data-wow-duration="1500ms">
 					<div class="app-gym-pricing-innerbox position-relative clearfix">
 						<div class="app-gym-pricing-img float-left">
-							<img src="<?php echo GUEST_ASSETS ?>img/gym/pr1.jpg" alt="">
+							<img src="<?php echo GUEST_ASSETS ?>img/potongan-harga.jpg" alt="">
 						</div>
 						<div class="app-gym-pricing-text app-gym-headline pera-content  position-relative">
 							<h3><a href="#">Potongan Harga Belanja</a></h3>
@@ -281,7 +281,7 @@
 				<div class="col-lg-6 wow fadeFromUp" data-wow-delay="300ms" data-wow-duration="1500ms">
 					<div class="app-gym-pricing-innerbox position-relative clearfix">
 						<div class="app-gym-pricing-img float-left">
-							<img src="<?php echo GUEST_ASSETS ?>img/gym/pr2.jpg" alt="">
+							<img src="<?php echo GUEST_ASSETS ?>img/reward.jpg" alt="">
 						</div>
 						<div class="app-gym-pricing-text app-gym-headline pera-content  position-relative">
 							<h3><a href="#">Reward Poin Belanja</a></h3>
@@ -296,7 +296,7 @@
 				<div class="col-lg-6 wow fadeFromUp" data-wow-delay="600ms" data-wow-duration="1500ms">
 					<div class="app-gym-pricing-innerbox position-relative clearfix">
 						<div class="app-gym-pricing-img float-left">
-							<img src="<?php echo GUEST_ASSETS ?>img/gym/pr3.jpg" alt="">
+							<img src="<?php echo GUEST_ASSETS ?>img/referral.jpg" alt="">
 						</div>
 						<div class="app-gym-pricing-text app-gym-headline pera-content  position-relative">
 							<h3><a href="#">Bonus Referal Rekrut</a></h3>
@@ -310,7 +310,7 @@
 				<div class="col-lg-6 wow fadeFromUp" data-wow-delay="900ms" data-wow-duration="1500ms">
 					<div class="app-gym-pricing-innerbox position-relative clearfix">
 						<div class="app-gym-pricing-img float-left">
-							<img src="<?php echo GUEST_ASSETS ?>img/gym/pr4.jpg" alt="">
+							<img src="<?php echo GUEST_ASSETS ?>img/top-belanja-bulanan.jpg" alt="">
 						</div>
 						<div class="app-gym-pricing-text app-gym-headline pera-content  position-relative">
 							<h3><a href="#">Top Belanja Bulanan</a></h3>
@@ -326,7 +326,7 @@
 				<div class="col-lg-6 wow fadeFromUp" data-wow-delay="900ms" data-wow-duration="1500ms">
 					<div class="app-gym-pricing-innerbox position-relative clearfix">
 						<div class="app-gym-pricing-img float-left">
-							<img src="<?php echo GUEST_ASSETS ?>img/gym/pr4.jpg" alt="">
+							<img src="<?php echo GUEST_ASSETS ?>img/top-rekrut-bulanan.jpg" alt="">
 						</div>
 						<div class="app-gym-pricing-text app-gym-headline pera-content  position-relative">
 							<h3><a href="#">Top Rekrut Bulanan</a></h3>

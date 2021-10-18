@@ -63,7 +63,7 @@ class Master_data extends CI_Model
 
     function get_member_level()
     {
-        $q = $this->db->query("SELECT * FROM member_level")->result();
+        $q = $this->db->query("SELECT * FROM member_level ORDER BY id DESC")->result();
         return $q;
     }
 

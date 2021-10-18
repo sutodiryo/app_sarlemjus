@@ -1,4 +1,4 @@
-<?php $this->load->view('admin/_/header'); ?>
+<?php $this->load->view('member/_/header'); ?>
 
 <?php $this->session->set_userdata('ref_member', current_url()); ?>
 
@@ -314,4 +314,4 @@
     </footer>
 </div>
 
-<?php $this->load->view('admin/_/footer'); ?>
+<?php $this->load->view('member/_/footer'); ?>
