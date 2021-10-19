@@ -118,7 +118,7 @@ class Member extends CI_Controller
 			$this->db->insert('member', $data);
 
 			$this->alert('info', 'Member berhasil ditambahkan...');
-			redirect(base_url('admin/member/all'));
+			redirect(base_url('admin/member/list/all'));
 		}
 	}
 
@@ -158,7 +158,7 @@ class Member extends CI_Controller
 		} elseif ($x == "upline") {
 			$id_upline = $this->input->post('id_upline');
 			$this->db->query("UPDATE $y SET id_upline = '$id_upline' WHERE id_member ='$z'");
-			$page = "base_url('admin/member/all')";
+			$page = "base_url('admin/member/list/all')";
 		}
 
 		$this->alert('warning', 'Data berhasil diupdate...');
@@ -184,7 +184,7 @@ class Member extends CI_Controller
 			$this->db->update("member", $data, array('id_member'  => $id_member));
 
 			$this->alert('success', 'Data berhasil diupdate...');
-			redirect(base_url('admin/member/all'));
+			redirect(base_url('admin/member/list/all'));
 		} elseif ($x == "password_member") {
 			$data = array(
 				'password' => "e10adc3949ba59abbe56e057f20f883e"
@@ -224,7 +224,7 @@ class Member extends CI_Controller
 		// $this->db->delete('member', array('id_member'  => $id));
 
 		$this->alert('danger', 'Member berhasil dihapus...');
-		redirect(base_url('admin/member/all'));
+		redirect(base_url('admin/member/list/all'));
 	}
 
 	function send_push_notification($x, $y, $z)

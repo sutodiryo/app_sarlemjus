@@ -21,6 +21,11 @@ zendesk color theme :
     yoxgii
 
 
+warna corporate : merah, putih, kuning, orange
+
+dasbor member : klasemen top rekrut (5), top belanja (5), pengumuman
+minimal pencairan komisi : ?
+
 perkenalkan, nama lengkap saya adalah yogi sulistyanto, bisa dipanggil yogi
 saat ini saya sedang bekerja sebagai part time developer di beberapa perusahaan
 saya bekerja di bidang software developer sejak dua ribu lima belas atau sekitar enam tahun

@@ -78,13 +78,13 @@
     </div>
     <div class="app-gym-footer-copyright position-relative clearfix">
       <div class="copyright-text float-left">
-        <p>All rights reserved © 2021 <a href="#">ThemeXriver</a></p>
+        <p>Copyright © <?= date('Y') ?> <a href="<?= base_url() ?>">PT. Shahana Plus Sukses</a></p>
       </div>
       <div class="copyright-menu float-right ul-li">
         <ul>
           <li><a href="#">Terms & Condition </a></li>
           <li><a href="#">Privacy Policy </a></li>
-          <li><a href="#">Affiliated </a></li>
+          <li><a href="<?= base_url('login') ?>">Login </a></li>
         </ul>
       </div>
     </div>

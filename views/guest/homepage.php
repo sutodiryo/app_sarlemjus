@@ -219,6 +219,109 @@
 						</div>
 					</div>
 				</div>
+
+				<div class="app-gym-testimonial-innerbox">
+					<div class="app-gym-testimonial-wrap position-relative p-5">
+						<div class="app-gym-testimonial-text text-center pera-content app-gym-headline">
+							<p>Lehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui offi cia deserunt mollit anim</p>
+							<div class="app-gym-testimonial-author">
+								<h3><a href="#">Johnson Doe</a></h3>
+								<span>Journalist</span>
+							</div>
+							<div class="app-gym-testimonial-img-wrapper position-relative">
+								<div class="app-gym-testimonial-img">
+									<img src="<?php echo GUEST_ASSETS ?>img/gym/tst-ah1.jpg">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="app-gym-testimonial-innerbox">
+					<div class="app-gym-testimonial-wrap position-relative p-5">
+						<div class="app-gym-testimonial-text text-center pera-content app-gym-headline">
+							<p>Lehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui offi cia deserunt mollit anim</p>
+							<div class="app-gym-testimonial-author">
+								<h3><a href="#">Johnson Doe</a></h3>
+								<span>Journalist</span>
+							</div>
+							<div class="app-gym-testimonial-img-wrapper position-relative">
+								<div class="app-gym-testimonial-img">
+									<img src="<?php echo GUEST_ASSETS ?>img/gym/tst-ah1.jpg">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="app-gym-testimonial-innerbox">
+					<div class="app-gym-testimonial-wrap position-relative p-5">
+						<div class="app-gym-testimonial-text text-center pera-content app-gym-headline">
+							<p>Lehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui offi cia deserunt mollit anim</p>
+							<div class="app-gym-testimonial-author">
+								<h3><a href="#">Johnson Doe</a></h3>
+								<span>Journalist</span>
+							</div>
+							<div class="app-gym-testimonial-img-wrapper position-relative">
+								<div class="app-gym-testimonial-img">
+									<img src="<?php echo GUEST_ASSETS ?>img/gym/tst-ah1.jpg">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="app-gym-testimonial-innerbox">
+					<div class="app-gym-testimonial-wrap position-relative p-5">
+						<div class="app-gym-testimonial-text text-center pera-content app-gym-headline">
+							<p>Lehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui offi cia deserunt mollit anim</p>
+							<div class="app-gym-testimonial-author">
+								<h3><a href="#">Johnson Doe</a></h3>
+								<span>Journalist</span>
+							</div>
+							<div class="app-gym-testimonial-img-wrapper position-relative">
+								<div class="app-gym-testimonial-img">
+									<img src="<?php echo GUEST_ASSETS ?>img/gym/tst-ah1.jpg">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="app-gym-testimonial-innerbox">
+					<div class="app-gym-testimonial-wrap position-relative p-5">
+						<div class="app-gym-testimonial-text text-center pera-content app-gym-headline">
+							<p>Lehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui offi cia deserunt mollit anim</p>
+							<div class="app-gym-testimonial-author">
+								<h3><a href="#">Johnson Doe</a></h3>
+								<span>Journalist</span>
+							</div>
+							<div class="app-gym-testimonial-img-wrapper position-relative">
+								<div class="app-gym-testimonial-img">
+									<img src="<?php echo GUEST_ASSETS ?>img/gym/tst-ah1.jpg">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="app-gym-testimonial-innerbox">
+					<div class="app-gym-testimonial-wrap position-relative p-5">
+						<div class="app-gym-testimonial-text text-center pera-content app-gym-headline">
+							<p>Lehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui offi cia deserunt mollit anim</p>
+							<div class="app-gym-testimonial-author">
+								<h3><a href="#">Johnson Doe</a></h3>
+								<span>Journalist</span>
+							</div>
+							<div class="app-gym-testimonial-img-wrapper position-relative">
+								<div class="app-gym-testimonial-img">
+									<img src="<?php echo GUEST_ASSETS ?>img/gym/tst-ah1.jpg">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
 			</div>
 		</div>
 	</div>
