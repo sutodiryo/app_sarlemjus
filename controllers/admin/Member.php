@@ -29,7 +29,7 @@ class Member extends CI_Controller
 		} else {
 			$data['title'] = 'Daftar Member';
 			$data['title2'] = $this->Member_data->get_member_level_detail($x);
-			$data['member'] = $this->db->query("$q WHERE level=$x ORDER BY level ASC, name ASC")->result();
+			$data['member'] = $this->db->query("$q AND level=$x ORDER BY name ASC")->result();
 		}
 		$this->load->view('admin/member/list', $data);
 	}
@@ -39,6 +39,7 @@ class Member extends CI_Controller
 		$data['page'] = 'member';
 		$data['title'] = 'Detail Member';
 		$data['member'] = $this->Member_data->get_member_detail($id);
+		$data['downline'] = $this->Member_data->get_member_downline($id);
 		$this->load->view('admin/member/detail', $data);
 	}
 
@@ -122,8 +123,9 @@ class Member extends CI_Controller
 		}
 	}
 
-	function level(){
-		
+	function level()
+	{
+
 		$data['page'] = 'member';
 		$data['title'] = 'Level Member';
 		$data['level'] = $this->Member_data->get_member_level_list();
@@ -221,7 +223,6 @@ class Member extends CI_Controller
 	function del($id)
 	{
 		$this->db->query("UPDATE member SET status = 9 WHERE member.id = '$id'");
-		// $this->db->delete('member', array('id_member'  => $id));
 
 		$this->alert('danger', 'Member berhasil dihapus...');
 		redirect(base_url('admin/member/list/all'));
@@ -278,7 +279,7 @@ class Member extends CI_Controller
 		redirect('admin/push_notification_msg');
 	}
 
-	// Flashdata Reporte
+	// Flashdata Report
 	function alert($x, $y)
 	{
 		// $x : warna

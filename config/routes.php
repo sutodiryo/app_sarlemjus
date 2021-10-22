@@ -15,6 +15,8 @@ $route['logout']                = 'auth/log/out';
 $route['register']              = 'auth/register';
 $route['reg/(:num)']            = 'auth/reg/$1';
 
+$route['api/get/(:any)/(:any)'] = 'api/get/index/$1/$2';
+
 $route['admin']                 = 'admin/dashboard';
 
 $route['member']                = 'member/dashboard';

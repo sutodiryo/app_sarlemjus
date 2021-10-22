@@ -1,301 +1,184 @@
- <?php $this->load->view('admin/_/header') ?>
+<?php $this->load->view('admin/_/header'); ?>
 
- <?php
-    $t1 = new DateTime($tgl_1);
-    $t2 = new DateTime($tgl_2);
+<section class="pcoded-main-container">
+  <div class="pcoded-content">
+    <div class="page-header">
+      <div class="page-block">
+        <div class="row align-items-center">
+          <div class="col-md-12">
+            <div class="page-header-title">
+              <h5 class="m-b-10"><?php echo $title ?></h5>
+            </div>
+            <ul class="breadcrumb">
+              <li class="breadcrumb-item"><a href="<?php echo base_url('admin') ?>"><i class="feather icon-home"></i></a></li>
+              <li class="breadcrumb-item"><a href="<?php echo base_url('admin/master/course') ?>">Course</a></li>
+              <li class="breadcrumb-item"><a>List</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <div class="row align-items-center m-l-1 mb-3">
+              <div class="col-sm-6">
+                <h5><?php echo $course->name ?></h5>
+              </div>
+              <div class="col-sm-6 text-right ">
+                <button class="btn btn-info btn-sm btn-round has-ripple" data-toggle="modal" data-target="#modal_add_course_category"><i class="feather icon-plus"></i> Tambah Course</button>
+                <a class="btn btn-danger btn-sm btn-round has-ripple" href="<?php echo base_url('admin/master/course') ?>"><i class="feather feather icon-arrow-left"></i> Kembali</a>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="card">
+            <img class="img-fluid card-img-top" src="assets/images/gallery-grid/masonry-3.jpg" alt="Card image">
+            <div class="card-body">
+              <h5 class="job-card-desc">Job Description</h5>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+              <div class="job-meta-data mb-1"><i class="fas fa-map-marker-alt"></i>washington</div>
+              <div class="job-meta-data"><i class="far fa-handshake"></i>10 Years</div>
+            </div>
+          </div> -->
+          <!-- <div class="card-body">
+            <div class="row">
+              <div class="col-lg-4 col-sm-6">
+                <div class="thumbnail mb-4">
+                  <div class="thumb">
+                    <div class="embed-responsive embed-responsive-16by9">
+                      <iframe allowfullscreen="" src="http://player.vimeo.com/video/49614043?title=0&amp;byline=0&amp;portrait=0"></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-6">
+                <div class="thumbnail mb-4">
+                  <div class="thumb">
+                    <div class="embed-responsive embed-responsive-16by9">
+                      <iframe allowfullscreen="" src="http://player.vimeo.com/video/49614043?title=0&amp;byline=0&amp;portrait=0"></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-6">
+                <div class="thumbnail mb-4">
+                  <div class="thumb">
+                    <div class="embed-responsive embed-responsive-16by9">
+                      <iframe allowfullscreen="" src="http://player.vimeo.com/video/49614043?title=0&amp;byline=0&amp;portrait=0"></iframe>
+                    </div>
+                    <div class="mt-3 text-center">
+                      <h5 class="job-card-desc">Job Description</h5>
+                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                      <div class="job-meta-data mb-1"><i class="fas fa-map-marker-alt"></i>washington</div>
+                      <div class="job-meta-data"><i class="far fa-handshake"></i>10 Years</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-6">
+                <div class="thumbnail mb-4">
+                  <div class="thumb">
+                    <div class="embed-responsive embed-responsive-16by9">
+                      <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/iGkl34KTRaU"></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-6">
+                <div class="thumbnail mb-4">
+                  <div class="thumb">
+                    <div class="embed-responsive embed-responsive-16by9">
+                      <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/iGkl34KTRaU"></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4 col-sm-6">
+                <div class="thumbnail mb-4">
+                  <div class="thumb">
+                    <div class="embed-responsive embed-responsive-16by9">
+                      <iframe class="embed-responsive-item" src="http://www.youtube.com/embed/iGkl34KTRaU"></iframe>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
 
-    $tg1 = $t1->format('d M Y');
-    $tg2 = $t2->format('d M Y');
-    ?>
- <!-- Header -->
- <div class="header pb-6">
-     <div class="container-fluid">
-         <div class="header-body">
-             <div class="row align-items-center py-4">
-                 <div class="col-lg-8 col-7">
-                     <h6 class="h2 d-inline-block mb-0"><?php echo $title;
-                                                        if (!empty($tgl_1)) {
-                                                            echo " Periode ($tg1 - $tg2)";
-                                                        }  ?></h6>
-                 </div>
-                 <div class="col-lg-4 col-5 text-right">
-                     <a class="btn btn-sm btn-neutral" title="Reset Periode" href="<?php echo base_url('admin/report/') ?>">Reset Periode <i class="fa fa-retweet"></i></a>
-                 </div>
-             </div>
+      <div class="col-sm-12 gallery-masonry">
+        <div class="card-columns">
 
-             <div class="row">
+          <?php foreach ($course_youtube as $cy) { ?>
 
-                 <div class="col-xl-12 col-md-6">
-                     <div class="card">
-                         <div class="card-body">
-                             <form role="form" class="form-light" action="<?php echo base_url('admin/report/') ?>" method="POST">
+            <div class="card">
+              <div class="thumbnail">
+                <div class="thumb">
+                  <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://youtube.com/embed/<?php echo $cy->media_link ?>"></iframe>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <h5 class="job-card-desc"><?php echo $cy->title ?></h5>
+                <p><?php echo $cy->description ?></p>
+                <div class="job-meta-data mb-1"><i class="fas fa-map-marker-alt"></i>washington</div>
+                <div class="job-meta-data"><i class="far fa-handshake"></i>10 Years</div>
+              </div>
+            </div>
 
-                                 <div class="row">
-                                     <div class="col-xl-4 col-md-6">
-                                         <div class="form-group">
-                                             <div class="input-group input-group-alternative mb-3">
-                                                 <div class="input-group-prepend">
-                                                     <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-                                                 </div>
-                                                 <input name="tgl_1" class="form-control" placeholder="Tanggal Awal" type="date" required>
-                                             </div>
-                                         </div>
-                                     </div>
-                                     <div class="col-xl-4 col-md-6">
-                                         <div class="form-group">
-                                             <div class="input-group input-group-alternative">
-                                                 <div class="input-group-prepend">
-                                                     <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-                                                 </div>
-                                                 <input name="tgl_2" class="form-control" placeholder="Tanggal Akhir" type="date" required>
-                                             </div>
-                                         </div>
-                                     </div>
-                                     <div class="col-xl-4 col-md-6">
-                                         <button type="submit" class="form-control btn btn-block btn-info" title="Set Periode Laporan">Set Periode <i class="fa fa-wrench"></i></button>
-                                     </div>
-                                 </div>
-                             </form>
-                         </div>
-                     </div>
+          <?php } ?>
+          <!-- <div class="card">
+            <img class="img-fluid card-img-top" src="assets/images/gallery-grid/masonry-3.jpg" alt="Card image">
+            <div class="card-body">
+              <h5 class="job-card-desc">Job Description</h5>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+              <div class="job-meta-data mb-1"><i class="fas fa-map-marker-alt"></i>washington</div>
+              <div class="job-meta-data"><i class="far fa-handshake"></i>10 Years</div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="img-fluid card-img-top" src="assets/images/gallery-grid/masonry-4.jpg" alt="Card image">
+            <div class="card-body">
+              <h5 class="job-card-desc">Job Description</h5>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+              <div class="job-meta-data mb-1"><i class="fas fa-map-marker-alt"></i>washington</div>
+              <div class="job-meta-data"><i class="far fa-handshake"></i>10 Years</div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="img-fluid card-img-top" src="assets/images/gallery-grid/masonry-5.jpg" alt="Card image">
+            <div class="card-body">
+              <h5 class="job-card-desc">Job Description</h5>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+              <div class="job-meta-data mb-1"><i class="fas fa-map-marker-alt"></i>washington</div>
+              <div class="job-meta-data"><i class="far fa-handshake"></i>10 Years</div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="img-fluid card-img-top" src="assets/images/gallery-grid/masonry-8.jpg" alt="Card image">
+            <div class="card-body">
+              <h5 class="job-card-desc">Job Description</h5>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+              <div class="job-meta-data mb-1"><i class="fas fa-map-marker-alt"></i>washington</div>
+              <div class="job-meta-data"><i class="far fa-handshake"></i>10 Years</div>
+            </div>
+          </div>
+          <div class="card">
+            <img class="img-fluid card-img-top" src="assets/images/gallery-grid/masonry-2.jpg" alt="Card image">
+            <div class="card-body">
+              <h5 class="job-card-desc">Job Description</h5>
+              <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+              <div class="job-meta-data mb-1"><i class="fas fa-map-marker-alt"></i>washington</div>
+              <div class="job-meta-data"><i class="far fa-handshake"></i>10 Years</div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-                 </div>
-
-                 <div class="col-xl-6 col-md-6">
-
-                     <div class="card bg-gradient-warning">
-                         <!-- Card body -->
-                         <div class="card-body">
-                             <div class="row justify-content-between align-items-center">
-
-                                 <div class="col-auto">
-                                     <div class="d-flex align-items-center">
-                                         <h5 class="h3 mb-0 text-white text-uppercase text-muted">Laporan Bulanan</h5>
-                                     </div>
-                                 </div>
-                             </div>
-                             <div class="mt-4">
-
-                                 <form target="_blank" action="<?php echo base_url('admin/report') ?>" method="POST" role="form" class="form-primary">
-                                     <input type="hidden" class="form-control" name="cetak" value="bulanan">
-                                     <?php if (!empty($tgl_1)) {
-                                            echo "  <input type='hidden' class='form-control' name='tgl_1' value='$tgl_1'>
-                                                        <input type='hidden' class='form-control' name='tgl_2' value='$tgl_2'>";
-                                        } ?>
-
-                                     <button type="submit" class="btn btn-icon btn-block btn-secondary"><span class="btn-inner--text">Cetak Laporan </span><span class="btn-inner--icon"><i class="fa fa-print"></i></span></button>
-                                 </form>
-
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-
-                 <div class="col-xl-6 col-md-6">
-
-                     <div class="card bg-gradient-success">
-                         <div class="card-body">
-                             <div class="row justify-content-between align-items-center">
-
-                                 <div class="col-auto">
-                                     <div class="d-flex align-items-center">
-                                         <h5 class="h3 mb-0 text-white text-uppercase text-muted">Laporan Bonus</h5>
-                                     </div>
-                                 </div>
-                             </div>
-                             <div class="mt-4">
-
-                                 <form target="_blank" action="<?php echo base_url('admin/report') ?>" method="POST" role="form" class="form-primary">
-                                     <input type="hidden" class="form-control" name="cetak" value="bonus">
-                                     <?php if (!empty($tgl_1)) {
-                                            echo "  <input type='hidden' class='form-control' name='tgl_1' value='$tgl_1'>
-                                                        <input type='hidden' class='form-control' name='tgl_2' value='$tgl_2'>";
-                                        } ?>
-
-                                     <button type="submit" class="btn btn-icon btn-block btn-secondary"><span class="btn-inner--text">Cetak Laporan </span><span class="btn-inner--icon"><i class="fa fa-print"></i></span></button>
-                                 </form>
-
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-
-
-
-                 <div class="col-xl-6 col-md-6">
-
-                     <div class="card bg-gradient-info">
-                         <div class="card-body">
-                             <div class="row justify-content-between align-items-center">
-
-                                 <div class="col-auto">
-                                     <div class="d-flex align-items-center">
-                                         <h5 class="h3 mb-0 text-white text-uppercase text-muted">Laporan Team</h5>
-                                     </div>
-                                 </div>
-                             </div>
-                             <div class="mt-4">
-
-                                 <form target="_blank" action="<?php echo base_url('admin/report') ?>" method="POST" role="form" class="form-primary">
-                                     <input type="hidden" class="form-control" name="cetak" value="team">
-                                     <?php if (!empty($tgl_1)) {
-                                            echo "  <input type='hidden' class='form-control' name='tgl_1' value='$tgl_1'>
-                                                        <input type='hidden' class='form-control' name='tgl_2' value='$tgl_2'>";
-                                        } ?>
-
-                                     <button type="submit" class="btn btn-icon btn-block btn-secondary"><span class="btn-inner--text">Cetak Laporan </span><span class="btn-inner--icon"><i class="fa fa-print"></i></span></button>
-
-                                 </form>
-
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-
-
-
-                 <div class="col-xl-6 col-md-6">
-
-                     <div class="card bg-gradient-danger">
-                         <div class="card-body">
-                             <div class="row justify-content-between align-items-center">
-
-                                 <div class="col-auto">
-                                     <div class="d-flex align-items-center">
-                                         <h5 class="h3 mb-0 text-white text-uppercase text-muted">Laporan PV</h5>
-                                     </div>
-                                 </div>
-                             </div>
-                             <div class="mt-4">
-
-                                 <form target="_blank" action="<?php echo base_url('admin/report') ?>" method="POST" role="form" class="form-primary">
-                                     <input type="hidden" class="form-control" name="cetak" value="pv">
-                                     <?php if (!empty($tgl_1)) {
-                                            echo "  <input type='hidden' class='form-control' name='tgl_1' value='$tgl_1'>
-                                                        <input type='hidden' class='form-control' name='tgl_2' value='$tgl_2'>";
-                                        } ?>
-
-                                     <button type="submit" class="btn btn-icon btn-block btn-secondary"><span class="btn-inner--text">Cetak Laporan </span><span class="btn-inner--icon"><i class="fa fa-print"></i></span></button>
-
-                                 </form>
-
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-
-
-             </div>
-
-         </div>
-     </div>
-
- </div>
-
-
- <div class="container-fluid mt--6">
-     <div class="row">
-         <div class="col">
-         </div>
-     </div>
-
-
-     <div class="modal fade" id="modal-new-income" style="display: none;">
-         <div class="modal-dialog">
-             <div class="modal-content">
-
-                 <div class="modal-header">
-                     <div class="header-body">
-                         <h4 class="modal-title">Tambah Penjualan Baru</h4>
-                     </div>
-                 </div>
-
-                 <form action="<?php echo base_url('admin/add/transaksi'); ?>" method="POST">
-                     <input name="login" type="hidden" value="invoice">
-                     <div class="modal-body">
-
-                         <?php if ($this->session->userdata('log_id') == 'admin') { ?>
-
-                             <div class="row">
-                                 <div class="col-md-12">
-                                     <div class="form-group">
-                                         <label class="form-control-label" for="pembeli">Pembeli</label>
-                                         <select name="username" id="pembeli" class="form-control select2-hidden-accessible" data-toggle="select" data-select2-id="1" tabindex="-1" aria-hidden="true" required>
-
-                                             <?php
-                                                    $no = 0;
-                                                    foreach ($admin as $ad) {
-                                                        $no++;
-                                                        echo "<option data-select2-id='$no' value='$ad->username'>$ad->username</option>";
-                                                    }
-                                                    ?>
-
-                                         </select>
-                                     </div>
-                                 </div>
-                             </div>
-
-                         <?php
-                            } ?>
-
-                         <div class="row">
-                             <div class="col-md-12">
-                                 <div class="form-group">
-                                     <label class="form-control-label" for="produk">Produk</label>
-                                     <select name="id_produk" id="produk" class="form-control select2-hidden-accessible" data-toggle="select" data-select2-id="2" tabindex="-2" aria-hidden="true" required>
-
-                                         <?php
-                                            $no = 0;
-                                            foreach ($produk as $pr) {
-                                                $no++;
-                                                echo "<option data-select2-id2='$no' value='$pr->id_produk'>$pr->nama_produk</option>";
-                                            }
-                                            ?>
-
-                                     </select>
-                                 </div>
-                             </div>
-                         </div>
-
-                         <div class="row">
-                             <div class="col-md-6">
-                                 <div class="form-group">
-                                     <label class="form-control-label" for="total">Total Biaya (Rupiah)</label>
-                                     <input type="number" name="total" class="form-control" id="total" placeholder="Total Biaya" required>
-                                 </div>
-                             </div>
-                             <div class="col-md-6">
-                                 <div class="form-group">
-                                     <label class="form-control-label" for="status">Status</label>
-                                     <select class="form-control" id="status" name="status">
-                                         <option value="1">Lunas</option>
-                                         <option value="0">Belum lunas</option>
-                                         <option value="2">Utang</option>
-                                         <option value="3">Piutang</option>
-                                     </select>
-                                 </div>
-                             </div>
-                         </div>
-
-                         <div class="row">
-                             <div class="col-md-12">
-                                 <div class="form-group">
-                                     <label class="form-control-label" for="keterangan">Catatan</label>
-                                     <textarea name="keterangan" class="form-control" id="keterangan" rows="3" required placeholder="Catatan"></textarea>
-                                 </div>
-                             </div>
-                         </div>
-
-                     </div>
-
-                     <div class="modal-footer">
-                         <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Simpan</button>
-                         <button type="button" class="btn btn-danger" data-dismiss="modal"><i class="fa fa-times"></i> Batal</button>
-                     </div>
-                 </form>
-             </div>
-         </div>
-     </div>
-
-     <!-- Footer -->
-     <?php $this->load->view('admin/_/footer') ?>
+<?php $this->load->view('admin/_/footer'); ?>

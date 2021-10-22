@@ -64,6 +64,16 @@ class Master extends CI_Controller
     $this->load->view('admin/master/product/unit', $data);
   }
 
+  function bonus()
+  {
+    $data['page'] = 'bonus';
+
+    $data['title'] = 'Master Data Bonus';
+
+    $data['bonus'] = $this->Master_data->get_bonus_list();
+    $this->load->view('admin/master/bonus/list', $data);
+  }
+
   function course()
   {
     $data['page'] = 'course';
@@ -71,6 +81,7 @@ class Master extends CI_Controller
     $data['title'] = 'Master Data Kategori Course';
 
     $data['course'] = $this->Master_data->get_course_category_list();
+    $data['member_level'] = $this->db->query("SELECT id,name FROM member_level")->result();
     $this->load->view('admin/master/course/list_category', $data);
   }
 
@@ -83,6 +94,17 @@ class Master extends CI_Controller
     $data['course'] = $this->Master_data->get_course_category_by_id($id_category);
     $data['course_youtube'] = $this->Master_data->get_course_list($id_category);
     $this->load->view('admin/master/course/list_course', $data);
+  }
+
+  function notice()
+  {
+    $data['page'] = 'notice';
+
+    $data['title'] = 'Master Data Pengumuman';
+
+    $data['notice'] = $this->Master_data->get_notice_list();
+    $data['member_level'] = $this->db->query("SELECT id,name FROM member_level")->result();
+    $this->load->view('admin/master/notice/list', $data);
   }
 
   //ACT
@@ -269,10 +291,10 @@ class Master extends CI_Controller
       redirect(base_url('admin/master/level_member'));
     } elseif ($x == "bonus") {
       $data = array(
-        'nama_bonus'    => $this->input->post('nama_bonus'),
-        'total_pv'         => $this->input->post('total_pv'),
-        'keterangan'      => $this->input->post('keterangan')
+        'name' => $this->input->post('name'),
+        'poin' => $this->input->post('poin')
       );
+
 
       $this->db->insert('bonus', $data);
 
@@ -303,22 +325,19 @@ class Master extends CI_Controller
 
       $this->alert('info', 'Promo berhasil ditambahkan...');
       redirect(base_url('admin/master/promo'));
-    } elseif ($x == "event") {
+    } elseif ($x == "notice") {
       $data = array(
-        'event_name'    => $this->input->post('event_name'),
+        'title'    => $this->input->post('title'),
+        'content'     => $this->input->post('content'),
         'date_start'     => $this->input->post('date_start'),
         'date_end'         => $this->input->post('date_end'),
-        'id_location'     => $this->input->post('id_location'),
-        'address'         => $this->input->post('address'),
-        'note'          => $this->input->post('note'),
-        'tipe'          => $this->input->post('tipe'),
-        'status'        => 0
+        'status'        => 1
       );
 
-      $this->db->insert('event_schedule', $data);
+      $this->db->insert($x, $data);
 
-      $this->alert('info', 'Event berhasil ditambahkan...');
-      redirect(base_url('admin/master/event'));
+      $this->alert('info', 'Pengumuman berhasil ditambahkan...');
+      redirect(base_url('admin/master/notice'));
     } elseif ($x == "promo_level") {
       $data = array(
         'id_promo'         => $this->input->post('id_promo'),
@@ -661,15 +680,14 @@ class Master extends CI_Controller
       redirect(base_url('admin/master/level_member'));
     } elseif ($x == "update_bonus") {
       $data = array(
-        'nama_bonus'    => $this->input->post('nama_bonus'),
-        'total_pv'         => $this->input->post('total_pv'),
-        'keterangan'      => $this->input->post('keterangan')
+        'name' => $this->input->post('name'),
+        'poin' => $this->input->post('poin')
       );
 
-      $id_bonus = $this->input->post('id_bonus');
-      $this->db->update("bonus", $data, array('id_bonus'  => $id_bonus));
+      $id = $this->input->post('id');
+      $this->db->update("bonus", $data, array('id'  => $id));
 
-      $this->alert('success', 'Bonus berhasil diubah...');
+      $this->alert('info', 'Bonus berhasil diubah...');
       redirect(base_url('admin/master/bonus'));
     } elseif ($x == "update_promo") {
       $data = array(
@@ -697,26 +715,194 @@ class Master extends CI_Controller
 
       $this->alert('success', 'Kurir berhasil diubah...');
       redirect(base_url('admin/master/courier'));
-    } elseif ($x == "update_event") {
+    } elseif ($x == "update_notice") {
       $data = array(
-        'event_name'    => $this->input->post('event_name_edt'),
-        'id_location'     => $this->input->post('id_location_edt'),
-        'date_start'     => $this->input->post('date_start_edt'),
-        'date_end'         => $this->input->post('date_end_edt'),
-        'address'         => $this->input->post('address_edt'),
-        'note'          => $this->input->post('note_edt'),
-        'tipe'          => $this->input->post('tipe_edt'),
-        'status'          => $this->input->post('status_edt')
+        'title'    => $this->input->post('title'),
+        'content'     => $this->input->post('content'),
+        'date_start'     => $this->input->post('date_start'),
+        'date_end'         => $this->input->post('date_end'),
+        'status'        => 1
       );
-      $id_event_schedule = $this->input->post('id_event_schedule');
-      $this->db->update("event_schedule", $data, array('id_event_schedule'  => $id_event_schedule));
 
-      $this->alert('success', 'Event berhasil diubah...');
-      redirect(base_url('admin/master/event'));
+      $id = $this->input->post('id');
+      $this->db->update("notice", $data, array('id'  => $id));
+
+      $this->alert('info', 'Pengumuman berhasil diubah...');
+      redirect(base_url('admin/master/notice'));
+    } elseif ($x == "add_notice_target") {
+      $id = $this->input->post('id');
+
+      $data = array();
+      foreach ($this->input->post('member_level') as $ml) {
+        $data[] = array(
+          'id_notice' => $id,
+          'id_member_level' => $ml
+        );
+      }
+      $this->db->insert_batch('notice_target', $data);
+
+      $this->alert('info', 'Target Pengumuman berhasil diupdate...');
+      redirect(base_url('admin/master/notice'));
+    } elseif ($x == "add_course_category") {
+      $config['upload_path']      = './public/upload/course/category/';
+      $config['allowed_types']    = 'jpg|jpeg|png|PNG|JPG';
+      $config['max_size']         = 1024;
+      $config['encrypt_name']     = TRUE;
+      $this->load->library('upload', $config);
+
+      if (!$this->upload->do_upload('cover')) {
+
+        $error = $this->upload->display_errors();
+        $this->alert('danger', $error);
+
+        redirect('admin/master/course');
+      } else {
+        $up = $this->upload->data();
+        $cover = $up['file_name'];
+      }
+      $data = array(
+        'name' => $this->input->post('name'),
+        'cover' => $cover, //file upload cover
+        'status' => 1
+      );
+
+      $this->db->insert('course_category', $data);
+
+      $this->alert('info', 'Kategori kelas berhasil ditambahkan...');
+      redirect(base_url('admin/master/course'));
+    } elseif ($x == "add_course_category_access") {
+      $id = $this->input->post('id');
+
+      $data = array();
+      foreach ($this->input->post('member_level') as $ml) {
+        $data[] = array(
+          'id_course_category' => $id,
+          'id_member_level' => $ml
+        );
+      }
+      $this->db->insert_batch('course_acces', $data);
+
+      $this->alert('info', 'Akses Kategori Kelas berhasil diupdate...');
+      redirect(base_url('admin/master/course'));
+    } elseif ($x == "add_course") {
+
+      $data = array(
+        'slug' => $this->input->post('slug'),
+        'title' => $this->input->post('title'),
+        'category' => $id,
+        'media_link' => $this->input->post('media_link'),
+        'description' => $this->input->post('description'),
+        'tipe' => 1 //default
+      );
+
+      $this->db->insert('course', $data);
+
+      $this->alert('info', 'Kelas berhasil ditambahkan...');
+      $referred_link = $this->session->userdata('referred_course_category');
+      redirect($referred_link);
+    } elseif ($x == "update_course") {
+      $data = array(
+        'slug' => $this->input->post('slug_edit'),
+        'title' => $this->input->post('title_edit'),
+        'media_link' => $this->input->post('media_link'),
+        'description' => $this->input->post('description')
+      );
+      $slug = $this->input->post('slug');
+      $this->db->update("course", $data, array('slug'  => $slug));
+
+      $this->alert('info', 'Kelas berhasil diubah...');
+      $referred_link = $this->session->userdata('referred_course_category');
+      redirect($referred_link);
     }
   }
 
 
+  // DELETE
+  function del($x, $id)
+  {
+    if ($x == "member_level") {
+      $this->db->delete($x, array('id_member_level'  => $id));
+
+      $this->alert('danger', 'Level member telah dihapus...');
+      redirect(base_url('admin/master/level_member'));
+    } elseif ($x == "bonus") {
+      $this->db->delete($x, array('id'  => $id));
+
+      $this->alert('danger', 'Bonus telah dihapus...');
+      redirect(base_url('admin/master/bonus'));
+    } elseif ($x == "promo") {
+      $this->db->delete($x, array('id_promo'  => $id));
+
+      $this->alert('danger', 'Promo telah dihapus...');
+      redirect(base_url('admin/master/bonus'));
+    } elseif ($x == "courier") {
+      $this->db->delete('kurir', array('id_kurir'  => $id));
+
+      $this->alert('danger', 'Kurir telah dihapus...');
+      redirect(base_url('admin/master/courier'));
+    } elseif ($x == "notice") {
+      $this->db->delete('notice', array('id'  => $id));
+
+      $this->alert('danger', 'Pengumuman telah dihapus...');
+      redirect(base_url('admin/master/notice'));
+    } elseif ($x == "produk_stok") {
+      $this->db->delete($x, array('id_produk_stok'  => $id));
+
+      $this->alert('danger', 'Update Stok telah dihapus...');
+      $referred_from = $this->session->userdata('referred_add_stock');
+      redirect($referred_from);
+    } elseif ($x == "produk_link") {
+
+      $data = array(
+        'status' => 3
+      );
+      $this->db->delete($x, array('id_produk_link'  => $id));
+
+      $this->alert('danger', 'Link');
+      $referred_from = $this->session->userdata('referred_edit_video');
+      redirect($referred_from);
+    } elseif ($x == "transaksi") {
+
+      $q     = $this->db->query("	SELECT	commission,
+													(SELECT id_upline FROM member WHERE id_member=transaksi.id_member) AS idu
+											FROM transaksi
+											WHERE id_transaksi='$id'")->row();
+      $idu  = $q->idu;
+      $com  = $q->commission;
+
+      if (!empty($idu)) {
+        date_default_timezone_set('Asia/Jakarta');
+        $now = date("Y-m-d h:i:s");
+        // Update nilai komisi di table member
+        $this->db->query("	UPDATE member m1 SET 	m1.commission = m1.commission - $com,
+															m1.commission_update='$now'
+									WHERE m1.id_member=(SELECT m2.id_upline FROM (SELECT * FROM member) m2 WHERE m2.id_member=(SELECT id_member FROM transaksi WHERE id_transaksi=$id))");
+      }
+
+
+      $this->db->query("DELETE FROM transaksi_produk WHERE transaksi_produk.id_transaksi = '$id'");
+      $this->db->query("DELETE FROM transaksi WHERE transaksi.id_transaksi = '$id'");
+
+      $this->alert('danger', 'Data transaksi berhasil dihapus...');
+      redirect(base_url('admin/transaction/all'));
+    } elseif ($x == "member") {
+      $this->db->delete($x, array('id_member'  => $id));
+
+      $this->alert('danger', 'Member berhasil dihapus...');
+      redirect(base_url('admin/member/all'));
+    } elseif ($x == "product") {
+      $this->db->delete($x, array('id_produk'  => $id));
+
+      $this->alert('danger', 'Produk berhasil dihapus...');
+      redirect(base_url('admin/product/all'));
+    } elseif ($x == "course") {
+      $this->db->delete('course', array('slug'  => $id));
+
+      $this->alert('danger', 'Kelas berhasil dihapus...');
+      $referred_link = $this->session->userdata('referred_course_category');
+      redirect($referred_link);
+    }
+  }
 
   // Flashdata Report
   function alert($x, $y)

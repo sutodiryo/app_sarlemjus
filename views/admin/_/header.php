@@ -4,31 +4,31 @@
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 
 <head>
-    <title><?php echo MAIN_TITLE . $title ?></title>
+    <title><?= MAIN_TITLE . $title ?></title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="<?php echo MAIN_DESC ?>" />
-    <meta name="keywords" content="<?php echo KEYWORDS ?>">
-    <meta name="author" content="<?php echo AUTHOR ?>" />
+    <meta name="description" content="<?= MAIN_DESC ?>" />
+    <meta name="keywords" content="<?= KEYWORDS ?>">
+    <meta name="author" content="<?= AUTHOR ?>" />
 
-    <link href="<?php echo FAVICON ?>" rel="icon">
+    <link href="<?= FAVICON ?>" rel="icon">
 
     <?php if ($page == "dashboard") { ?>
-        <link rel="stylesheet" href="<?php echo ASSETS ?>css/plugins/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="<?= ASSETS ?>css/plugins/dataTables.bootstrap4.min.css">
     <?php } elseif ($page == "member" || $page == "product" || $page == "course") { ?>
 
-        <link rel="stylesheet" href="<?php echo ASSETS ?>css/plugins/select2.min.css">
-        <link rel="stylesheet" href="<?php echo ASSETS ?>css/plugins/dataTables.bootstrap4.min.css">
+        <link rel="stylesheet" href="<?= ASSETS ?>css/plugins/select2.min.css">
+        <link rel="stylesheet" href="<?= ASSETS ?>css/plugins/dataTables.bootstrap4.min.css">
         <?php if ($title = "Detail Member") { ?>
 
-            <link rel="stylesheet" href="<?php echo ASSETS ?>css/plugins/ekko-lightbox.css">
-            <link rel="stylesheet" href="<?php echo ASSETS ?>css/plugins/lightbox.min.css">
+            <link rel="stylesheet" href="<?= ASSETS ?>css/plugins/ekko-lightbox.css">
+            <link rel="stylesheet" href="<?= ASSETS ?>css/plugins/lightbox.min.css">
     <?php
         }
     }  ?>
 
-    <link rel="stylesheet" href="<?php echo ASSETS ?>css/style.css">
+    <link rel="stylesheet" href="<?= ASSETS ?>css/style.css">
 </head>
 
 <body class="">
@@ -43,16 +43,16 @@
 
                 <div class="">
                     <div class="main-menu-header">
-                        <img class="img-radius" src="<?php echo ASSETS ?>images/user/avatar-2.jpg" alt="User-Profile-Image">
+                        <img class="img-radius" src="<?= ASSETS ?>images/user/avatar-2.jpg" alt="User-Profile-Image">
                         <div class="user-details">
-                            <div id="more-details"><?php echo $this->session->userdata('log_level_name') ?> <i class="fa fa-caret-down"></i></div>
+                            <div id="more-details"><?= $this->session->userdata('log_level_name') ?> <i class="fa fa-caret-down"></i></div>
                         </div>
                     </div>
                     <div class="collapse" id="nav-user-link">
                         <ul class="list-inline">
-                            <li class="list-inline-item"><a href="<?php echo base_url('member/profile') ?>" data-toggle="tooltip" title="View Profile"><i class="feather icon-user"></i></a></li>
+                            <li class="list-inline-item"><a href="<?= base_url('member/profile') ?>" data-toggle="tooltip" title="View Profile"><i class="feather icon-user"></i></a></li>
                             <!-- <li class="list-inline-item"><a href="email_inbox.html"><i class="feather icon-mail" data-toggle="tooltip" title="Messages"></i><small class="badge badge-pill badge-primary">5</small></a></li> -->
-                            <li class="list-inline-item"><a href="<?php echo base_url('logout') ?>" onclick="return confirm('Anda yakin ingin keluar ?');" data-toggle="tooltip" title="Logout" class="text-danger"><i class="feather icon-power"></i></a></li>
+                            <li class="list-inline-item"><a href="<?= base_url('logout') ?>" onclick="return confirm('Anda yakin ingin keluar ?');" data-toggle="tooltip" title="Logout" class="text-danger"><i class="feather icon-power"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -64,19 +64,18 @@
 
                     <li class="nav-item <?php if ($page == "dashboard") {
                                             echo "active";
-                                        } ?>"><a href="<?php echo base_url('admin') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-tachometer-alt"></i></span><span class="pcoded-mtext">Dashboard</span></a></li> <!-- fas fa-tachometer-alt -->
+                                        } ?>"><a href="<?= base_url('admin') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-tachometer-alt"></i></span><span class="pcoded-mtext">Dashboard</span></a></li> <!-- fas fa-tachometer-alt -->
 
                     <li class="nav-item <?php if ($page == "transaction") {
                                             echo "active";
-                                        } ?>"><a href="<?php echo base_url('admin/transaction/list/all') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-shopping-cart"></i></span><span class="pcoded-mtext">Transaksi</span></a></li>
+                                        } ?>"><a href="<?= base_url('admin/transaction/list/all') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-shopping-cart"></i></span><span class="pcoded-mtext">Transaksi</span></a></li>
+
+                    <li class="nav-item <?php if ($page == 'stock') : echo "active";
+                                            endif; ?>"><a href="<?= base_url('admin/stock') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-cubes"></i></span><span class="pcoded-mtext">Stok</span></a></li>
 
                     <li class="nav-item pcoded-menu-caption">
                         <label>Master</label>
                     </li>
-
-                    <!-- <li class="nav-item <?php if ($page == "member") {
-                                            echo "active";
-                                        } ?>"><a href="<?php echo base_url('admin/member/list/all') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-users"></i></span><span class="pcoded-mtext">Member</span></a></li> -->
 
                     <li class="nav-item pcoded-hasmenu <?php if ($page == "member") {
                                                             echo "active pcoded-trigger";
@@ -99,45 +98,42 @@
                         <ul class="pcoded-submenu">
                             <li class="<?php if ($title == "Master Produk" || $title == "Tambah Produk") {
                                             echo "active";
-                                        } ?>"><a href="<?= base_url('admin/master/product/all') ?>" class="has-ripple">Data Produk<span class="ripple ripple-animate" style="height: 230px; width: 230px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(70, 128, 255); opacity: 0.4; top: -90px; left: 11px;"></span></a></li>
+                                        } ?>"><a href="<?= base_url('admin/master/product/all') ?>">Data Produk</a></li>
                             <li class="<?php if ($title == "Brand Produk") {
                                             echo "active";
                                         } ?>"><a href="<?= base_url('admin/master/product_brand') ?>">Brand</a></li>
                             <li class="<?php if ($title == "Kategori Produk") {
                                             echo "active";
-                                        } ?>"><a href="<?= base_url('admin/master/product_category') ?>"">Kategori</a></li>
+                                        } ?>"><a href="<?= base_url('admin/master/product_category') ?>">Kategori</a></li>
                             <li class=" <?php if ($title == "Satuan Produk") {
                                             echo "active";
-                                        } ?>"><a href="<?= base_url('admin/master/product_unit') ?>"">Satuan</a></li>
+                                        } ?>"><a href="<?= base_url('admin/master/product_unit') ?>">Satuan</a></li>
                         </ul>
                     </li>
 
-                            <li class=" nav-item <?php if ($page == "course") {
-                                                        echo "active";
-                                                    } ?>"><a href="<?php echo base_url('admin/master/course') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-graduation-cap"></i></span><span class="pcoded-mtext">Course</span></a></li>
+                    <li class=" nav-item <?php if ($page == 'course') : echo "active";
+                                            endif; ?>">
+                        <a href="<?= base_url('admin/master/course') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-graduation-cap"></i></span><span class="pcoded-mtext">Course</span></a>
+                    </li>
 
-                            <!-- <li class="nav-item <?php if ($page == "point") {
-                                                            echo "active";
-                                                        } ?>"><a href="<?php echo base_url('admin/master/point') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-star-half-alt"></i></span><span class="pcoded-mtext">Poin</span></a></li>
+                    <li class=" nav-item <?php if ($page == 'notice') : echo "active";
+                                            endif; ?>"><a href="<?= base_url('admin/master/notice') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-bell"></i></span><span class="pcoded-mtext">Pengumuman</span></a>
+                    </li>
 
-                            <li class="nav-item <?php if ($page == "bonus") {
-                                                    echo "active";
-                                                } ?>"><a href="<?php echo base_url('admin/master/bonus') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-gift"></i></span><span class="pcoded-mtext">Bonus</span></a></li> -->
+                    <li class=" nav-item <?php if ($page == 'bonus') : echo "active";
+                                            endif; ?>"><a href="<?= base_url('admin/master/bonus') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-gift"></i></span><span class="pcoded-mtext">Bonus</span></a>
+                    </li>
 
-                            <!-- <li class="nav-item <?php if ($page == "member_level") {
-                                                    echo "active";
-                                                } ?>"><a href="<?php echo base_url('admin/master/member_level') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-users-cog"></i></span><span class="pcoded-mtext">Level Member</span></a></li> -->
+                    <li class=" nav-item pcoded-menu-caption">
+                        <label>Laporan</label>
+                    </li>
 
-                            <li class="nav-item pcoded-menu-caption">
-                                <label>Laporan</label>
-                            </li>
-
-                            <li class="nav-item <?php if ($page == "bonus") {
-                                                    echo "active";
-                                                } ?>"><a href="<?php echo base_url('report/bonus') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-gift"></i></span><span class="pcoded-mtext">Laporan Bonus</span></a></li>
+                    <li class="nav-item <?php if ($page == "report") {
+                                            echo "active";
+                                        } ?>"><a href="<?= base_url('admin/report') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-print"></i></span><span class="pcoded-mtext">Laporan</span></a></li>
 
 
-                        </ul>
+                </ul>
 
             </div>
         </div>
@@ -146,7 +142,7 @@
         <div class="m-header">
             <a class="mobile-menu" id="mobile-collapse" href="#!"><span></span></a>
             <a href="#!" class="b-brand">
-                <img src="<?php echo ASSETS ?>images/logo-mini.png" alt="" class="logo">
+                <img src="<?= ASSETS ?>images/logo-mini.png" alt="" class="logo">
             </a>
             <a href="#!" class="mob-toggler">
                 <i class="feather icon-more-vertical"></i>
@@ -182,7 +178,7 @@
                                 </li>
                                 <li class="notification">
                                     <div class="media">
-                                        <img class="img-radius" src="<?php echo ASSETS ?>images/user/avatar-1.jpg" alt="Generic placeholder image">
+                                        <img class="img-radius" src="<?= ASSETS ?>images/user/avatar-1.jpg" alt="Generic placeholder image">
                                         <div class="media-body">
                                             <p><strong>John Doe</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>5 min</span></p>
                                             <p>New ticket Added</p>
@@ -194,7 +190,7 @@
                                 </li>
                                 <li class="notification">
                                     <div class="media">
-                                        <img class="img-radius" src="<?php echo ASSETS ?>images/user/avatar-2.jpg" alt="Generic placeholder image">
+                                        <img class="img-radius" src="<?= ASSETS ?>images/user/avatar-2.jpg" alt="Generic placeholder image">
                                         <div class="media-body">
                                             <p><strong>Joseph William</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>10 min</span></p>
                                             <p>Prchace New Theme and make payment</p>
@@ -203,7 +199,7 @@
                                 </li>
                                 <li class="notification">
                                     <div class="media">
-                                        <img class="img-radius" src="<?php echo ASSETS ?>images/user/avatar-1.jpg" alt="Generic placeholder image">
+                                        <img class="img-radius" src="<?= ASSETS ?>images/user/avatar-1.jpg" alt="Generic placeholder image">
                                         <div class="media-body">
                                             <p><strong>Sara Soudein</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>12 min</span></p>
                                             <p>currently login</p>
@@ -212,7 +208,7 @@
                                 </li>
                                 <li class="notification">
                                     <div class="media">
-                                        <img class="img-radius" src="<?php echo ASSETS ?>images/user/avatar-2.jpg" alt="Generic placeholder image">
+                                        <img class="img-radius" src="<?= ASSETS ?>images/user/avatar-2.jpg" alt="Generic placeholder image">
                                         <div class="media-body">
                                             <p><strong>Joseph William</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>30 min</span></p>
                                             <p>Prchace New Theme and make payment</p>
@@ -243,7 +239,7 @@
                                 </li>
                                 <li class="notification">
                                     <div class="media">
-                                        <img class="img-radius" src="<?php echo ASSETS ?>images/user/avatar-1.jpg" alt="Generic placeholder image">
+                                        <img class="img-radius" src="<?= ASSETS ?>images/user/avatar-1.jpg" alt="Generic placeholder image">
                                         <div class="media-body">
                                             <p><strong>John Doe</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>5 min</span></p>
                                             <p>New ticket Added</p>
@@ -255,7 +251,7 @@
                                 </li>
                                 <li class="notification">
                                     <div class="media">
-                                        <img class="img-radius" src="<?php echo ASSETS ?>images/user/avatar-2.jpg" alt="Generic placeholder image">
+                                        <img class="img-radius" src="<?= ASSETS ?>images/user/avatar-2.jpg" alt="Generic placeholder image">
                                         <div class="media-body">
                                             <p><strong>Joseph William</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>10 min</span></p>
                                             <p>Prchace New Theme and make payment</p>
@@ -264,7 +260,7 @@
                                 </li>
                                 <li class="notification">
                                     <div class="media">
-                                        <img class="img-radius" src="<?php echo ASSETS ?>images/user/avatar-1.jpg" alt="Generic placeholder image">
+                                        <img class="img-radius" src="<?= ASSETS ?>images/user/avatar-1.jpg" alt="Generic placeholder image">
                                         <div class="media-body">
                                             <p><strong>Sara Soudein</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>12 min</span></p>
                                             <p>currently login</p>
@@ -273,7 +269,7 @@
                                 </li>
                                 <li class="notification">
                                     <div class="media">
-                                        <img class="img-radius" src="<?php echo ASSETS ?>images/user/avatar-2.jpg" alt="Generic placeholder image">
+                                        <img class="img-radius" src="<?= ASSETS ?>images/user/avatar-2.jpg" alt="Generic placeholder image">
                                         <div class="media-body">
                                             <p><strong>Joseph William</strong><span class="n-time text-muted"><i class="icon feather icon-clock m-r-10"></i>30 min</span></p>
                                             <p>Prchace New Theme and make payment</p>
@@ -294,7 +290,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-notification">
                             <div class="pro-head">
-                                <img src="<?php echo ASSETS ?>images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
+                                <img src="<?= ASSETS ?>images/user/avatar-1.jpg" class="img-radius" alt="User-Profile-Image">
                                 <span>John Doe</span>
                                 <a href="auth-signin.html" class="dud-logout" title="Logout">
                                     <i class="feather icon-log-out"></i>

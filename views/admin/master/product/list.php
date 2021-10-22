@@ -7,12 +7,12 @@
         <div class="row align-items-center">
           <div class="col-md-12">
             <div class="page-header-title">
-              <h5 class="m-b-10"><?php echo $title ?></h5>
+              <h5 class="m-b-10"><?= $title ?></h5>
             </div>
             <ul class="breadcrumb">
-              <li class="breadcrumb-item"><a href="<?php echo base_url('admin') ?>"><i class="feather icon-home"></i></a></li>
+              <li class="breadcrumb-item"><a href="<?= base_url('admin') ?>"><i class="feather icon-home"></i></a></li>
               <li class="breadcrumb-item"><a>Member</a></li>
-              <!-- <li class="breadcrumb-item"><a href="<?php echo base_url('admin/member/all') ?>">Member</a></li> -->
+              <!-- <li class="breadcrumb-item"><a href="<?= base_url('admin/member/all') ?>">Member</a></li> -->
             </ul>
           </div>
         </div>
@@ -27,7 +27,7 @@
                 <!-- <button class="btn btn-info btn-sm btn-round has-ripple" data-toggle="modal" data-target="#modal_tambah_member"><i class="feather icon-filter"></i> Filter</button> -->
               </div>
               <div class="col-sm-6 text-right ">
-                <a class="btn btn-info btn-sm btn-round has-ripple" href="<?php echo base_url('admin/master/add/product') ?>"><i class="feather icon-plus"></i> Tambah Produk</a>
+                <a class="btn btn-info btn-sm btn-round has-ripple" href="<?= base_url('admin/master/add/product') ?>"><i class="feather icon-plus"></i> Tambah Produk</a>
               </div>
             </div>
             <div class="table-responsive">
@@ -39,8 +39,8 @@
                     <th width="25%">Deskripsi</th>
                     <th width="10%">HPP</th>
                     <th width="10%">Nilai</th>
-                    <th width="10%" class="text-center">Stok</th>
-                    <th width="10%" class="text-center"></th>
+                    <!-- <th width="10%" class="text-center">Stok</th> -->
+                    <th width="20%" class="text-center"></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -54,38 +54,40 @@
                     <td><img src='" . ASSETS . "images/upload/member/avatar-1.jpg' class='img-radius' width='30px' height='30px'> $p->name</td>
                     <td><textarea class='form-control' disabled style=\"font-size:80%;\">$p->description</textarea></td>
                     <td>0</td>
-                    <td>$p->value Poin</td>
-                    <td class='text-center'>";
+                    <td>$p->value Poin</td>";
+                    // <td class='text-center'>";
 
-                    $stock = $this->db->query("SELECT id_unit,type,
-                                                      SUM(stock_update) AS total,
-                                                      product_unit.name AS unit
-                                                    FROM product_stock
-                                                    JOIN product_unit ON product_unit.id=product_stock.id_unit
-                                                    WHERE id_product='$p->id'
-                                                    GROUP BY id_unit")->result();
+                    // $stock = $this->db->query("SELECT id_unit,type,
+                    //                                   SUM(stock_update) AS total,
+                    //                                   product_unit.name AS unit
+                    //                                 FROM product_stock
+                    //                                 JOIN product_unit ON product_unit.id=product_stock.id_unit
+                    //                                 WHERE id_product='$p->id'
+                    //                                 GROUP BY id_unit")->result();
                                             
                                             // (SELECT SUM(stock_update) FROM product_stock WHERE type=1) AS total_plus,
                                             // (SELECT SUM(stock_update) FROM product_stock WHERE type IN (0,2)) AS total_min,
                                             // var_dump($q);
-                                            foreach ($stock as $sp) {
 
-                                              if (empty($sp->total) || $sp->total < 1) {
-                                                echo "<span class='badge badge-pill badge-dark'>Kosong</span><br>";
-                                              } elseif ($sp->total >= 1 && $sp->total <= 10) {
-                                                echo "<span class='badge badge-pill badge-danger'>$sp->total $sp->unit</span><br>";
-                                              } elseif ($sp->total > 10 && $sp->total <= 50) {
-                                                echo "<span class='badge badge-pill badge-warning'>$sp->total $sp->unit</span><br>";
-                                              } elseif ($sp->total > 50) {
-                                                echo "<span class='badge badge-pill badge-success'>$sp->total $sp->unit</span><br>";
-                                              }
-                                            }
+                                            // foreach ($stock as $sp) {
+
+                                            //   if (empty($sp->total) || $sp->total < 1) {
+                                            //     echo "<span class='badge badge-pill badge-dark'>Kosong</span><br>";
+                                            //   } elseif ($sp->total >= 1 && $sp->total <= 10) {
+                                            //     echo "<span class='badge badge-pill badge-danger'>$sp->total $sp->unit</span><br>";
+                                            //   } elseif ($sp->total > 10 && $sp->total <= 50) {
+                                            //     echo "<span class='badge badge-pill badge-warning'>$sp->total $sp->unit</span><br>";
+                                            //   } elseif ($sp->total > 50) {
+                                            //     echo "<span class='badge badge-pill badge-success'>$sp->total $sp->unit</span><br>";
+                                            //   }
+                                            // }
+
                     // $stock = $p->stock_plus - $p->stock_min;
 
                     
 
-                    echo "</td>
-                    <td class='text-center'>
+                    // echo "</td>
+                    echo "<td class='text-center'>
                       <div class='btn-group mb-2 mr-2'>
                       <button class='btn btn-outline-secondary dropdown-toggle btn-sm has-ripple' type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Action<span class='ripple ripple-animate' style='height: 118.875px; width: 118.875px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(255, 255, 255); opacity: 0.4; top: -31.8125px; left: -7.5px;'></span></button>
                       <div class='dropdown-menu' style=''>

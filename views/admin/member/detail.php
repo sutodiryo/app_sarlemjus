@@ -29,7 +29,7 @@
 									<a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 										<div class="profile-dp">
 											<div class="position-relative d-inline-block">
-												<img class="img-radius img-fluid wid-100 hei-100" src="<?php echo "".base_url()."public/upload/member/$member->img"; ?>" alt="<?= $member->name ?>" style="object-fit: cover;">
+												<img class="img-radius img-fluid wid-100 hei-100" src="<?php echo "" . base_url() . "public/upload/member/$member->img"; ?>" alt="<?= $member->name ?>" style="object-fit: cover;">
 											</div>
 											<div class="overlay">
 												<span>change</span>
@@ -613,86 +613,25 @@ $member->postal_code"; ?></textarea>
 					</div>
 					<div class="cust-scroll" style="height:415px;position:relative;">
 						<div class="card-body p-b-0">
-							<div class="align-middle m-b-25">
-								<img src="<?php echo ASSETS ?>images/user/avatar-1.jpg" alt="user image" class="img-radius align-top m-r-15">
-								<div class="d-inline-block">
-									<a href="#!">
-										<h6>Alex Thompson</h6>
+							<?php foreach ($downline as $d) {
+								echo "<div class='align-middle m-b-25'>
+								<img src='" . base_url() . "public/upload/member/$d->img' alt='$d->name' class='img-radius align-top m-r-15'>
+								<div class='d-inline-block'>
+									<a href='#!'>
+										<h6>$d->name</h6>
 									</a>
-									<p class="m-b-0">Cheers!</p>
-									<span class="status active"></span>
+									<p class='m-b-0'>$d->level_name</p>";
+								if ($d->status == 1) {
+									echo "<span class='status active'></span>";
+								}
+
+
+								echo "
 								</div>
-							</div>
-							<!-- <div class="align-middle m-b-25">
-								<img src="<?php echo ASSETS ?>images/user/avatar-2.jpg" alt="user image" class="img-radius align-top m-r-15">
-								<div class="d-inline-block">
-									<a href="#!">
-										<h6>John Doue</h6>
-									</a>
-									<p class="m-b-0">stay hungry!</p>
-									<span class="status active"></span>
-								</div>
-							</div>
-							<div class="align-middle m-b-25">
-								<img src="<?php echo ASSETS ?>images/user/avatar-3.jpg" alt="user image" class="img-radius align-top m-r-15">
-								<div class="d-inline-block">
-									<a href="#!">
-										<h6>Alex Thompson</h6>
-									</a>
-									<p class="m-b-0">Cheers!</p>
-									<span class="status deactive">30 min ago</span>
-								</div>
-							</div>
-							<div class="align-middle m-b-25">
-								<img src="<?php echo ASSETS ?>images/user/avatar-4.jpg" alt="user image" class="img-radius align-top m-r-15">
-								<div class="d-inline-block">
-									<a href="#!">
-										<h6>John Doue</h6>
-									</a>
-									<p class="m-b-0">Cheers!</p>
-									<span class="status deactive">10 min ago</span>
-								</div>
-							</div>
-							<div class="align-middle m-b-25">
-								<img src="<?php echo ASSETS ?>images/user/avatar-5.jpg" alt="user image" class="img-radius align-top m-r-15">
-								<div class="d-inline-block">
-									<a href="#!">
-										<h6>Shirley Hoe</h6>
-									</a>
-									<p class="m-b-0">stay hungry!</p>
-									<span class="status active"></span>
-								</div>
-							</div>
-							<div class="align-middle m-b-25">
-								<img src="<?php echo ASSETS ?>images/user/avatar-1.jpg" alt="user image" class="img-radius align-top m-r-15">
-								<div class="d-inline-block">
-									<a href="#!">
-										<h6>John Doue</h6>
-									</a>
-									<p class="m-b-0">Cheers!</p>
-									<span class="status active"></span>
-								</div>
-							</div>
-							<div class="align-middle m-b-25">
-								<img src="<?php echo ASSETS ?>images/user/avatar-2.jpg" alt="user image" class="img-radius align-top m-r-15">
-								<div class="d-inline-block">
-									<a href="#!">
-										<h6>Jon Alex</h6>
-									</a>
-									<p class="m-b-0">stay hungry!</p>
-									<span class="status active"></span>
-								</div>
-							</div>
-							<div class="align-middle m-b-0">
-								<img src="<?php echo ASSETS ?>images/user/avatar-3.jpg" alt="user image" class="img-radius align-top m-r-15">
-								<div class="d-inline-block">
-									<a href="#!">
-										<h6>John Doue</h6>
-									</a>
-									<p class="m-b-0">Cheers!</p>
-									<span class="status deactive">10 min ago</span>
-								</div>
-							</div> -->
+							</div>";
+							}
+							?>
+
 						</div>
 					</div>
 				</div>

@@ -32,7 +32,7 @@
 					</rs-layer>
 					<rs-layer id="slider-8-slide-12-layer-15" data-type="image" data-rsp_ch="on" data-xy="x:1124px;y:229px;" data-text="w:normal;" data-dim="w:84px;h:84px;" data-frame_0="x:50;" data-frame_1="sp:1000;" data-frame_999="o:0;st:w;" style="z-index:19;"><img src="<?php echo GUEST_ASSETS ?>img/gym/sb3.png" class="tp-rs-img" width="84" height="84" data-no-retina>
 					</rs-layer>
-					<rs-layer id="slider-8-slide-12-layer-16" class="rev-btn rev-hiddenicon" data-type="button" data-color="#ffffff" data-rsp_ch="on" data-xy="x:16px;y:665px;" data-text="w:normal;s:18;l:35;ls:1;fw:700;" data-dim="w:200px;h:60px;minh:0px;" data-padding="t:12;r:35;b:12;l:35;" data-border="bor:30px,30px,30px,30px;" data-frame_0="y:100%;" data-frame_0_mask="u:t;" data-frame_1="sp:1200;" data-frame_1_mask="u:t;" data-frame_999="o:0;st:w;" data-frame_hover="bgc:#ff3a2d;bor:30px,30px,30px,30px;sp:200;" style="z-index:20;background-color:#ee0a55;font-family:Poppins;text-transform:capitalize;">
+					<rs-layer id="slider-8-slide-12-layer-16" class="rev-btn rev-hiddenicon" data-type="button" data-color="#ffffff" data-rsp_ch="on" data-xy="x:16px;y:665px;" data-text="w:normal;s:18;l:35;ls:1;fw:700;" data-dim="w:200px;h:60px;minh:0px;" data-padding="t:12;r:35;b:12;l:35;" data-border="bor:30px,30px,30px,30px;" data-frame_0="y:100%;" data-frame_0_mask="u:t;" data-frame_1="sp:1200;" data-frame_1_mask="u:t;" data-frame_999="o:0;st:w;" data-frame_hover="bgc:#ed1c24;bor:30px,30px,30px,30px;sp:200;" style="z-index:20;background-color:#ed1c24;font-family:Poppins;text-transform:capitalize;">
 						Lebih Lanjut
 					</rs-layer>
 				</rs-slide>
@@ -61,7 +61,7 @@
 					</rs-layer>
 					<rs-layer id="slider-8-slide-13-layer-15" data-type="image" data-rsp_ch="on" data-xy="x:1124px;y:229px;" data-text="w:normal;" data-dim="w:84px;h:84px;" data-frame_0="x:50;" data-frame_1="sp:1000;" data-frame_999="o:0;st:w;" style="z-index:19;"><img src="<?php echo GUEST_ASSETS ?>img/gym/sb3.png" class="tp-rs-img" width="84" height="84" data-no-retina>
 					</rs-layer>
-					<rs-layer id="slider-8-slide-13-layer-16" class="rev-btn rev-hiddenicon" data-type="button" data-color="#ffffff" data-rsp_ch="on" data-xy="x:24px;y:665px;" data-text="w:normal;s:18;l:35;ls:1;fw:700;" data-dim="w:200px;h:60px;minh:0px;" data-padding="t:12;r:35;b:12;l:35;" data-border="bor:30px,30px,30px,30px;" data-frame_0="y:100%;" data-frame_0_mask="u:t;" data-frame_1="sp:1200;" data-frame_1_mask="u:t;" data-frame_999="o:0;st:w;" data-frame_hover="bgc:#ff3a2d;bor:30px,30px,30px,30px;sp:200;" style="z-index:20;background-color:#ee0a55;font-family:Poppins;text-transform:capitalize;">Learn More
+					<rs-layer id="slider-8-slide-13-layer-16" class="rev-btn rev-hiddenicon" data-type="button" data-color="#ffffff" data-rsp_ch="on" data-xy="x:24px;y:665px;" data-text="w:normal;s:18;l:35;ls:1;fw:700;" data-dim="w:200px;h:60px;minh:0px;" data-padding="t:12;r:35;b:12;l:35;" data-border="bor:30px,30px,30px,30px;" data-frame_0="y:100%;" data-frame_0_mask="u:t;" data-frame_1="sp:1200;" data-frame_1_mask="u:t;" data-frame_999="o:0;st:w;" data-frame_hover="bgc:#ed1c24;bor:30px,30px,30px,30px;sp:200;" style="z-index:20;background-color:#ed1c24;font-family:Poppins;text-transform:capitalize;">Learn More
 					</rs-layer>
 				</rs-slide> -->
 			</rs-slides>

@@ -39,7 +39,7 @@ class Member_data extends CI_Model
     function get_member_stat()
     {
         $query = $this->db->query("SELECT   id,name,
-                                            (SELECT COUNT(id) FROM member WHERE level=member_level.id) AS total
+                                            (SELECT COUNT(id) FROM member WHERE level=member_level.id AND status != 9) AS total
                                     FROM member_level
                                     ORDER BY id ASC")->result();
 
@@ -85,9 +85,16 @@ class Member_data extends CI_Model
                                     FROM member m1 WHERE id='$id'")->row();
         return $q;
     }
+    
+    function get_member_downline($id)
+    {
+        return $this->db->query("SELECT id,name,level,img,status,
+                                        (SELECT name FROM member_level WHERE id=member.level) AS level_name
+                                    FROM member WHERE upline=$id")->result();
+    }
 
     function get_member_level_list()
     {
-        return  $this->db->query("SELECT * FROM member_level ORDER BY id DESC")->result();
+        return $this->db->query("SELECT * FROM member_level ORDER BY id DESC")->result();
     }
 }
