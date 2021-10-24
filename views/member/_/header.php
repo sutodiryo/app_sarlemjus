@@ -30,9 +30,12 @@
                 <div class="">
                     <div class="main-menu-header">
                         <img class="img-radius" src="<?php echo ASSETS ?>images/user/avatar-2.jpg" alt="User-Profile-Image">
-                        <small><?php echo $this->session->userdata('log_name') ?></small>
+                        <!-- <small><?php echo "" . substr($this->session->userdata('log_name'), 0, 20) . ""; ?></small> -->
                         <div class="user-details">
-                            <div id="more-details"><?php echo $this->session->userdata('log_level_name') ?> <i class="fa fa-caret-down"></i></div>
+                            <div id="more-details">
+                                <!-- <span title="<?= $this->session->userdata('log_name'); ?>"><?php echo "" . substr($this->session->userdata('log_name'), 0, 12) . "..."; ?> <i class="fa fa-caret-down"></i></span> -->
+                                <?php echo $this->session->userdata('log_level_name') ?> <i class="fa fa-caret-down"></i>
+                            </div>
                         </div>
                     </div>
                     <div class="collapse" id="nav-user-link">
@@ -51,35 +54,36 @@
 
                     <li class="nav-item <?php if ($page['id'] == "dashboard") {
                                             echo "active";
-                                        } ?>"><a href="<?php echo base_url('member') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-tachometer-alt"></i></span><span class="pcoded-mtext">Dashboard</span></a></li> <!-- fas fa-tachometer-alt -->
+                                        } ?>"><a href="<?php echo base_url('member') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-home"></i></span><span class="pcoded-mtext">Home</span></a></li> <!-- fas fa-tachometer-alt -->
 
                     <li class="nav-item <?php if ($page['id'] == "course") {
                                             echo "active";
-                                        } ?>"><a href="<?php echo base_url('member/course') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-graduation-cap"></i></span><span class="pcoded-mtext">Course</span></a></li>
+                                        } ?>"><a href="<?php echo base_url('member/course') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-graduation-cap"></i></span><span class="pcoded-mtext">Kelas</span></a></li>
 
-                    <li class="nav-item <?php if ($page['id'] == "store") {
-                                            echo "active";
-                                        } ?>"><a href="<?php echo base_url('member/store') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-store"></i></span><span class="pcoded-mtext">Store</span></a></li>
-
-                    <li class="nav-item <?php if ($page == "team") {
-                                            echo "active";
-                                        } ?>"><a href="<?php echo base_url('member/team') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-users"></i></span><span class="pcoded-mtext">My Team</span></a></li>
-
-                    <li class="nav-item <?php if ($page == "point") {
-                                            echo "active";
-                                        } ?>"><a href="<?php echo base_url('member/point') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-star-half-alt"></i></span><span class="pcoded-mtext">My Poin</span></a></li>
+                    <!-- <li class="nav-item <?php if ($page['id'] == "store") {
+                                                    echo "active";
+                                                } ?>"><a href="<?php echo base_url('member/store') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-store"></i></span><span class="pcoded-mtext">Store</span></a></li> -->
 
                     <li class="nav-item <?php if ($page == "transaction") {
                                             echo "active";
-                                        } ?>"><a href="<?php echo base_url('member/transaction') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-shopping-cart"></i></span><span class="pcoded-mtext">Transaction</span></a></li>
+                                        } ?>"><a href="<?php echo base_url('member/transaction') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-shopping-cart"></i></span><span class="pcoded-mtext">Belanja</span></a></li>
 
-                    <li class="nav-item <?php if ($page == "bonus") {
+                    <li class="nav-item <?php if ($page == "team") {
                                             echo "active";
-                                        } ?>"><a href="<?php echo base_url('member/bonus') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-gift"></i></span><span class="pcoded-mtext">Bonus</span></a></li>
+                                        } ?>"><a href="<?php echo base_url('member/team') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-users"></i></span><span class="pcoded-mtext">Team Saya</span></a></li>
+
+                    <li class="nav-item <?php if ($page == "point") {
+                                            echo "active";
+                                        } ?>"><a href="<?php echo base_url('member/point') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-star-half-alt"></i></span><span class="pcoded-mtext">Poin</span></a></li>
+
+
+                    <!-- <li class="nav-item <?php if ($page == "bonus") {
+                                                    echo "active";
+                                                } ?>"><a href="<?php echo base_url('member/bonus') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-gift"></i></span><span class="pcoded-mtext">Bonus</span></a></li> -->
 
                     <li class="nav-item <?php if ($page == "join") {
                                             echo "active";
-                                        } ?>"><a href="<?php echo base_url('member/join') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-comments-dollar"></i></span><span class="pcoded-mtext">Join</span></a></li>
+                                        } ?>"><a href="<?php echo base_url('member/join') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-comments-dollar"></i></span><span class="pcoded-mtext">Gabung</span></a></li>
 
                 </ul>
 

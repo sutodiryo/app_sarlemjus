@@ -23,7 +23,7 @@ class Log extends CI_Controller
 
 		$member     = $this->db->query("SELECT 	id,username,name,email,phone,status,level,
 																						(SELECT name FROM member_level WHERE id=member.level) AS level_name
-																		FROM member WHERE password = '" . $password . "' AND (phone= '" . $username . "' OR email = '" . $username . "')");
+																		FROM member WHERE password = '" . $password . "' AND (phone= '" . $username . "' OR email = '" . $username . "') AND status != 9");
 		$member_cek	= $member->num_rows();
 		$member_row	= $member->row();
 

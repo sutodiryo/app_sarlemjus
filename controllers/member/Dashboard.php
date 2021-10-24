@@ -10,7 +10,7 @@ class Dashboard extends CI_Controller
       $this->session->set_flashdata("report", "<div class='alert alert-danger alert-dismissible fade show' role='alert'><small>Anda harus login terlebih dahulu.</small><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button></div>");
       redirect(base_url('login'));
     }
-    $this->load->model('Member_model');
+    $this->load->model('member/Dashboard_data');
     // require_once dirname(__DIR__) . '/libraries/Midtrans/Midtrans.php';
   }
 
@@ -27,9 +27,9 @@ class Dashboard extends CI_Controller
       "realstock" => "",
       "name" => ""
     );
-    $id             = $this->session->userdata('log_id');
+    $id = $this->session->userdata('log_id');
 
-    // $data['stat']   = $this->Member_model->get_stat($id);
+    $data['notice'] = $this->Dashboard_data->get_notice_list();
 
     // $data['member'] = $this->Member_model->get_team_dashboard($id);
 
