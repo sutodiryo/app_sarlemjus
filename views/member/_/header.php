@@ -76,7 +76,6 @@
                                             echo "active";
                                         } ?>"><a href="<?php echo base_url('member/point') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-star-half-alt"></i></span><span class="pcoded-mtext">Poin</span></a></li>
 
-
                     <!-- <li class="nav-item <?php if ($page == "bonus") {
                                                     echo "active";
                                                 } ?>"><a href="<?php echo base_url('member/bonus') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-gift"></i></span><span class="pcoded-mtext">Bonus</span></a></li> -->
