@@ -30,6 +30,7 @@
   <div class="up">
     <a href="#" class="scrollup text-center"><i class="fas fa-angle-up"></i></a>
   </div>
+  
   <header id="app-gym-header" class="app-gym-main-header">
     <div class="container">
       <div class="app-gym-brand-logo float-left">
@@ -39,20 +40,26 @@
         <div class="header-gym-cta-btn text-center float-right">
           <a href="<?= base_url('join_us') ?>">Join Us</a>
         </div>
-        <nav class="app-gym-main-navigation float-right clearfix ul-li">
+        <nav class="app-gym-main-navigation clearfix ul-li">
+        <!-- <nav class="app-gym-main-navigation float-right clearfix ul-li"> -->
+        <!-- <nav class="app-gym-main-navigation container-fluid d-flex align-items-center justify-content-between clearfix ul-li"> -->
           <ul id="app-gym-main-nav" class="nav navbar-nav clearfix">
             <!-- <li class="side-demo position-relative"><a href="#!">Demos</a> <span>New</span></li> -->
             <li class="active"><a href="<?= base_url() ?>">Home</a></li>
             <li><a href="<?= base_url('join') ?>">Join Bisnis</a></li>
             <li><a href="<?= base_url('about') ?>">About Us</a></li>
             <li><a href="<?= base_url('contact') ?>">Contact Us</a></li>
-            <!-- <li class="dropdown">
+
+            <!--
+            <li class="dropdown">
               <a href="#">Blog</a>
               <ul class="dropdown-menu clearfix">
                 <li><a href="blog.html">Blog Page</a></li>
                 <li><a href="blog-single.html">Blog Details</a></li>
               </ul>
-            </li> -->
+            </li>
+            -->
+            
           </ul>
         </nav>
       </div>

@@ -9,6 +9,44 @@ class Transaction_data extends CI_Model
         $this->load->database();
     }
 
+    function get_member_list()
+    {
+        return $this->db->query("SELECT id,name,phone FROM member")->result();
+    }
+
+    function get_product_by_id($id)
+    {
+        return $this->db->query("SELECT id,name,
+                                        (SELECT SUM(stock_update) FROM product_stock WHERE id_product=product.id AND type=1) stock_plus,
+                                        (SELECT SUM(stock_update) FROM product_stock WHERE id_product=product.id AND type=2) stock_min
+                                    FROM product WHERE id='$id'")->row();
+    }
+    
+    function get_product_stock_list()
+    {
+        return $this->db->query("SELECT id,brand,name,slug,description,category,bundled,status,
+                                        (SELECT SUM(stock_update) FROM product_stock WHERE id_product=product.id AND type=1) stock_plus,
+                                        (SELECT SUM(stock_update) FROM product_stock WHERE id_product=product.id AND type=2) stock_min
+                                        FROM product ORDER BY product.name ASC")->result();
+    }
+    
+    function get_stock_by_product_id($id)
+    {
+        return $this->db->query("SELECT ps.id,ps.id_product,ps.id_admin,ps.type,ps.stock_update,ps.time,ps.note,
+                                        p.name AS product
+                                        -- ,(SELECT product_unit.name FROM product_unit WHERE product_unit.id=p.unit) AS unit
+                                    FROM product_stock ps
+                                    LEFT JOIN product p ON ps.id_product=p.id
+                                    WHERE ps.id_product='$id'
+                                    ORDER BY time DESC")->result();
+    }
+    
+
+    function get_product_list()
+    {
+        return $this->db->query("SELECT id,name FROM product")->result();
+    }
+
     function get_stat_sales_dashboard()
     {
         $query = $this->db->query("SELECT   SUM(total) AS tot,
@@ -33,8 +71,9 @@ class Transaction_data extends CI_Model
 
     function get_transaction_list()
     {
-        $query = "SELECT    id,id_member,total,created,receipt,point,paid,accepted,status
-                FROM transaction";
+        $query = "SELECT    id,id_member,total,date_created,receipt,point,date_paid,date_accepted,status,
+                            (SELECT member.name FROM member WHERE member.id=transaction.id_member) AS member
+                    FROM transaction";
 
         return $query;
     }

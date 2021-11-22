@@ -13,7 +13,7 @@ class Member extends CI_Controller
 			redirect(base_url('member'));
 		}
 		$this->session->mark_as_temp('report', 1);
-		$this->load->model('admin/Member_data');
+		$this->load->model('Member_data');
 	}
 
 	function list($x)
@@ -45,81 +45,97 @@ class Member extends CI_Controller
 
 	function add($x)
 	{
-		$data['page'] = 'member';
-		$data['title'] = 'Tambah Member Baru';
-		$data['upline'] = $this->db->query("SELECT member.id,member.name,member.phone FROM member ORDER BY member.name ASC")->result();
-		$data['level'] = $this->db->query("SELECT id,name FROM member_level ORDER BY id ASC")->result();
-		$data['bank'] = $this->db->query("SELECT id,name FROM bank ORDER BY id ASC")->result();
+		if ($x == "new") {
 
-		$this->form_validation->set_rules('name', 'Nama', 'required', ['required' => 'Nama member belum diisi!']);
-		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|trim|is_unique[member.email]', ['required' => 'Email belum diisi!', 'valid_email' => 'Format email salah!', 'is_unique' => 'Email sudah terdaftar']);
-		$this->form_validation->set_rules('phone', 'Nomor Handphone', 'required|trim|is_unique[member.phone]', ['required' => 'Nomor Handphone belum diisi!', 'is_unique' => 'Nomor Handphone sudah terdaftar']);
-		$this->form_validation->set_rules('gender', 'Jenis Kelamin', 'required', ['required' => 'Anda belum memilih jenis kelamin!']);
-		$this->form_validation->set_rules('nik', 'NIK', 'required|trim|is_unique[member.nik]', ['required' => 'NIK Handphone belum diisi!', 'is_unique' => 'NIK sudah terdaftar']);
-		$this->form_validation->set_rules('level', 'Level Member', 'required', ['required' => 'Anda belum memilih level member!']);
+			$data['page'] = 'member';
+			$data['title'] = 'Tambah Member Baru';
+			$data['upline'] = $this->db->query("SELECT member.id,member.name,member.phone FROM member ORDER BY member.name ASC")->result();
+			$data['level'] = $this->db->query("SELECT id,name FROM member_level ORDER BY id ASC")->result();
+			$data['bank'] = $this->db->query("SELECT id,name FROM bank ORDER BY id ASC")->result();
 
-		if ($this->form_validation->run() == false) {
-			// $this->alert('warning', 'Ada beberapa field yang tidak sesuai...');
-			// $this->add('new');
-			// die('aaa');
-			$this->load->view('admin/member/add', $data);
+			$this->form_validation->set_rules('name', 'Nama', 'required', ['required' => 'Nama member belum diisi!']);
+			$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email|trim|is_unique[member.email]', ['required' => 'Email belum diisi!', 'valid_email' => 'Format email salah!', 'is_unique' => 'Email sudah terdaftar']);
+			$this->form_validation->set_rules('phone', 'Nomor Handphone', 'required|trim|is_unique[member.phone]', ['required' => 'Nomor Handphone belum diisi!', 'is_unique' => 'Nomor Handphone sudah terdaftar']);
+			$this->form_validation->set_rules('gender', 'Jenis Kelamin', 'required', ['required' => 'Anda belum memilih jenis kelamin!']);
+			$this->form_validation->set_rules('nik', 'NIK', 'required|trim|is_unique[member.nik]', ['required' => 'NIK Handphone belum diisi!', 'is_unique' => 'NIK sudah terdaftar']);
+			$this->form_validation->set_rules('level', 'Level Member', 'required', ['required' => 'Anda belum memilih level member!']);
 
-			// redirect('admin/member/add/new');
-		} else {
-			$config['upload_path']      = './public/upload/member/';
-			$config['allowed_types']    = 'jpg|jpeg|png|PNG|JPG';
-			$config['max_size']         = 1024;
-			$config['encrypt_name']     = TRUE;
-			$this->load->library('upload', $config);
-
-			if (!$this->upload->do_upload('img')) {
-
-				// $error = $this->upload->display_errors();
-				// $this->alert('danger', $error);
+			if ($this->form_validation->run() == false) {
+				// $this->alert('warning', 'Ada beberapa field yang tidak sesuai...');
+				// $this->add('new');
+				// die('aaa');
+				$this->load->view('admin/member/add', $data);
 
 				// redirect('admin/member/add/new');
-				$img = "profile.jpg";
 			} else {
-				$up = $this->upload->data();
-				$img = $up['file_name'];
-			}
+				$config['upload_path']      = './public/upload/member/';
+				$config['allowed_types']    = 'jpg|jpeg|png|PNG|JPG';
+				$config['max_size']         = 1024;
+				$config['encrypt_name']     = TRUE;
+				$this->load->library('upload', $config);
 
-			date_default_timezone_set('Asia/Jakarta');
-			$now = date("Y-m-d h:i:s");
+				if (!$this->upload->do_upload('img')) {
+
+					// $error = $this->upload->display_errors();
+					// $this->alert('danger', $error);
+
+					// redirect('admin/member/add/new');
+					$img = "profile.jpg";
+				} else {
+					$up = $this->upload->data();
+					$img = $up['file_name'];
+				}
+
+				date_default_timezone_set('Asia/Jakarta');
+				$now = date("Y-m-d h:i:s");
+
+				$data = array(
+					'name' => $this->input->post('name'),
+					'upline' => $this->input->post('upline'),
+					'phone' => $this->input->post('phone'),
+					'email' => $this->input->post('email'),
+					'password' => "e10adc3949ba59abbe56e057f20f883e",
+					'gender' => $this->input->post('gender'),
+					// 'img' => $this->input->post('img'),
+					'img' => $img, //file upload foto
+					'nik' => $this->input->post('nik'),
+					'nik_name' => $this->input->post('nik_name'),
+					'npwp' => $this->input->post('npwp'),
+					'npwp_name' => $this->input->post('npwp_name'),
+					'bank' => $this->input->post('bank'),
+					'bank_account' => $this->input->post('bank_account'),
+					'bank_account_name' => $this->input->post('bank_account_name'),
+					'province' => $this->input->post('province'),
+					'district' => $this->input->post('district'),
+					'subdistrict' => $this->input->post('subdistrict'),
+					'village' => $this->input->post('village'),
+					'postal_code' => $this->input->post('postal_code'),
+					'work' => $this->input->post('work'),
+					'level' => $this->input->post('level'),
+					'address' => $this->input->post('address'),
+					'registration_date' => $now,
+					'notif_admin' => 1,
+					'status' => 1
+				);
+
+				$this->db->insert('member', $data);
+
+				$this->alert('info', 'Member berhasil ditambahkan...');
+				redirect(base_url('admin/member/list/all'));
+			}
+		} elseif ($x == "level") {
 
 			$data = array(
 				'name' => $this->input->post('name'),
-				'upline' => $this->input->post('upline'),
-				'phone' => $this->input->post('phone'),
-				'email' => $this->input->post('email'),
-				'password' => "e10adc3949ba59abbe56e057f20f883e",
-				'gender' => $this->input->post('gender'),
-				// 'img' => $this->input->post('img'),
-				'img' => $img, //file upload foto
-				'nik' => $this->input->post('nik'),
-				'nik_name' => $this->input->post('nik_name'),
-				'npwp' => $this->input->post('npwp'),
-				'npwp_name' => $this->input->post('npwp_name'),
-				'bank' => $this->input->post('bank'),
-				'bank_account' => $this->input->post('bank_account'),
-				'bank_account_name' => $this->input->post('bank_account_name'),
-				'province' => $this->input->post('province'),
-				'district' => $this->input->post('district'),
-				'subdistrict' => $this->input->post('subdistrict'),
-				'village' => $this->input->post('village'),
-				'postal_code' => $this->input->post('postal_code'),
-				'work' => $this->input->post('work'),
-				'level' => $this->input->post('level'),
-				'address' => $this->input->post('address'),
-				'registration_date' => $now,
-				'notif_admin' => 1,
-				'status' => 1
+				'min_trans' => $this->input->post('min_trans'),
+				'discount' => $this->input->post('discount'),
+				'note' => $this->input->post('note')
 			);
 
-			$this->db->insert('member', $data);
+			$this->db->insert('member_level', $data);
 
-			$this->alert('info', 'Member berhasil ditambahkan...');
-			redirect(base_url('admin/member/list/all'));
+			$this->alert('info', 'Level Member berhasil ditambahkan...');
+			redirect(base_url('admin/member/level'));
 		}
 	}
 
@@ -197,19 +213,19 @@ class Member extends CI_Controller
 			$referred_from = $this->session->userdata('ref_member');
 			redirect($referred_from);
 		} elseif ($x == "update_member_level") {
+			
 			$data = array(
-				'nama_level'    => $this->input->post('nama_level'),
-				'nilai' 		=> $this->input->post('nilai'),
-				'smp' 			=> $this->input->post('smp'),
-				'diskon' 		=> $this->input->post('diskon'),
-				'keterangan'  	=> $this->input->post('keterangan')
+				'name' => $this->input->post('name'),
+				'min_trans' => $this->input->post('min_trans'),
+				'discount' => $this->input->post('discount'),
+				'note' => $this->input->post('note')
 			);
 
-			$id_member_level = $this->input->post('id_member_level');
-			$this->db->update("member_level", $data, array('id_member_level'  => $id_member_level));
+			$id = $this->input->post('id');
+			$this->db->update("member_level", $data, array('id'  => $id));
 
-			$this->alert('success', 'Level Member berhasil diubah...');
-			redirect(base_url('admin/master/level_member'));
+			$this->alert('info', 'Level Member berhasil diubah...');
+			redirect(base_url('admin/member/level'));
 		}
 	}
 

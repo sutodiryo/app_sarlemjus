@@ -135,7 +135,7 @@
                                 <label for="level">Level</label>
                                 <select class="js-example-basic-single form-control" id="level" name="level" value="<?php echo set_value('name'); ?>">
                                     <?php foreach ($level as $lv) {
-                                        echo "<option value='$lv->id'>$lv->level_name</option>";
+                                        echo "<option value='$lv->id'>$lv->name</option>";
                                     } ?>
                                 </select>
                             </div>

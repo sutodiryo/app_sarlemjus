@@ -140,7 +140,8 @@ class Master extends CI_Controller
 
       $data['page'] = 'product';
       $data['title'] = 'Tambah Produk';
-      $data['upline'] = $this->db->query("SELECT member.id,member.name,member.phone FROM member ORDER BY member.name ASC")->result();
+      
+      $data['brand'] = $this->db->query("SELECT id,name FROM product_brand")->result();
       $data['level'] = $this->db->query("SELECT id,name FROM member_level ORDER BY id ASC")->result();
       $data['bank'] = $this->db->query("SELECT id,name FROM bank ORDER BY id ASC")->result();
 
@@ -216,9 +217,9 @@ class Master extends CI_Controller
       }
     } elseif ($x == "produk_harga") {
       $data = array(
-        'id_produk'         => $this->input->post('id_produk'),
-        'id_member_level'     => $this->input->post('id_member_level'),
-        'harga'              => $this->input->post('harga')
+        'id_produk' => $this->input->post('id_produk'),
+        'id_member_level' => $this->input->post('id_member_level'),
+        'harga' => $this->input->post('harga')
       );
 
       $this->db->insert('produk_harga', $data);
@@ -228,10 +229,10 @@ class Master extends CI_Controller
       redirect($referred_from);
     } elseif ($x == "produk_stock") {
       $data = array(
-        'id_admin'         => $this->session->userdata('log_id'),
-        'stock_update'    => $this->input->post('stock_update'),
-        'note'            => $this->input->post('note'),
-        'id_produk'     => $this->input->post('id_produk')
+        'id_admin' => $this->session->userdata('log_id'),
+        'stock_update' => $this->input->post('stock_update'),
+        'note' => $this->input->post('note'),
+        'id_produk' => $this->input->post('id_produk')
       );
 
       $this->db->insert('produk_stok', $data);
@@ -240,28 +241,28 @@ class Master extends CI_Controller
       $referred_from = $this->session->userdata('referred_add_stock');
       redirect($referred_from);
     } elseif ($x == "transaction") {
-      $im     = $this->input->post('id_member');
-      $ip     = $this->input->post('id_promo');
-      $date     = $this->input->post('date');
+      $im = $this->input->post('id_member');
+      $ip = $this->input->post('id_promo');
+      $date = $this->input->post('date');
       $ongkir = $this->input->post('ongkir');
-      $tipe     = 0; //pembelian member
+      $tipe = 0; //pembelian member
 
-      $data     = $this->Admin_model->transaction_add($im, $ip, $date, $ongkir, $tipe);
+      $data = $this->Admin_model->transaction_add($im, $ip, $date, $ongkir, $tipe);
 
       $this->db->insert('transaksi', $data);
       $insert_id = $this->db->insert_id();
 
       $transaksi_produk = array();
       foreach ($this->cart->contents() as $cart) {
-        $id     = $cart['id'];
-        $q         = $this->db->query("SELECT nilai FROM produk WHERE id_produk='$id'")->row();
-        $ppv    = $q->nilai;
+        $id = $cart['id'];
+        $q = $this->db->query("SELECT nilai FROM produk WHERE id_produk='$id'")->row();
+        $ppv = $q->nilai;
         $transaksi_produk[] = array(
-          'id_transaksi'     => $insert_id,
-          'id_produk'     => $id,
-          'quantity'         => $cart['qty'],
-          'price'            => $cart['price'],
-          'pv'             => $cart['qty'] * $ppv
+          'id_transaksi' => $insert_id,
+          'id_produk' => $id,
+          'quantity' => $cart['qty'],
+          'price' => $cart['price'],
+          'pv' => $cart['qty'] * $ppv
         );
       }
       $this->db->insert_batch('transaksi_produk', $transaksi_produk);
@@ -278,25 +279,11 @@ class Master extends CI_Controller
       // $this->alert('info', 'Transaksi berhasil ditambahkan...');
       $this->session->set_flashdata("cetak", 1);
       redirect(base_url('admin/transaction_detail/' . $insert_id));
-    } elseif ($x == "member_level") {
-      $data = array(
-        'nama_level'    => $this->input->post('nama_level'),
-        'nilai'         => $this->input->post('nilai'),
-        'smp'             => $this->input->post('smp'),
-        'diskon'         => $this->input->post('diskon'),
-        'keterangan'      => $this->input->post('keterangan')
-      );
-
-      $this->db->insert('member_level', $data);
-
-      $this->alert('info', 'Level Member berhasil ditambahkan...');
-      redirect(base_url('admin/master/level_member'));
     } elseif ($x == "bonus") {
       $data = array(
         'name' => $this->input->post('name'),
         'poin' => $this->input->post('poin')
       );
-
 
       $this->db->insert('bonus', $data);
 

@@ -54,7 +54,7 @@
                     <td><img src='" . ASSETS . "images/upload/member/avatar-1.jpg' class='img-radius' width='30px' height='30px'> $p->name</td>
                     <td><textarea class='form-control' disabled style=\"font-size:80%;\">$p->description</textarea></td>
                     <td>0</td>
-                    <td>$p->value Poin</td>";
+                    <td>$p->point Poin</td>";
                     // <td class='text-center'>";
 
                     // $stock = $this->db->query("SELECT id_unit,type,

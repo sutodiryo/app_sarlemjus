@@ -14,6 +14,10 @@
 
         <div class="row">
             <div class="col-md-12 col-xl-12">
+                <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                    <strong>Halooo!</strong> Selamat datang.
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
+                </div>
                 <div class="card">
                     <div class="card-header">
                         <h5>Belanja Rp 00000 lagi dan dapatkan bonus ***** dari sarlemjus...</h5>

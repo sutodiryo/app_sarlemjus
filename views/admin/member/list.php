@@ -23,10 +23,10 @@
 
         <div class="row">
 
-            <?php
-            foreach ($member_stat as $ms) {
+            <!-- <?php
+                    foreach ($member_stat as $ms) {
 
-                echo "<div class='col-lg-3 col-md-6'>
+                        echo "<div class='col-lg-3 col-md-6'>
                 <a href='" . base_url('admin/member/list/') . "$ms->id' class='card'>
                     <div class='card-body'>
                         <div class='row align-items-center'>
@@ -37,8 +37,8 @@
                     </div>
                 </a>
             </div>";
-            }
-            ?>
+                    }
+                    ?> -->
 
             <div class="col-md-12">
                 <div class="card">
@@ -48,7 +48,8 @@
                     <div class="card-body">
                         <div class="row align-items-center m-l-1 mb-3">
                             <div class="col-sm-6">
-                                <button class="btn btn-secondary btn-sm btn-round has-ripple" data-toggle="modal" data-target="#modal_tambah_member"><i class="feather icon-filter"></i> Filter</button>
+                                <?php echo "<button type='button' class='btn btn-sm btn-secondary has-ripple'>Total Member : <span class='badge badge-light'>20</span><span class='ripple ripple-animate'></span></button>"; ?>
+                                <!-- <button class="btn btn-secondary btn-sm btn-round has-ripple" data-toggle="modal" data-target="#modal_tambah_member"><i class="feather icon-filter"></i> Filter</button> -->
                             </div>
                             <div class="col-sm-6 text-right ">
                                 <a class="btn btn-info btn-sm btn-round has-ripple" href="<?php echo base_url('admin/member/add/new') ?>"><i class="feather icon-plus"></i> Tambah Member</a>

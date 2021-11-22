@@ -1,8 +1,8 @@
 <footer id="app-gym-footer" class="app-gym-footer-section position-relative">
-  <span class="app-gym-footer-shape1 position-absolute"><img src="<?php echo GUEST_ASSETS ?>img/gym/f-sh1.png" alt=""></span>
+  <span class="app-gym-footer-shape1 position-absolute"><img src="<?php echo GUEST_ASSETS ?>img/footer-bg-2.png" alt=""></span>
   <span class="app-gym-footer-shape2 position-absolute"><img src="<?php echo GUEST_ASSETS ?>img/gym/p-shape1.png" alt=""></span>
   <span class="app-gym-footer-shape3 position-absolute"><img src="<?php echo GUEST_ASSETS ?>img/gym/f-sh3.png" alt=""></span>
-  <span class="app-gym-footer-shape4 position-absolute"><img src="<?php echo GUEST_ASSETS ?>img/gym/f-sh2.png" alt=""></span>
+  <!-- <span class="app-gym-footer-shape4 position-absolute"><img src="<?php echo GUEST_ASSETS ?>img/gym/f-sh2.png" alt=""></span> -->
   <div class="container">
     <div class="app-gym-footer-widget-area">
       <div class="row">

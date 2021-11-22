@@ -36,7 +36,7 @@
                             </div>
                         </div>
                         <div class="table-responsive">
-                            <table id="table_member" class="table table-bordered table-striped mb-0">
+                            <table id="table_bonus" class="table table-bordered table-striped mb-0">
                                 <thead>
                                     <tr>
                                         <th width="5%">No</th>

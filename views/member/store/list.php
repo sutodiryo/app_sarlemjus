@@ -19,7 +19,72 @@
       </div>
     </div>
 
-    <!-- Course -->
+
+    <div class="row">
+
+      <div class="col-lg-12">
+
+        <div class="card">
+          <div class="card-body">
+            <div class="row align-items-center m-l-0">
+              <div class="col-sm-6">
+              </div>
+              <div class="col-sm-6 text-right">
+                <button class="btn btn-info btn-sm btn-round has-ripple" data-toggle="modal" data-target="#modal-report"><i class="feather icon-shopping-cart"></i> Keranjang Belanja</button>
+              </div>
+            </div>
+            <div class="table-responsive">
+              <table id="table-store" class="table mb-0">
+                <thead class="thead-light">
+                  <tr>
+                    <th width="45%">Produk</th>
+                    <!-- <th>Category</th> -->
+                    <!-- <th>Added Date</th> -->
+                    <th width="20%">Harga</th>
+                    <th width="15%">Diskon</th>
+                    <th width="10%">Stok</th>
+                    <!-- <th>Status</th> -->
+                    <th width="10%"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php foreach ($product as $p) {
+                    echo "<tr>
+                            <td class='align-middle'>
+                              <img src='" . ASSETS . "images/product/prod-12.jpg' alt='contact-img' title='contact-img' class='rounded mr-3' height='48' />
+                              <p class='m-0 d-inline-block align-middle font-16'>
+                              <a href='#!' class='text-body'>$p->name</a>";
+
+                    //   <br />
+                    //   <span class='text-warning feather icon-star-on'></span>
+                    //   <span class='text-warning feather icon-star-on'></span>
+                    //   <span class='text-warning feather icon-star-on'></span>
+                    //   <span class='text-warning feather icon-star-on'></span>
+                    //   <span class='text-warning feather icon-star-on'></span>
+                    // </p>
+
+                    echo "</td>
+                            <td class='align-middle'>Rp " . number_format($p->selling_price, 0, ',', '.') . "</td>
+                            <td class='align-middle'>
+                              $597.66
+                            </td>
+                            <td class='align-middle'>
+                              <span class='badge badge-success'>654</span>
+                            </td>
+                            <td class='table-action'>
+                              <a href='#!' class='btn btn-icon btn-info'><i class='fas fa-cart-plus'></i></a>
+                            </td>
+                            </tr>";
+                  } ?>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
 
   </div>
 </div>

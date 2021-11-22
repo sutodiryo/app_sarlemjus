@@ -12,7 +12,7 @@ class Report extends CI_Controller
         } elseif ($this->session->userdata('log_admin') == FALSE) {
             echo "Akses ditolak";
         }
-        $this->load->model('admin/Member_data');
+        $this->load->model('Member_data');
     }
 
     function index()

@@ -16,7 +16,7 @@
 
     <?php if ($page == "dashboard") { ?>
         <link rel="stylesheet" href="<?= ASSETS ?>css/plugins/dataTables.bootstrap4.min.css">
-    <?php } elseif ($page == "member" || $page == "product" || $page == "course") { ?>
+    <?php } elseif ($page == "transaction" || $page == "member" || $page == "product" || $page == "course" || $page == "notice" || $page == "bonus" || $page == "stock") { ?>
 
         <link rel="stylesheet" href="<?= ASSETS ?>css/plugins/select2.min.css">
         <link rel="stylesheet" href="<?= ASSETS ?>css/plugins/dataTables.bootstrap4.min.css">
@@ -31,7 +31,7 @@
     <link rel="stylesheet" href="<?= ASSETS ?>css/style.css">
 </head>
 
-<body class="">
+<body class="" id="body">
     <div class="loader-bg">
         <div class="loader-track">
             <div class="loader-fill"></div>
@@ -71,25 +71,28 @@
                                         } ?>"><a href="<?= base_url('admin/transaction/list/all') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-shopping-cart"></i></span><span class="pcoded-mtext">Transaksi</span></a></li>
 
                     <li class="nav-item <?php if ($page == 'stock') : echo "active";
-                                            endif; ?>"><a href="<?= base_url('admin/stock') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-cubes"></i></span><span class="pcoded-mtext">Stok</span></a></li>
+                                            endif; ?>"><a href="<?= base_url('admin/stock/product') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-cubes"></i></span><span class="pcoded-mtext">Stok</span></a></li>
 
                     <li class="nav-item pcoded-menu-caption">
                         <label>Master</label>
                     </li>
 
-                    <li class="nav-item pcoded-hasmenu <?php if ($page == "member") {
+                    <li class="nav-item <?php if ($page == 'member') : echo "active";
+                                            endif; ?>"><a href="<?= base_url('admin/member/list/all') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-users"></i></span><span class="pcoded-mtext">Member</span></a></li>
+
+                    <!-- <li class="nav-item pcoded-hasmenu <?php if ($page == "member") {
                                                             echo "active pcoded-trigger";
                                                         } ?>">
                         <a href="#!" class="nav-link "><span class="pcoded-micon"><i class="fas fa-users"></i></span><span class="pcoded-mtext">Member</span></a>
                         <ul class="pcoded-submenu">
                             <li class="<?php if ($title == "Daftar Semua Member" || $title == "Daftar Member") {
                                             echo "active";
-                                        } ?>"><a href="<?= base_url('admin/member/list/all') ?>" class="has-ripple">Data Member<span class="ripple ripple-animate" style="height: 230px; width: 230px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(70, 128, 255); opacity: 0.4; top: -90px; left: 11px;"></span></a></li>
+                                        } ?>"><a href="<?= base_url('admin/member/list/all') ?>" class="has-ripple">Data Member<span class="ripple ripple-animate"></span></a></li>
                             <li class="<?php if ($title == "Brand Produk") {
                                             echo "active";
                                         } ?>"><a href="<?= base_url('admin/member/level') ?>">Member Level</a></li>
                         </ul>
-                    </li>
+                    </li> -->
 
                     <li class=" nav-item pcoded-hasmenu <?php if ($page == "product") {
                                                             echo "active pcoded-trigger";

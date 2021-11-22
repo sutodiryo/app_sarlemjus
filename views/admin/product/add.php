@@ -43,8 +43,6 @@
 									<!-- <input type="file" class="custom-file-input" name="img_1" id="projectCoverUploads"> -->
 									<!-- <label class="custom-file-label" for="img_1">Choose file</label> -->
 									<input type="file" name="img_1" class="form-control" id="img_1">
-
-
 								</div>
 							</div>
 

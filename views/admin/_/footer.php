@@ -75,7 +75,14 @@
       });
     }
   </script>
-
+<?php } elseif ($page == "transaction") { ?>
+  <script src="<?php echo ASSETS ?>js/plugins/select2.full.min.js"></script>
+  <script src="<?php echo ASSETS ?>js/pages/form-select-custom.js"></script>
+  <script src="<?php echo ASSETS ?>js/plugins/jquery.dataTables.min.js"></script>
+  <script src="<?php echo ASSETS ?>js/plugins/dataTables.bootstrap4.min.js"></script>
+  <script>
+    $('#table_transaction').DataTable();
+  </script>
 <?php } elseif ($page == "member") { ?>
 
   <script src="<?php echo ASSETS ?>js/plugins/select2.full.min.js"></script>
@@ -103,6 +110,9 @@
     </script>
   <?php
     } ?>
+
+
+
 <?php } elseif ($page == "product") { ?>
   <script src="<?php echo ASSETS ?>js/plugins/select2.full.min.js"></script>
   <script src="<?php echo ASSETS ?>js/pages/form-select-custom.js"></script>
@@ -112,13 +122,47 @@
     $('#table_product').DataTable();
   </script>
 <?php } elseif ($page == "course") { ?>
+  <script src="<?php echo ASSETS ?>js/plugins/select2.full.min.js"></script>
+  <script src="<?php echo ASSETS ?>js/pages/form-select-custom.js"></script>
   <script src="<?php echo ASSETS ?>js/plugins/jquery.dataTables.min.js"></script>
   <script src="<?php echo ASSETS ?>js/plugins/dataTables.bootstrap4.min.js"></script>
   <script>
     $('#table_course').DataTable();
   </script>
-<?php } ?>
+<?php } elseif ($page == "notice") { ?>
+  <script src="<?php echo ASSETS ?>js/plugins/jquery.dataTables.min.js"></script>
+  <script src="<?php echo ASSETS ?>js/plugins/dataTables.bootstrap4.min.js"></script>
+  <script>
+    $('#table_notice').DataTable();
+  </script>
+<?php } elseif ($page == "bonus") { ?>
+  <script src="<?php echo ASSETS ?>js/plugins/jquery.dataTables.min.js"></script>
+  <script src="<?php echo ASSETS ?>js/plugins/dataTables.bootstrap4.min.js"></script>
+  <script>
+    $('#table_bonus').DataTable();
+  </script>
+<?php } elseif ($page == "stock") { ?>
+  <script src="<?php echo ASSETS ?>js/plugins/select2.full.min.js"></script>
+  <script src="<?php echo ASSETS ?>js/pages/form-select-custom.js"></script>
+  <script src="<?php echo ASSETS ?>js/plugins/jquery.dataTables.min.js"></script>
+  <script src="<?php echo ASSETS ?>js/plugins/dataTables.bootstrap4.min.js"></script>
 
+  <?php if ($title == "Stok Produk") { ?>
+    <script>
+      $('#table_stock_product').DataTable();
+    </script>
+  <?php
+    } elseif ($title == "Stok Produk ") { ?>
+      <script>
+        $('#table_stock_product_list').DataTable();
+      </script>
+      <script>
+        $('#table_stock_product_list_trans').DataTable();
+      </script>
+  <?php
+    } ?>
+
+<?php } ?>
 
 </body>
 

@@ -1,6 +1,5 @@
 <?php $this->load->view('admin/_/header'); ?>
 
-
 <section class="pcoded-main-container">
     <div class="pcoded-content">
         <div class="page-header">
@@ -26,32 +25,37 @@
                         <h5>Data Pribadi</h5>
                     </div>
                     <div class="card-body">
-                        <?php echo form_open_multipart('admin/member/add/new', 'id="save"'); ?>
+                        <?php echo form_open_multipart('admin/master/add/product'); ?>
                         <div class="form-row">
+                            
                             <div class="form-group col-md-6">
                                 <label for="name">Nama Produk</label>
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Nama Lengkap" value="<?php echo set_value('name'); ?>">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Nama Produk" value="<?php echo set_value('name'); ?>">
                                 <?php echo form_error('name', '<small class="text-danger">', '</small>') ?>
                             </div>
+
                             <div class="form-group col-md-6">
                                 <label>Brand</label>
                                 <select class="js-example-basic-single form-control" name="upline">
-                                    <?php foreach ($upline as $up) {
-                                        echo "<option value='$up->id'>$up->name ($up->phone)</option>";
+                                    <?php foreach ($brand as $b) {
+                                        echo "<option value='$b->id'>$b->name</option>";
                                     }
                                     ?>
                                 </select>
                             </div>
+
                             <div class="form-group col-md-3">
                                 <label for="email">Email</label>
                                 <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="<?php echo set_value('name'); ?>">
                                 <?php echo form_error('email', '<small class="text-danger">', '</small>') ?>
                             </div>
+
                             <div class="form-group col-md-3">
                                 <label for="phone">Nomor HP (WA)</label>
                                 <input type="number" class="form-control" id="phone" name="phone" placeholder="Nomor Handphone" value="<?php echo set_value('name'); ?>">
                                 <?php echo form_error('phone', '<small class="text-danger">', '</small>') ?>
                             </div>
+
                             <div class="form-group col-md-2">
                                 <label>Jenis Kelamin</label>
                                 <div class="custom-control custom-radio">
@@ -64,6 +68,7 @@
                                 </div>
                                 <?php echo form_error('gender', '<small class="text-danger">', '</small>') ?>
                             </div>
+
                             <div class="form-group col-md-4">
                                 <label class="form-label">Foto</label>
                                 <div>
@@ -91,73 +96,10 @@
                                 <label for="npwp_name">Nama NPWP (Opsional)</label>
                                 <input type="text" class="form-control" id="npwp_name" name="npwp_name">
                             </div>
-                            <div class="form-group col-md-4">
-                                <label for="province">Provinsi</label>
-                                <select class="js-example-basic-single form-control" id="province" name="province">
-                                    <option></option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="district">Kabupaten/Kota</label>
-                                <select class="js-example-basic-single form-control" disabled id="district" name="district">
-                                    <option></option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="subdistrict">Kecamatan</label>
-                                <select class="js-example-basic-single form-control" disabled id="subdistrict" name="subdistrict">
-                                    <option></option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="village">Desa/Kelurahan</label>
-                                <select class="js-example-basic-single form-control" disabled id="village" name="village">
-                                    <option></option>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-2">
-                                <label for="postal_code">Kode Pos</label>
-                                <input type="text" class="form-control" id="postal_code" name="postal_code">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="address">Alamat Lengkap <small class="text-danger">(Lengkapi alamat, karena akan digunakan untuk pengiriman paket)</small></label>
-                                <!-- <input type="text" class="form-control" disabled id="address" placeholder="Alamat Lengkap" name="address"> -->
-                                <textarea class="form-control" disabled id="address" rows="3" name="address"></textarea>
-                            </div>
-                        </div>
-
-                        <h5 class="mt-2">Data Membership</h5>
-                        <hr>
-                        <div class="form-row">
-                            <div class="form-group col-md-8">
-                                <label>Member Upline (opsional)</label>
-                                <select class="js-example-basic-single form-control" name="upline">
-                                    <?php foreach ($upline as $up) {
-                                        echo "<option value='$up->id'>$up->name ($up->phone)</option>";
-                                    }
-                                    ?>
-                                </select>
-                            </div>
-                            <div class="form-group col-md-4">
-                                <label for="level">Level</label>
-                                <select class="js-example-basic-single form-control" id="level" name="level" value="<?php echo set_value('name'); ?>">
-                                    <?php foreach ($level as $lv) {
-                                        echo "<option value='$lv->id'>$lv->level_name</option>";
-                                    } ?>
-                                </select>
-                            </div>
                         </div>
 
                         <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <label>Bank</label>
-                                <select class="js-example-basic-single form-control" name="bank">
-                                    <?php foreach ($bank as $b) {
-                                        echo "<option value='$b->id'>$b->name</option>";
-                                    }
-                                    ?>
-                                </select>
-                            </div>
+
                             <div class="form-group col-md-4">
                                 <label for="bank_account">Nomor Rekening</label>
                                 <input type="number" class="form-control" id="bank_account" name="bank_account">
@@ -168,9 +110,6 @@
                             </div>
                         </div>
 
-                        <div class="form-row">
-
-                        </div>
                         <button type="submit" class="btn  btn-primary">Simpan</button>
                         </form>
                     </div>
@@ -184,62 +123,5 @@
 
 <?php $this->load->view('admin/_/footer'); ?>
 
-
-
 <script type="text/javascript">
-    $.ajax({
-        type: "GET",
-        dataType: "html",
-        url: "<?php echo base_url('api/location/get_province/') ?>",
-        success: function(data) {
-            $("select#province").html(data);
-        }
-    });
-
-    $('#province').change(function() {
-        var id_province = $('#province').val();
-
-        $('#district').after('<i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i>');
-        $('#district').load('<?php echo base_url('api/location/get_district/') ?>/' + id_province, function(responseTxt, statusTxt, xhr) {
-            if (statusTxt === "success")
-                $('.loading').remove();
-            document.getElementById('district').disabled = false;
-        });
-        return false;
-    });
-
-    $('#district').change(function() {
-        var id_district = $('#district').val();
-
-        $('#subdistrict').after('<i class="fa fa-spinner fa-pulse fa-2x fa-fw loading"></i>');
-        $('#subdistrict').load('<?php echo base_url('api/location/get_subdistrict/') ?>/' + id_district, function(responseTxt, statusTxt, xhr) {
-            if (statusTxt === "success")
-                $('.loading').remove();
-            document.getElementById('subdistrict').disabled = false;
-        });
-        return false;
-    });
-
-    $('#subdistrict').change(function() {
-        var subdistrict_name = $("#subdistrict option:selected").text();
-        $("#subdistrict_name").val(subdistrict_name);
-
-        $('#village').load('<?php echo base_url('api/location/get_village/') ?>' + subdistrict_name, function(responseTxt, statusTxt, xhr) {
-            if (statusTxt === "success")
-                $('.loading').remove();
-            document.getElementById('village').disabled = false;
-        });
-        return false;
-    });
-
-    $('#village').change(function() {
-        var province_name = $("#province option:selected").text();
-        var district_name = $("#district option:selected").text();
-        var subdistrict_name = $("#subdistrict option:selected").text();
-        var village_name = $("#village option:selected").text();
-
-        $("#address").val('...., ' + village_name + ', Kecamatan ' + subdistrict_name + ', ' + district_name + ', ' + province_name);
-        document.getElementById('address').disabled = false;
-        return false;
-    });
 </script>

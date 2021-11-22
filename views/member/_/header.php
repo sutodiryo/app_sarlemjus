@@ -14,6 +14,11 @@
 
     <link href="<?php echo FAVICON ?>" rel="icon">
 
+    <?php if ($page['id'] == "team" || $page['id'] == "store") { ?>
+        <!-- <link rel="stylesheet" href="<?= ASSETS ?>css/plugins/select2.min.css"> -->
+        <link rel="stylesheet" href="<?= ASSETS ?>css/plugins/dataTables.bootstrap4.min.css">
+    <?php } ?>
+
     <link rel="stylesheet" href="<?php echo ASSETS ?>css/style.css">
 </head>
 
@@ -33,8 +38,8 @@
                         <!-- <small><?php echo "" . substr($this->session->userdata('log_name'), 0, 20) . ""; ?></small> -->
                         <div class="user-details">
                             <div id="more-details">
-                                <!-- <span title="<?= $this->session->userdata('log_name'); ?>"><?php echo "" . substr($this->session->userdata('log_name'), 0, 12) . "..."; ?> <i class="fa fa-caret-down"></i></span> -->
-                                <?php echo $this->session->userdata('log_level_name') ?> <i class="fa fa-caret-down"></i>
+                                <span title="<?= $this->session->userdata('log_name'); ?>"><?php echo "" . substr($this->session->userdata('log_name'), 0, 12) . "..."; ?> <i class="fa fa-caret-down"></i></span>
+                                <!-- <?php echo $this->session->userdata('log_level_name') ?> <i class="fa fa-caret-down"></i> -->
                             </div>
                         </div>
                     </div>
@@ -60,13 +65,13 @@
                                             echo "active";
                                         } ?>"><a href="<?php echo base_url('member/course') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-graduation-cap"></i></span><span class="pcoded-mtext">Kelas</span></a></li>
 
-                    <!-- <li class="nav-item <?php if ($page['id'] == "store") {
+                    <li class="nav-item <?php if ($page['id'] == "store") {
                                                     echo "active";
-                                                } ?>"><a href="<?php echo base_url('member/store') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-store"></i></span><span class="pcoded-mtext">Store</span></a></li> -->
+                                                } ?>"><a href="<?php echo base_url('member/store') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-store"></i></span><span class="pcoded-mtext">Store</span></a></li>
 
-                    <li class="nav-item <?php if ($page == "transaction") {
+                    <!-- <li class="nav-item <?php if ($page == "transaction") {
                                             echo "active";
-                                        } ?>"><a href="<?php echo base_url('member/transaction') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-shopping-cart"></i></span><span class="pcoded-mtext">Belanja</span></a></li>
+                                        } ?>"><a href="<?php echo base_url('member/transaction') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-shopping-cart"></i></span><span class="pcoded-mtext">Belanja</span></a></li> -->
 
                     <li class="nav-item <?php if ($page == "team") {
                                             echo "active";
@@ -75,6 +80,7 @@
                     <li class="nav-item <?php if ($page == "point") {
                                             echo "active";
                                         } ?>"><a href="<?php echo base_url('member/point') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-star-half-alt"></i></span><span class="pcoded-mtext">Poin</span></a></li>
+
 
                     <!-- <li class="nav-item <?php if ($page == "bonus") {
                                                     echo "active";
@@ -122,16 +128,12 @@
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
-                <li>
+                <!-- <li>
                     <div class="dropdown">
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="icon feather icon-shopping-cart"></i></a>
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="icon feather icon-shopping-cart"></i> <span class="pcoded-badge badge badge-warning">12</span></a>
                         <div class="dropdown-menu dropdown-menu-right notification">
                             <div class="noti-head">
                                 <h6 class="d-inline-block m-b-0 text-center">Keranjang Belanja</h6>
-                                <!-- <div class="float-right">
-                                    <a href="#!" class="m-r-10">mark as read</a>
-                                    <a href="#!">clear all</a>
-                                </div> -->
                             </div>
                             <ul class="noti-body">
                                 <li class="n-title">
@@ -182,10 +184,10 @@
                             </div>
                         </div>
                     </div>
-                </li>
+                </li> -->
                 <li>
                     <div class="dropdown">
-                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="icon feather icon-bell"></i></a>
+                        <a class="dropdown-toggle" href="#" data-toggle="dropdown"><i class="icon feather icon-bell"></i> </a>
                         <div class="dropdown-menu dropdown-menu-right notification">
                             <div class="noti-head">
                                 <h6 class="d-inline-block m-b-0">Notifications</h6>
