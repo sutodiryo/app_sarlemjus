@@ -10,7 +10,7 @@ class Course extends CI_Controller
       $this->session->set_flashdata("report", "<div class='alert alert-danger alert-dismissible fade show' role='alert'><small>Anda harus login terlebih dahulu.</small><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button></div>");
       redirect(base_url('login'));
     }
-    $this->load->model('member/Course_data');
+    $this->load->model('Course_data');
   }
 
   function index()

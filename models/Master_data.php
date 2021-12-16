@@ -63,9 +63,9 @@ class Master_data extends CI_Model
 
     function get_course_category_list()
     {
-        return $this->db->query("SELECT id,name,cover,status,
-                                        (SELECT COUNT(*) FROM course_acces WHERE id_course_category=course_category.id) AS tot_access
-                                        FROM course_category")->result();
+        return $this->db->query("SELECT id,name,cover,status FROM course_category")->result();
+                                        // (SELECT COUNT(*) FROM course_acces WHERE id_course_category=course_category.id) AS tot_access
+                                        // FROM course_category")->result();
     }
 
     function get_notice_list()

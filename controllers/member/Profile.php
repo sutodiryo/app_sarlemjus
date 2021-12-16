@@ -29,6 +29,9 @@ class Profile extends CI_Controller
 
     $id = $this->session->userdata('log_id');
 
+		$data['member'] = $this->Member_data->get_member_detail($id);
+		$data['downline'] = $this->Member_data->get_member_downline($id);
+
     $this->load->view('member/profile/index', $data);
   }
 }

@@ -12,10 +12,10 @@ class Dashboard_data extends CI_Model
     function get_notice_list()
     {
         $level = $this->session->userdata('log_level');
-        return $this->db->query("   SELECT * FROM notice
-                                    WHERE id IN (SELECT id_notice FROM notice_target WHERE id_member_level=$level)
-                                    AND date_start <= CURRENT_DATE()
-                                    AND date_end >= CURRENT_DATE()
-                                    ORDER BY date_start DESC")->result();
+        return $this->db->query("   SELECT * FROM notice")->result();
+                                    // WHERE id IN (SELECT id_notice FROM notice_target WHERE id_member_level=$level)
+                                    // AND date_start <= CURRENT_DATE()
+                                    // AND date_end >= CURRENT_DATE()
+                                    // ORDER BY date_start DESC")->result();
     }
 }

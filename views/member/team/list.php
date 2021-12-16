@@ -27,6 +27,7 @@
 
           <?php echo $this->session->flashdata('report'); ?>
 
+          
           <div class="card-body">
             <div class="row align-items-center m-l-1 mb-3">
               <div class="col-sm-6">
@@ -34,10 +35,8 @@
               </div>
               <div class="col-sm-6 text-right">
                 <button class="btn btn-info btn-sm btn-round has-ripple"onclick="link_aff()" class="btn btn-sm btn-neutral" title="Copy link pendaftaran team baru"><i class="feather icon-link"></i> Copy Link Daftar Member</button>
-                
-                <a data-toggle="modal" href="#modal_add_team" class="btn btn-sm btn-success" title="Tambah Member Baru"><i class="fa fa-user-plus"></i> Daftarkan Team Baru</a>
+                <!-- <a data-toggle="modal" href="#modal_add_team" class="btn btn-sm btn-success" title="Tambah Member Baru"><i class="fa fa-user-plus"></i> Daftarkan Team Baru</a> -->
                 <input style="position:absolute; left:-9999px" type="text" id="aff_link" value="<?php echo "" . base_url('reg/') . "" . $this->session->userdata('log_id') . ""; ?>">
-
               </div>
             </div>
             <div class="table-responsive">
@@ -45,11 +44,10 @@
                 <thead>
                   <tr>
                     <th width="5%">ID</th>
-                    <th width="25%">Name</th>
+                    <th width="35%">Name</th>
                     <th width="40%">Alamat</th>
-                    <th width="10%">Email</th>
-                    <th width="10%">No HP</th>
-                    <th width="10%"></th>
+                    <th width="10%" class="text-center">Email</th>
+                    <th width="10%" class="text-center">No HP</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -58,11 +56,10 @@
                   foreach ($member as $m) {
                     echo "<tr>
                             <td>#$m->id</td>
-                            <td><img src='" . base_url() . "public/upload/member/$m->img' class='img-radius' width='30px' height='30px'> " . substr($m->name, 0, 30) . "</td>
+                            <td><a href='#'><img src='" . base_url() . "public/upload/member/$m->img' class='img-radius' width='30px' height='30px'> " . substr($m->name, 0, 30) . "</a></td>
                             <td><textarea class='form-control' disabled  style='font-size:80%;'>$m->address</textarea></td>
-                            <td>$m->email</td>
-                            <td>$m->phone</td>
-                            <td></td>
+                            <td class='text-center'><a class='btn btn-sm btn-success' href='mailto:$m->email'><i class='fas fa-envelope'></i> $m->email</a></td>
+                            <td class='text-center'><a class='btn btn-sm btn-success' href='https://api.whatsapp.com/send/?phone=62$m->phone'><i class='fab fa-whatsapp'></i> $m->phone</a></td>
                         </tr>";
                   }
                   ?>
