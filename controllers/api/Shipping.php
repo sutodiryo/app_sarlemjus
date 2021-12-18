@@ -8,7 +8,7 @@ class Shipping extends CI_Controller
     parent::__construct();
     if ($this->session->userdata('log_valid') == FALSE) {
       redirect(base_url('login'));
-  }
+    }
     $this->load->model(array('M_shiping_gateway', 'M_order'));
   }
 
@@ -122,7 +122,7 @@ class Shipping extends CI_Controller
     $result = json_encode($data['rajaongkir']['results']['city_name']);
     return str_replace('"', " ", $result);
   }
-  
+
 
   function store_origin_shiping()
   {
@@ -153,114 +153,114 @@ class Shipping extends CI_Controller
 
   function get($x, $y)
   {
-      $this->_ci = &get_instance();
-      $this->_ci->load->config('rajaongkir', TRUE);
-      $output = '';
+    $this->_ci = &get_instance();
+    $this->_ci->load->config('rajaongkir', TRUE);
+    $output = '';
 
-      if ($this->_ci->config->item('rajaongkir_api_key', 'rajaongkir') == "") {
-          log_message("error", "Harap masukkan API KEY Anda di config.");
-      } else {
-          $this->api_key = $this->_ci->config->item('rajaongkir_api_key', 'rajaongkir');
-          $api_key = $this->api_key;
+    if ($this->_ci->config->item('rajaongkir_api_key', 'rajaongkir') == "") {
+      log_message("error", "Harap masukkan API KEY Anda di config.");
+    } else {
+      $this->api_key = $this->_ci->config->item('rajaongkir_api_key', 'rajaongkir');
+      $api_key = $this->api_key;
+    }
+
+    if ($x == "province") {
+      $curl = curl_init();
+      curl_setopt_array($curl, array(
+        CURLOPT_URL => "" . base_url('public/back/province.json') . "",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+      ));
+      $response = curl_exec($curl);
+      $err = curl_error($curl);
+      curl_close($curl);
+      $data = json_decode($response, true);
+      for ($i = 0; $i < count($data['rajaongkir']['results']); $i++) {
+        echo "<option></option>";
+        echo "<option value='" . $data['rajaongkir']['results'][$i]['province_id'] . "'>" . $data['rajaongkir']['results'][$i]['province'] . "</option>";
       }
+    } elseif ($x == "district") {
+      $curl = curl_init();
+      curl_setopt_array($curl, array(
+        CURLOPT_URL => "https://pro.rajaongkir.com/api/city?province=$y",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        CURLOPT_HTTPHEADER => array(
+          "key: $api_key"
+        ),
+      ));
+      $response = curl_exec($curl);
+      $err = curl_error($curl);
+      curl_close($curl);
+      $data = json_decode($response, true);
+      for ($i = 0; $i < count($data['rajaongkir']['results']); $i++) {
+        echo "<option></option>";
+        echo "<option value='" . $data['rajaongkir']['results'][$i]['city_id'] . "'>" . $data['rajaongkir']['results'][$i]['type'] . " " . $data['rajaongkir']['results'][$i]['city_name'] . "</option>";
+      }
+    } elseif ($x == "subdistrict") {
+      $curl = curl_init();
+      curl_setopt_array($curl, array(
+        CURLOPT_URL => "https://pro.rajaongkir.com/api/subdistrict?city=$y",
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_ENCODING => "",
+        CURLOPT_MAXREDIRS => 10,
+        CURLOPT_TIMEOUT => 30,
+        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST => "GET",
+        CURLOPT_HTTPHEADER => array(
+          "key: $api_key"
+        ),
+      ));
+      $response = curl_exec($curl);
+      $err = curl_error($curl);
+      curl_close($curl);
+      $data = json_decode($response, true);
+      for ($i = 0; $i < count($data['rajaongkir']['results']); $i++) {
+        echo "<option></option>";
+        echo "<option value='" . $data['rajaongkir']['results'][$i]['subdistrict_id'] . "'>Kecamatan " . $data['rajaongkir']['results'][$i]['subdistrict_name'] . "</option>";
+      }
+    } elseif ($x == "cost") {
+      $origin = $this->input->post('origin');
+      $destination = $this->input->post('destination');
+      $weight = $this->input->post('berat'); //gram
+      $courier = $this->input->post('courier');
 
-      if ($x == "province") {
-          $curl = curl_init();
-          curl_setopt_array($curl, array(
-              CURLOPT_URL => "" . base_url('public/back/province.json') . "",
-              CURLOPT_RETURNTRANSFER => true,
-              CURLOPT_ENCODING => "",
-              CURLOPT_MAXREDIRS => 10,
-              CURLOPT_TIMEOUT => 30,
-              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-              CURLOPT_CUSTOMREQUEST => "GET",
-          ));
-          $response = curl_exec($curl);
-          $err = curl_error($curl);
-          curl_close($curl);
-          $data = json_decode($response, true);
-          for ($i = 0; $i < count($data['rajaongkir']['results']); $i++) {
-              echo "<option></option>";
-              echo "<option value='" . $data['rajaongkir']['results'][$i]['province_id'] . "'>" . $data['rajaongkir']['results'][$i]['province'] . "</option>";
-          }
-      } elseif ($x == "district") {
-          $curl = curl_init();
-          curl_setopt_array($curl, array(
-              CURLOPT_URL => "https://pro.rajaongkir.com/api/city?province=$y",
-              CURLOPT_RETURNTRANSFER => true,
-              CURLOPT_ENCODING => "",
-              CURLOPT_MAXREDIRS => 10,
-              CURLOPT_TIMEOUT => 30,
-              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-              CURLOPT_CUSTOMREQUEST => "GET",
-              CURLOPT_HTTPHEADER => array(
-                  "key: $api_key"
-              ),
-          ));
-          $response = curl_exec($curl);
-          $err = curl_error($curl);
-          curl_close($curl);
-          $data = json_decode($response, true);
-          for ($i = 0; $i < count($data['rajaongkir']['results']); $i++) {
-              echo "<option></option>";
-              echo "<option value='" . $data['rajaongkir']['results'][$i]['city_id'] . "'>" . $data['rajaongkir']['results'][$i]['type'] . " " . $data['rajaongkir']['results'][$i]['city_name'] . "</option>";
-          }
-      } elseif ($x == "subdistrict") {
-          $curl = curl_init();
-          curl_setopt_array($curl, array(
-              CURLOPT_URL => "https://pro.rajaongkir.com/api/subdistrict?city=$y",
-              CURLOPT_RETURNTRANSFER => true,
-              CURLOPT_ENCODING => "",
-              CURLOPT_MAXREDIRS => 10,
-              CURLOPT_TIMEOUT => 30,
-              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-              CURLOPT_CUSTOMREQUEST => "GET",
-              CURLOPT_HTTPHEADER => array(
-                  "key: $api_key"
-              ),
-          ));
-          $response = curl_exec($curl);
-          $err = curl_error($curl);
-          curl_close($curl);
-          $data = json_decode($response, true);
-          for ($i = 0; $i < count($data['rajaongkir']['results']); $i++) {
-              echo "<option></option>";
-              echo "<option value='" . $data['rajaongkir']['results'][$i]['subdistrict_id'] . "'>Kecamatan " . $data['rajaongkir']['results'][$i]['subdistrict_name'] . "</option>";
-          }
-      } elseif ($x == "cost") {
-          $origin = $this->input->post('origin');
-          $destination = $this->input->post('destination');
-          $weight = $this->input->post('berat'); //gram
-          $courier = $this->input->post('courier');
+      $curl = curl_init();
+      curl_setopt_array($curl, array(
+        CURLOPT_URL             => "https://pro.rajaongkir.com/api/cost",
+        CURLOPT_RETURNTRANSFER  => true,
+        CURLOPT_ENCODING        => "",
+        CURLOPT_MAXREDIRS       => 10,
+        CURLOPT_TIMEOUT         => 30,
+        CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
+        CURLOPT_CUSTOMREQUEST   => "POST",
+        CURLOPT_POSTFIELDS      => "origin=$origin&originType=city&destination=$destination&destinationType=subdistrict&weight=$weight&courier=$courier",
+        CURLOPT_HTTPHEADER      => array(
+          "content-type: application/x-www-form-urlencoded",
+          "key: $api_key"
+        ),
+      ));
 
-          $curl = curl_init();
-          curl_setopt_array($curl, array(
-              CURLOPT_URL             => "https://pro.rajaongkir.com/api/cost",
-              CURLOPT_RETURNTRANSFER  => true,
-              CURLOPT_ENCODING        => "",
-              CURLOPT_MAXREDIRS       => 10,
-              CURLOPT_TIMEOUT         => 30,
-              CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
-              CURLOPT_CUSTOMREQUEST   => "POST",
-              CURLOPT_POSTFIELDS      => "origin=$origin&originType=city&destination=$destination&destinationType=subdistrict&weight=$weight&courier=$courier",
-              CURLOPT_HTTPHEADER      => array(
-                  "content-type: application/x-www-form-urlencoded",
-                  "key: $api_key"
-              ),
-          ));
+      $response = curl_exec($curl);
+      $err = curl_error($curl);
+      curl_close($curl);
+      $data = json_decode($response, true);
+      // $kurir = $data['rajaongkir']['results'][0]['name'];
+      // $kotaasal = $data['rajaongkir']['origin_details']['city_name'];
+      // $provinsiasal = $data['rajaongkir']['origin_details']['province'];
+      // $kotatujuan = $data['rajaongkir']['destination_details']['city_name'];
+      // $provinsitujuan = $data['rajaongkir']['destination_details']['province'];
+      // $berat = $data['rajaongkir']['query']['weight'] / 1000;
 
-          $response = curl_exec($curl);
-          $err = curl_error($curl);
-          curl_close($curl);
-          $data = json_decode($response, true);
-          // $kurir = $data['rajaongkir']['results'][0]['name'];
-          // $kotaasal = $data['rajaongkir']['origin_details']['city_name'];
-          // $provinsiasal = $data['rajaongkir']['origin_details']['province'];
-          // $kotatujuan = $data['rajaongkir']['destination_details']['city_name'];
-          // $provinsitujuan = $data['rajaongkir']['destination_details']['province'];
-          // $berat = $data['rajaongkir']['query']['weight'] / 1000;
-
-          $output .= '<tr>
+      $output .= '<tr>
                           <td colspan="2" style="text-align:right;"><font color="black">Bukti Transfer :</font><br><font color="red"><small>Max 1 MB (jpg/png)</small></font></td>
                           <td colspan="3"">
                           <input type="file" name="bukti_transfer" class="form-control" required>
@@ -272,10 +272,48 @@ class Shipping extends CI_Controller
                           </td>
                       </tr>';
 
-          return $output;
-      } elseif ($x == "shipping_address") {
-          $data = $this->db->query("SELECT * FROM member_shipping WHERE id_member_shipping = '$y'")->row();
-          echo json_encode($data);
-      }
+      return $output;
+    } elseif ($x == "shipping_address") {
+      $data = $this->db->query("SELECT * FROM member_shipping WHERE id_member_shipping = '$y'")->row();
+      echo json_encode($data);
+    }
+  }
+
+  function add_shipping_address()
+  {
+    $id = $this->session->userdata('log_id');
+    $q = $this->db->query("SELECT * FROM member_shipping WHERE id_member='$id'")->num_rows();
+    if ($q == 0) {
+      $status = 1;
+    } else {
+      $status = 0;
+    }
+
+    $data = [
+      'id_member_shipping' => "ms-" . $id . "-" . ($q + 1),
+      'id_member' => $id,
+      'nama_penerima' => $this->input->post('nama_penerima'),
+      'no_hp_penerima'  => $this->input->post('no_hp_penerima'),
+      'id_province'    => $this->input->post('id_province'),
+      'id_district'    => $this->input->post('id_district'),
+      'id_subdistrict' => $this->input->post('id_subdistrict'),
+      'province_name'    => $this->input->post('province_name'),
+      'district_name'    => $this->input->post('district_name'),
+      'subdistrict_name'    => $this->input->post('subdistrict_name'),
+      'postal_code'    => $this->input->post('postal_code'),
+      'full_address'    => $this->input->post('full_address'),
+      'status'    => $status
+    ];
+
+    $this->db->insert('member_shipping', $data);
+
+    if ($this->input->post('cart') == 1) {
+      $q = $this->db->query("SELECT id_member_shipping FROM member_shipping WHERE id_member='$id' ORDER BY date_created ASC LIMIT 1")->row();
+      $idsa = $q->id_member_shipping;
+      $this->load_shipping_address($idsa);
+    } else {
+      $this->alert('success', 'Alamat Pengiriman Baru Berhasil Ditambahkan...');
+      redirect('member/profile');
+    }
   }
 }

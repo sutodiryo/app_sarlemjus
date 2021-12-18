@@ -12,6 +12,8 @@ class Master_data extends CI_Model
     function get_product_list($status)
     {
         $q = "SELECT    p.id,brand,p.name,slug,description,category,point,free_delivery,weight,length,width,height,p.status,p.selling_price,
+                        (SELECT SUM(psp.stock_update) FROM product_stock psp WHERE psp.id_product=p.id AND psp.type=1) AS stock_plus,
+                        (SELECT SUM(psp.stock_update) FROM product_stock psp WHERE psp.id_product=p.id AND psp.type!=1) AS stock_min,
                         pc.name AS category_name,
                         pb.name AS brand_name,
                         (SELECT image FROM product_image WHERE id_product=p.id LIMIT 1) AS image

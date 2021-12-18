@@ -97,4 +97,17 @@ class Member_data extends CI_Model
     {
         return $this->db->query("SELECT * FROM member_level ORDER BY id DESC")->result();
     }
+
+    
+
+    function get_product_purchase_cart($idm,$idp)
+    {
+        $query =  $this->db->query("SELECT  id_produk,nama_produk,satuan,nilai,img_1,img_2,keterangan,waktu_input,status,berat,
+                                            (SELECT harga FROM produk_harga WHERE id_produk=produk.id_produk AND produk_harga.id_member_level=(SELECT level FROM member WHERE member.id_member='$idm')) AS harga,
+                                            ((SELECT SUM(stock_update) FROM produk_stok WHERE id_produk=produk.id_produk)) AS stok,
+                                            (SELECT SUM(quantity) FROM transaksi_produk WHERE transaksi_produk.id_produk=produk.id_produk AND id_transaksi IN (SELECT id_transaksi FROM transaksi WHERE status IN (3,4))) AS stok_
+                                        FROM produk
+                                        WHERE produk.id_produk='$idp' AND produk.status=1")->row();
+        return $query;
+    }
 }
