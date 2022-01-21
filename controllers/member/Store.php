@@ -10,6 +10,7 @@ class Store extends CI_Controller
       $this->session->set_flashdata("report", "<div class='alert alert-danger alert-dismissible fade show' role='alert'><small>Anda harus login terlebih dahulu.</small><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button></div>");
       redirect(base_url('login'));
     }
+    $this->load->model('Transaction_data');
     $this->load->model('Master_data');
   }
 
@@ -36,25 +37,51 @@ class Store extends CI_Controller
 
   function cart_add()
   {
-    $id_member  = $this->session->userdata('log_id');
+    // $id_member  = $this->session->userdata('log_id');
+    $qty = $this->input->post('quantity');
     $id_produk  = $this->input->post('id_produk');
-    $q = $this->Member_model->get_product_purchase_cart($id_member, $id_produk);
-
+    $q = $this->Transaction_data->get_product_purchase_cart($qty, $id_produk);
+    // die(var_dump($q));
     $data = array(
       'id'    => $id_produk,
-      'qty'   => $this->input->post('quantity'),
-      'price' => $q->harga,
-      'name'  => $q->nama_produk,
-      'weight'  => $q->berat,
+      'qty'   => $qty,
+      'price' => $q->price,
+      'name'  => $q->name,
+      'weight'  => $q->weight,
       'options' => array(
-        'image' => $q->img_1,
-        'note' => $q->keterangan
+        'image' => $q->image
       )
     );
     $this->cart->insert($data);
     echo $this->cart_show(0); //tampilkan cart setelah added
   }
 
+
+  function cart_load()
+  {
+    echo $this->cart_show(0);
+  }
+
+  function update_qty_cart()
+  {
+    $qty        = $this->input->post('qty');
+    $id_produk  = $this->input->post('id_produk');
+    $data = array(
+      'rowid' => $this->input->post('rowid'),
+      'qty' => $qty
+    );
+
+    $id_member  = $this->session->userdata('log_id');
+    $q          = $this->Transaction_data->get_product_purchase_cart($id_member, $id_produk);
+    $stock      = $q->stock_plus - $q->stock_min;
+    if ($stock < $qty) {
+      // $this->alert('warning', 'Gagal, Anda melebih stok yang ada...');
+      echo '<div><script>alert("Gagal, Anda melebih stok yang ada");</script></div>';
+    } else {
+      $this->cart->update($data);
+    }
+    echo $this->cart_show(0); //tampilkan cart setelah added
+  }
 
   function cart_del()
   {
@@ -74,7 +101,7 @@ class Store extends CI_Controller
     $no         = 0;
     $tot_qty    = array_sum(array_column($this->cart->contents(), 'qty'));
 
-    $member_shipping_default    = $this->Member_model->get_member_shipping_default($id_member);
+    $member_shipping_default    = $this->Transaction_data->get_member_shipping_default($id_member);
 
     $str        = "'";
     foreach ($this->cart->contents() as $items) {
@@ -82,9 +109,9 @@ class Store extends CI_Controller
 
       $id_produk  =  $items['id'];
       $id_member  = $this->session->userdata('log_id');
-      $q = $this->Member_model->get_product_purchase_cart($id_member, $id_produk);
+      $q = $this->Transaction_data->get_product_purchase_cart($id_member, $id_produk);
 
-      $stock = $q->stok - $q->stok_;
+      $stock = $q->stock_plus - $q->stock_min;
 
       $output .= '<tr>
                           <td title="' . $items['name'] . '">' . substr($items['name'], 0, 20) . '</td>
@@ -216,11 +243,30 @@ class Store extends CI_Controller
   }
 
 
+  function get_weight($x)
+  {
+    $tot_berat = array();
+    foreach ($this->cart->contents() as $items) {
+      $qty            = (float) $items['qty'];
+      $wg             = (float) $items['weight'];
+
+      $tot_berat[]    = $qty * $wg;
+    }
+
+    $tb_gram  = (array_sum($tot_berat));
+
+
+    if ($x == 'return') {
+      return (int) $tb_gram;
+    } elseif ($x == 'echo') {
+      echo (int) $tb_gram;
+    }
+  }
 
   function load_shipping_address($idsa)
   {
     $id_member  = $this->session->userdata('log_id');
-    $q          = $this->Member_model->get_member_shipping_by_id($id_member, $idsa);
+    $q          = $this->Transaction_data->get_member_shipping_by_id($id_member, $idsa);
     $data       = '';
 
     $data .= '
@@ -238,5 +284,26 @@ class Store extends CI_Controller
                       <a data-toggle="modal" href="#modal_shipping_address" title="Ganti Alamat Pengiriman" class="btn btn-sm btn-default">Ganti Alamat</a>
                       </th>';
     echo $data;
+  }
+
+
+  function get_cost($cour)
+  {
+    $id_member  = $this->session->userdata('log_id');
+    $q          = $this->Transaction_data->get_member_shipping_default($id_member);
+
+    $des = $q->id_subdistrict;
+    $weight = $this->get_weight('return');
+
+    // $gatewayname = "Raja Ongkir";
+    // $origin = $this->M_shiping_gateway->data_shiping_gateway_by_name($gatewayname)->row();
+    $this->load->library('Rajaongkir');
+    $rajaongkir = new Rajaongkir;
+    $tarif = $rajaongkir->_api_ongkir_post(135, $des, $weight, $cour);
+    $data = json_decode($tarif, true);
+    // die($data);
+
+    // echo json_encode($data);
+    echo $des, $weight, $cour;
   }
 }

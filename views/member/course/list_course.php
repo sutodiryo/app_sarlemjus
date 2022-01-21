@@ -20,21 +20,6 @@
     </div>
 
     <div class="row">
-      <div class="col-sm-12">
-
-        <div class="card">
-          <div class="card-header">
-            <div class="row align-items-center m-l-1 mb-3">
-              <div class="col-sm-6">
-                <h5><?= $course_category->name ?></h5>
-              </div>
-              <div class="col-sm-6 text-right ">
-                <a class="btn btn-danger btn-sm btn-round has-ripple" href="<?= base_url('member/course') ?>"><i class="feather feather icon-arrow-left"></i> Kembali</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
       <div class="col-lg-12">
         <div class="row">
@@ -45,25 +30,24 @@
               if ($c->tipe == 0) {
                 ?>
 
-              <div class="col-lg-6 col-sm-6">
-                <a href="#">
-                  <div class="card">
-                    <img src="<?= $c->media_link ?>">
-                    <div class="card-body">
-                      <div class="job-meta-data mb-1"><i class="fas fa-newspaper"></i>Artikel</div>
-                      <hr>
-                      <h5 class="job-card-desc"><?= $c->title ?></h5>
-                      <p><?= $c->description ?></p>
-                    </div>
+              <div class="col-md-6 col-xl-4">
+                <div class="card mb-3">
+                  <img class="img-fluid card-img-top" src="<?= $c->media_link ?>" alt="Card image cap">
+                  <div class="card-body">
+                    <h5 class="card-title"><?= $c->title ?></h5>
+                    <!-- <p class="card-text"><?= $c->description ?></p> -->
+                    <p class="card-text"><?= substr($c->article, 0, 200) ?> . . .</p>
+                    <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                    <a class="btn btn-primary btn-sm has-ripple" href="<?= base_url('member/course/detail/') . $c->slug ?>">Read More<span class="ripple ripple-animate"></span></a>
                   </div>
-                </a>
+                </div>
               </div>
 
             <?php
               } elseif ($c->tipe == 1) {
                 ?>
 
-              <div class="col-lg-6 col-sm-6">
+              <div class="col-lg-4 col-sm-6">
                 <div class="card">
                   <div class="thumbnail">
                     <div class="thumb">

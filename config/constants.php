@@ -44,4 +44,5 @@ define('FOOTER', 'Sarlemjus');
 
 define('ASSETS', 'http://localhost/sarlemjus/public/back/');
 define('GUEST_ASSETS', 'http://localhost/sarlemjus/public/guest/');
+define('FRONT_ASSETS', 'http://localhost/sarlemjus/public/front/');
 define('LP_ASSETS', 'https://lp.sarlemjus.com/');

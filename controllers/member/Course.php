@@ -15,20 +15,33 @@ class Course extends CI_Controller
 
   function index()
   {
-    $data['page']     = array(
+    $data['page'] = array(
       "id" => "course",
-      "title" => "Member Area | Course Access",
-      "header" => "Course Access",
+      "title" => "Member Area | Course Access | ",
+      "header" => "Course Access | ",
       "a" => array("icon" => "fas fa-tachometer-alt", "link" => "dashboard", "title" => "Dashboard"),
       "b" => array("link" => "course", "title" => "Course Access"),
       "c" => ""
     );
 
-    $data['course'] = $this->Course_data->get_course_category_list();
-
-    $this->load->view('member/course/list_category', $data);
+    $data['course'] = $this->Course_data->get_course_list();
+    $this->load->view('member/course/list_course', $data);
   }
 
+  function detail($slug)
+  {
+    $data['page'] = array(
+      "id" => "course",
+      "title" => "Member Area | Course Access | ",
+      "header" => "Course Detail | ",
+      "a" => array("icon" => "fas fa-tachometer-alt", "link" => "dashboard", "title" => "Dashboard"),
+      "b" => array("link" => "member/course", "title" => "Course Access"),
+      "c" => array("link" => "member/course/detail/" . $slug . "", "title" => "Course Detail")
+    );
+
+    $data['course'] = $this->Course_data->get_course_detail($slug);
+    $this->load->view('member/course/detail_course', $data);
+  }
 
   function list($id_category)
   {
@@ -57,8 +70,8 @@ class Course extends CI_Controller
   // Flashdata Report
   function alert($x, $y)
   {
-      // $x : warna
-      // $y : pesan
-      return $this->session->set_flashdata("report", "<div class='alert alert-$x alert-dismissible fade show' role='alert'><strong>$y</strong><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button></div>");
+    // $x : warna
+    // $y : pesan
+    return $this->session->set_flashdata("report", "<div class='alert alert-$x alert-dismissible fade show' role='alert'><strong>$y</strong><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button></div>");
   }
 }

@@ -1,36 +1,70 @@
 <?php $this->load->view('guest/_/header'); ?>
 
-<section id="sa-contact-inner" class="sa-contact-inner-section inner-page-padding" style="margin-top: 8%;">
-            <div class="container">
-                <div class="saas_two_section_title saas2-headline text-center">
-                    <!-- <span class="title_tag">Get In Touch</span> -->
-                    <h2><span>Form Pendaftaran Mitra</span> Sarlemjus</h2>
-                </div>
-                <div class="sa-contact-inner-form">
-                    <form action="https://html.themexriver.com/Saasio/contact.php">
-                        <div class="row">
-                            <div class="col-md-6">
-                               <input type="text" name="name" placeholder="Your Full Name">
-                           </div>
-                           <div class="col-md-6">
-                               <input type="email" name="email" placeholder="Your Email Address">
-                           </div>
-                           <div class="col-md-6">
-                               <input type="text" name="phone" placeholder="Your Mobile Number">
-                           </div>
-                           <div class="col-md-6">
-                               <input type="text" name="subject" placeholder="Your Subject">
-                           </div>
-                           <div class="col-md-12">
-                            <textarea name="message" placeholder="Your Valuable Word"></textarea>
-                        </div>
-                        <div class="sa-contact-inner-btn text-center">
-                            <button type="submit">Daftar</button>
+<section class="contact-section pt-130 mt-50">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-xl-7">
+                <div class="contact-form-wrapper">
+                    <div class="row">
+                        <div class="col-xl-10 col-lg-8 mx-auto">
+                            <div class="section-title text-center mb-50">
+                                <h3 class="wow fadeInUp" data-wow-delay=".4s">Form Pendaftaran Mitra</span> Sarlemjus</h3>
+                            </div>
                         </div>
                     </div>
-                </form>
+                    <form action="<?php echo FRONT_ASSETS ?>php/mail.php" class="contact-form">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <input type="text" name="name" id="name" placeholder="Nama Lengkap" required>
+                            </div>
+                            <div class="col-md-12">
+                                <input type="email" name="email" id="email" placeholder="Email" required>
+                            </div>
+                            <div class="col-md-12">
+                                <input type="text" name="phone" id="phone" placeholder="Whatsapp" required>
+                            </div>
+                        </div>
+                        <!-- <div class="row">
+                            <div class="col-12">
+                                <textarea name="message" id="message" placeholder="Pertanyaan" rows="5"></textarea>
+                            </div>
+                        </div> -->
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="button text-center">
+                                    <button type="submit" class="theme-btn">Daftar Sekarang</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-xl-5">
+                <div class="contact-item-wrapper">
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-xl-12">
+                            <div class="contact-item" style="float: left;">
+
+                                <img src="<?php echo FRONT_ASSETS ?>img/logo-1.svg" alt="">
+                                <!-- <div class="contact-icon">
+                                    <i class="lni lni-map-marker"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <h4>Alamat Kantor Pusat Sarlemjus</h4>
+                                    <a href="#">
+                                        <p>Perumahan Griya Ciledug<br>Jl Anggrek 2 Blok K, No.1</p>
+                                        <p>Ciledug Tangerang Banten 15151</p>
+                                    </a>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <?php $this->load->view('guest/_/footer'); ?>
+<?php $this->load->view('guest/_/footer'); ?>

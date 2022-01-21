@@ -3,7 +3,7 @@
 <script src="<?php echo ASSETS ?>js/ripple.js"></script>
 <script src="<?php echo ASSETS ?>js/pcoded.min.js"></script>
 
-<script src="<?php echo ASSETS ?>js/plugins/apexcharts.min.js"></script>
+<!-- <script src="<?php echo ASSETS ?>js/plugins/apexcharts.min.js"></script> -->
 
 <?php if ($page['id'] == "dashboard") { ?>
     <script src="<?php echo ASSETS ?>js/plugins/apexcharts.min.js"></script>
@@ -76,6 +76,8 @@
             });
         }
     </script>
+
+    <script src="<?php echo ASSETS ?>js/pages/dashboard-sale.js"></script>
 <?php } elseif ($page['id'] == "team") { ?>
     <script src="<?php echo ASSETS ?>js/plugins/jquery.dataTables.min.js"></script>
     <script src="<?php echo ASSETS ?>js/plugins/dataTables.bootstrap4.min.js"></script>
@@ -97,8 +99,6 @@
         // DataTable end
     </script>
 <?php } ?>
-
-<script src="<?php echo ASSETS ?>js/pages/dashboard-sale.js"></script>
 </body>
 
 </html>

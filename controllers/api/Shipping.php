@@ -9,7 +9,7 @@ class Shipping extends CI_Controller
     if ($this->session->userdata('log_valid') == FALSE) {
       redirect(base_url('login'));
     }
-    $this->load->model(array('M_shiping_gateway', 'M_order'));
+    $this->load->model('Transaction_data');
   }
 
   #cek resi

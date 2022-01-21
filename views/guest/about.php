@@ -1,115 +1,69 @@
 <?php $this->load->view('guest/_/header'); ?>
 
-<section id="str-about" class="str-about-section position-relative">
-    <div class="str-aboutbg1 position-absolute"><img src="<?php echo GUEST_ASSETS ?>img/startup/shape/vs1.png" alt=""></div>
-    <div class="str-aboutbg2 position-absolute"><img src="<?php echo GUEST_ASSETS ?>img/startup/shape/vs2.png" alt=""></div>
-    <div class="str-aboutbg3 position-absolute"><img src="<?php echo GUEST_ASSETS ?>img/startup/shape/vs3.png" alt=""></div>
-    <div class="container  mt-5">
-        <div class="str-about-content">
+<section id="about" class="pt-100">
+    <div class="about-section" style="background-color: white;">
+        <div class="container">
             <div class="row">
-                <div class="col-lg-5">
-                    <div class="str-about-text wow fadeFromRight" data-wow-delay="0ms" data-wow-duration="1500ms">
-                        <div class="str-section-title text-left str-title-left str-headline">
-                            <!-- <span class="str-title-tag">About us</span> -->
-                            <h2>Visi Sarlemjus</h2>
+                <div class="col-xl-6 col-lg-6">
+                    <div class="about-img-wrapper">
+                        <div class="about-img position-relative d-inline-block wow fadeInLeft" data-wow-delay=".3s">
+                            <img src="<?php echo FRONT_ASSETS ?>img/about.png" alt="">
+
+                            <div class="about-experience">
+                                <h3>Visi Sarlemjus</h3>
+                                <p>Menjadi brand produk minuman sehat yang bermanfaat dan disukai oleh konsumen.</p>
+                            </div>
                         </div>
-                        <!-- <div class="str-about-textarea">
-                            As a app web crawler expert, I help organizations adjust to the expanding significance of internet promoting.
-                        </div> -->
-                        <div class="str-about-details">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </div>
-                    </div>
-                    <div class="str-about-text wow fadeFromRight" data-wow-delay="1000ms" data-wow-duration="1700ms">
-                        <div class="str-section-title text-left str-title-left str-headline">
-                            <h2>Misi Sarlemjus</h2>
-                        </div>
-                        <div class="str-about-list ul-li-block"  style="margin-top: -10px;">
-                            <ul>
-                                <li>Misi 1</li>
-                                <li>Misi 2</li>
-                                <li>Misi 3</li>
-                                <li>Misi 4</li>
-                            </ul>
-                        </div>
-                        <a class="str-btn d-inline-block" href="#">Lebih jauh tentang Sarlemjus <i class="fas fa-arrow-alt-circle-right"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-7">
-                    <div class="str-about-img position-relative wow fadeFromLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
-                        <!-- <div class="str-about-shape"><img src="<?php echo GUEST_ASSETS ?>img/startup/shape/abs.png" alt=""></div> -->
-                        <div class="str-about-logo"><img src="<?php echo GUEST_ASSETS ?>img/visi-misi-logo.png" alt=""></div>
-                        <div class="str-about-img-field">
-                            <div class="str-about-pic">
-                                <img src="<?php echo GUEST_ASSETS ?>img/visi-misi-hq-1.png" alt="">
-                            </div>
-                            <div class="str-progress-area str-headline">
-                                <!-- <h3>Mentorship</h3>
-                                <div id="progress1" class="barfiller">
-                                    <div class="tipWrap"><span class="tip"></span></div>
-                                    <span class="fill" data-percentage="75"></span>
-                                </div>
-                                <h3>UI/UX </h3>
-                                <div id="progress2" class="barfiller">
-                                    <div class="tipWrap"><span class="tip"></span></div>
-                                    <span class="fill" data-percentage="70"></span>
-                                </div>
-                                <h3>Marketing</h3>
-                                <div id="progress3" class="barfiller">
-                                    <div class="tipWrap"><span class="tip"></span></div>
-                                    <span class="fill" data-percentage="90"></span>
-                                </div> -->
-                            </div>
+                <div class="col-xl-6 col-lg-6">
+                    <div class="about-content-wrapper">
+                        <div class="section-title">
+                            <!-- <span class="wow fadeInUp" data-wow-delay=".2s">About Us</span> -->
+                            <h2 class="mt-40 mb-40 wow fadeInRight" data-wow-delay=".4s">SARLEMJUS</h2>
                         </div>
-                        <div class="str-about-img-field">
-                            <div class="str-about-pic">
-                                <img src="<?php echo GUEST_ASSETS ?>img/visi-misi-produk.png" alt="">
-                            </div>
-                            <div class="str-about-pic">
-                                <img src="<?php echo GUEST_ASSETS ?>img/visi-misi-hq-2.png" alt="">
+                        <div class="about-content">
+                            <p class="mb-45 wow fadeInUp" data-wow-delay=".6s">Sarlemjus adalah sebuah brand/perusahaan yang
+                                sudah berjalan sejak tahun 2015 dan memiliki
+                                tujuan untuk mendukung pola gaya hidup sehat
+                                Anda dengan produk-produk Sarlemjus yaitu,
+                                Sarlemjus Sarilemon, Sarlemjus Tea, Sarlemjus
+                                Chocolate, Sarlemjus Coffee, & Sarlemjus Ugula.</p>
+                            <div class="counter-up wow fadeInUp" data-wow-delay=".5s">
+                                <div class="counter">
+                                    <span id="secondo" class="countup count color-1" cup-end="30" cup-append="k" style="color: white;">.</span>
+                                    <h4>Kami ingin membantu</h4>
+                                    <p> sebanyak banyaknya orang agar sadar akan gaya hidup sehat. <br class="d-none d-md-block d-lg-none d-xl-block">Melalui produk produk
+                                        Sarlemjus yang sudah teruji khasiat dan kualitas sebagai
+                                        produk minuman yang sehat</p>
+                                </div>
+                                <!-- <div class="counter">
+                                    <span id="secondo" class="countup count color-2" cup-end="42" cup-append="k">5</span>
+                                    <h4>Project Done</h4>
+                                    <p>We Crafted an awesome design <br class="d-none d-md-block d-lg-none d-xl-block"> library that is robust and</p>
+                                </div> -->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="str-about-feature-area">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="str-about-feature-box clearfix wow fadeFromLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-                            <div class="str-about-feature-icon text-center float-left">
-                                <i class="flaticon-null-8"></i>
-                            </div>
-                            <div class="str-about-feature-text str-headline">
-                                <h3>Best customer
-                                    support
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="str-about-feature-box clearfix wow fadeFromLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
-                            <div class="str-about-feature-icon text-center float-left">
-                                <i class="flaticon-null-7"></i>
-                            </div>
-                            <div class="str-about-feature-text str-headline">
-                                <h3>Money back
-                                    guarantee
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="str-about-feature-box clearfix wow fadeFromLeft" data-wow-delay="600ms" data-wow-duration="1500ms">
-                            <div class="str-about-feature-icon text-center float-left">
-                                <i class="flaticon-null-6"></i>
-                            </div>
-                            <div class="str-about-feature-text str-headline">
-                                <h3>Lowest cost
-                                    provider
-                                </h3>
-                            </div>
-                        </div>
-                    </div>
+        </div>
+    </div>
+</section>
+
+<section id="service" class="mt-80 service-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-8 col-lg-8 col-md-9 mx-auto">
+                <div class="section-title text-center mb-55">
+                    <!-- <span class="wow fadeInDown" data-wow-delay=".2s">Services</span> -->
+                    <h3 class="wow fadeInUp" data-wow-delay=".4s">Misi Sarlemjus</h3>
+                    <!-- <p class="wow fadeInUp" data-wow-delay=".6s">At vero eos et accusamus et iusto odio dignissimos ducimus quiblanditiis praesentium</p> -->
+                </div>
+                <div class="section-title mb-55">
+                    <p class="mb-20">1. Memproduksi produk minuman Sarlemjus menggunakan bahan yang teruji berkualitas dan bermanfaat.</p>
+                    <p class="mb-20">2. Membagi tpis-tips mengenai gaya hdup sehat dari sumber terpercaya.</p>
+                    <p class="mb-20">3. Memberikan pelayanan yang terbaik untuk setiap custumer kami.</p>
                 </div>
             </div>
         </div>

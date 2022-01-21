@@ -1,136 +1,239 @@
 <?php $this->load->view('guest/_/header'); ?>
 
+<section id="home" class="hero-section">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-xl-7 col-lg-6">
+				<div class="hero-content-wrapper">
+					<h1 class="mb-0 wow fadeInDown" data-wow-delay=".2s">SARLEMJUS<br>Make your NATURAL<br>HEALTHY life</h1>
+					<h2 class="mb-25 wow fadeInDown" data-wow-delay=".2s">Minuman kesehatan, untuk kebutuhan anda !!</h2>
+					<!-- <p class="mb-35 wow fadeInLeft" data-wow-delay=".4s">Minuman kesehatan, untuk kebutuhan anda !!</p> -->
 
-<section id="app-gym-slider" class="app-gym-slider-section position-relative">
-	<rs-module-wrap id="rev_slider_8_1_wrapper" data-alias="slider-3" data-source="gallery" style="background:transparent;padding:0;margin:0px auto;margin-top:0;margin-bottom:0;">
-		<rs-module id="rev_slider_8_1" style="" data-version="6.4.6">
-			<rs-slides>
-				<rs-slide data-key="rs-12" data-title="Slide" data-in="o:0;" data-out="a:false;">
-					<img src="<?php echo GUEST_ASSETS ?>img/gym/transparent.png" alt="Slide" class="rev-slidebg tp-rs-img" data-bg="c:#ffffff;" data-parallax="off" data-no-retina>
-					<!-- <rs-layer id="slider-8-slide-12-layer-0" data-type="text" data-color="#ec0752" data-rsp_ch="on" data-xy="x:2px;y:290px;" data-text="w:normal;fw:700;" data-dim="w:236.547px;" data-frame_0="o:1;" data-frame_0_chars="d:5;y:-100%;o:0;rZ:35deg;" data-frame_0_mask="u:t;" data-frame_1="x:15px;sp:1200;" data-frame_1_chars="e:power4.inOut;d:10;rZ:0deg;" data-frame_1_mask="u:t;" data-frame_999="o:0;st:w;" style="z-index:8;font-family:Poppins;text-transform:uppercase;">
-						make your body Fit
-					</rs-layer> -->
-					<rs-layer id="slider-8-slide-12-layer-1" data-type="text" data-color="#000000" data-rsp_ch="on" data-xy="x:1px;y:337px;" data-text="w:normal;s:72;l:72;fw:700;" data-frame_0="o:1;" data-frame_0_chars="d:5;o:0;rX:-90deg;oZ:-50;" data-frame_1="x:15px;y:2px;st:500;sp:1200;" data-frame_1_chars="e:power4.inOut;d:10;oZ:-50;" data-frame_999="o:0;st:w;" style="z-index:9;font-family:Poppins;">
-						Hidup Sehat<br />
-						Income pun<br />
-						ikut Sehat
-					</rs-layer>
-					<!-- <rs-layer id="slider-8-slide-12-layer-2" data-type="text" data-color="#666666" data-rsp_ch="on" data-xy="x:3px;y:580px;" data-text="w:normal;s:24;l:30;" data-frame_0="x:175%;o:1;" data-frame_0_mask="u:t;x:-100%;" data-frame_1="x:15px;y:-6px;e:power3.out;st:700;sp:2000;" data-frame_1_mask="u:t;" data-frame_999="o:0;st:w;" style="z-index:10;font-family:Roboto;">Aliquip ex ea commodo consequat.<br />
-						Duis aute irure dolor in reprehen
-					</rs-layer> -->
-					<rs-layer id="slider-8-slide-12-layer-4" data-type="image" data-rsp_ch="on" data-xy="x:638px;y:140px;" data-text="w:normal;" data-dim="w:712px;h:802px;" data-frame_0="sX:0.9;sY:0.9;" data-frame_1="e:power2.inOut;sp:3000;" data-frame_999="o:0;st:w;" style="z-index:12;"><img src="<?php echo GUEST_ASSETS ?>img/mom.png" class="tp-rs-img" width="712" height="802" data-no-retina>
-					</rs-layer>
-					<rs-layer id="slider-8-slide-12-layer-10" data-type="image" data-rsp_ch="on" data-xy="x:428px;y:163px;" data-text="w:normal;" data-dim="w:82px;h:82px;" data-frame_0="y:-50;" data-frame_1="sp:1000;" data-frame_999="o:0;st:w;" style="z-index:14;"><img src="<?php echo GUEST_ASSETS ?>img/gym/sb1.png" class="tp-rs-img" width="82" height="82" data-no-retina>
-					</rs-layer>
-					<rs-layer id="slider-8-slide-12-layer-11" data-type="image" data-rsp_ch="on" data-xy="x:762px;y:708px;" data-text="w:normal;" data-dim="w:57px;h:57px;" data-frame_0="x:-50;" data-frame_1="sp:1000;" data-frame_999="o:0;st:w;" style="z-index:15;"><img src="<?php echo GUEST_ASSETS ?>img/gym/sb2.png" class="tp-rs-img" width="57" height="57" data-no-retina>
-					</rs-layer>
-					<rs-layer id="slider-8-slide-12-layer-12" data-type="image" data-rsp_ch="on" data-xy="x:588px;y:811px;" data-text="w:normal;" data-dim="w:97px;h:97px;" data-frame_0="x:-50;" data-frame_1="sp:1000;" data-frame_999="o:0;st:w;" style="z-index:16;"><img src="<?php echo GUEST_ASSETS ?>img/gym/sb5.png" class="tp-rs-img" width="97" height="97" data-no-retina>
-					</rs-layer>
-					<rs-layer id="slider-8-slide-12-layer-13" data-type="image" data-rsp_ch="on" data-xy="x:1208px;y:918px;" data-text="w:normal;" data-dim="w:122px;h:122px;" data-frame_0="x:-50;" data-frame_1="x:-27px;y:-58px;sp:1000;" data-frame_999="o:0;st:w;" style="z-index:17;"><img src="<?php echo GUEST_ASSETS ?>img/gym/sb4.png" class="tp-rs-img" width="122" height="122" data-no-retina>
-					</rs-layer>
-					<rs-layer id="slider-8-slide-12-layer-14" data-type="image" data-rsp_ch="on" data-xy="x:662px;y:435px;" data-text="w:normal;" data-dim="w:43px;h:43px;" data-frame_0="rX:70deg;oZ:-50;" data-frame_1="oZ:-50;e:power4.inOut;sp:1750;" data-frame_999="o:0;st:w;" style="z-index:18;"><img src="<?php echo GUEST_ASSETS ?>img/gym/sb5.png" class="tp-rs-img" width="97" height="97" data-no-retina>
-					</rs-layer>
-					<rs-layer id="slider-8-slide-12-layer-15" data-type="image" data-rsp_ch="on" data-xy="x:1124px;y:229px;" data-text="w:normal;" data-dim="w:84px;h:84px;" data-frame_0="x:50;" data-frame_1="sp:1000;" data-frame_999="o:0;st:w;" style="z-index:19;"><img src="<?php echo GUEST_ASSETS ?>img/gym/sb3.png" class="tp-rs-img" width="84" height="84" data-no-retina>
-					</rs-layer>
-					<rs-layer id="slider-8-slide-12-layer-16" class="rev-btn rev-hiddenicon" data-type="button" data-color="#ffffff" data-rsp_ch="on" data-xy="x:16px;y:665px;" data-text="w:normal;s:18;l:35;ls:1;fw:700;" data-dim="w:200px;h:60px;minh:0px;" data-padding="t:12;r:35;b:12;l:35;" data-border="bor:30px,30px,30px,30px;" data-frame_0="y:100%;" data-frame_0_mask="u:t;" data-frame_1="sp:1200;" data-frame_1_mask="u:t;" data-frame_999="o:0;st:w;" data-frame_hover="bgc:#ed1c24;bor:30px,30px,30px,30px;sp:200;" style="z-index:20;background-color:#ed1c24;font-family:Poppins;text-transform:capitalize;">
-						Lebih Lanjut
-					</rs-layer>
-				</rs-slide>
-				<!-- <rs-slide data-key="rs-13" data-title="Slide" data-in="o:0;" data-out="a:false;">
-					<img src="<?php echo GUEST_ASSETS ?>img/gym/transparent.png" alt="Slide" class="rev-slidebg tp-rs-img" data-bg="c:#ffffff;" data-parallax="off" data-no-retina>
-					<rs-layer id="slider-8-slide-13-layer-0" data-type="text" data-color="#ec0752" data-rsp_ch="on" data-xy="x:2px;y:290px;" data-text="w:normal;fw:700;" data-dim="w:234.547px;" data-frame_0="o:1;" data-frame_0_chars="d:5;y:-100%;o:0;rZ:35deg;" data-frame_0_mask="u:t;" data-frame_1="x:15px;sp:1200;" data-frame_1_chars="e:power4.inOut;d:10;rZ:0deg;" data-frame_1_mask="u:t;" data-frame_999="o:0;st:w;" style="z-index:8;font-family:Poppins;text-transform:uppercase;">make your body Fit
-					</rs-layer>
-					<rs-layer id="slider-8-slide-13-layer-1" data-type="text" data-color="#000000" data-rsp_ch="on" data-xy="x:1px;y:337px;" data-text="w:normal;s:72;l:72;fw:700;" data-frame_0="o:1;" data-frame_0_chars="d:5;o:0;rX:-90deg;oZ:-50;" data-frame_1="x:15px;y:2px;st:500;sp:1200;" data-frame_1_chars="e:power4.inOut;d:10;oZ:-50;" data-frame_999="o:0;st:w;" style="z-index:9;font-family:Poppins;">We care<br />
-						about your<br />
-						fitness
-					</rs-layer>
-					<rs-layer id="slider-8-slide-13-layer-2" data-type="text" data-color="#666666" data-rsp_ch="on" data-xy="x:3px;y:580px;" data-text="w:normal;s:24;l:30;" data-frame_0="x:175%;o:1;" data-frame_0_mask="u:t;x:-100%;" data-frame_1="x:15px;y:-6px;e:power3.out;st:700;sp:2000;" data-frame_1_mask="u:t;" data-frame_999="o:0;st:w;" style="z-index:10;font-family:Roboto;">Aliquip ex ea commodo consequat.<br />
-						Duis aute irure dolor in reprehen
-					</rs-layer>
-					<rs-layer id="slider-8-slide-13-layer-4" data-type="image" data-rsp_ch="on" data-xy="x:638px;y:140px;" data-text="w:normal;" data-dim="w:712px;h:802px;" data-frame_0="sX:0.9;sY:0.9;" data-frame_1="e:power2.inOut;sp:3000;" data-frame_999="o:0;st:w;" style="z-index:12;"><img src="<?php echo GUEST_ASSETS ?>img/gym/smain.png" class="tp-rs-img" width="712" height="802" data-no-retina>
-					</rs-layer>
-					<rs-layer id="slider-8-slide-13-layer-10" data-type="image" data-rsp_ch="on" data-xy="x:428px;y:163px;" data-text="w:normal;" data-dim="w:82px;h:82px;" data-frame_0="y:-50;" data-frame_1="sp:1000;" data-frame_999="o:0;st:w;" style="z-index:14;"><img src="<?php echo GUEST_ASSETS ?>img/gym/sb1.png" class="tp-rs-img" width="82" height="82" data-no-retina>
-					</rs-layer>
-					<rs-layer id="slider-8-slide-13-layer-11" data-type="image" data-rsp_ch="on" data-xy="x:762px;y:708px;" data-text="w:normal;" data-dim="w:57px;h:57px;" data-frame_0="x:-50;" data-frame_1="sp:1000;" data-frame_999="o:0;st:w;" style="z-index:15;"><img src="<?php echo GUEST_ASSETS ?>img/gym/sb2.png" class="tp-rs-img" width="57" height="57" data-no-retina>
-					</rs-layer>
-					<rs-layer id="slider-8-slide-13-layer-12" data-type="image" data-rsp_ch="on" data-xy="x:588px;y:811px;" data-text="w:normal;" data-dim="w:97px;h:97px;" data-frame_0="x:-50;" data-frame_1="sp:1000;" data-frame_999="o:0;st:w;" style="z-index:16;"><img src="<?php echo GUEST_ASSETS ?>img/gym/sb5.png" class="tp-rs-img" width="97" height="97" data-no-retina>
-					</rs-layer>
-					<rs-layer id="slider-8-slide-13-layer-13" data-type="image" data-rsp_ch="on" data-xy="x:1208px;y:918px;" data-text="w:normal;" data-dim="w:122px;h:122px;" data-frame_0="x:-50;" data-frame_1="x:-27px;y:-58px;sp:1000;" data-frame_999="o:0;st:w;" style="z-index:17;"><img src="<?php echo GUEST_ASSETS ?>img/gym/sb4.png" class="tp-rs-img" width="122" height="122" data-no-retina>
-					</rs-layer>
-					<rs-layer id="slider-8-slide-13-layer-14" data-type="image" data-rsp_ch="on" data-xy="x:662px;y:435px;" data-text="w:normal;" data-dim="w:43px;h:43px;" data-frame_0="rX:70deg;oZ:-50;" data-frame_1="oZ:-50;e:power4.inOut;sp:1750;" data-frame_999="o:0;st:w;" style="z-index:18;"><img src="<?php echo GUEST_ASSETS ?>img/gym/sb5.png" class="tp-rs-img" width="97" height="97" data-no-retina>
-					</rs-layer>
-					<rs-layer id="slider-8-slide-13-layer-15" data-type="image" data-rsp_ch="on" data-xy="x:1124px;y:229px;" data-text="w:normal;" data-dim="w:84px;h:84px;" data-frame_0="x:50;" data-frame_1="sp:1000;" data-frame_999="o:0;st:w;" style="z-index:19;"><img src="<?php echo GUEST_ASSETS ?>img/gym/sb3.png" class="tp-rs-img" width="84" height="84" data-no-retina>
-					</rs-layer>
-					<rs-layer id="slider-8-slide-13-layer-16" class="rev-btn rev-hiddenicon" data-type="button" data-color="#ffffff" data-rsp_ch="on" data-xy="x:24px;y:665px;" data-text="w:normal;s:18;l:35;ls:1;fw:700;" data-dim="w:200px;h:60px;minh:0px;" data-padding="t:12;r:35;b:12;l:35;" data-border="bor:30px,30px,30px,30px;" data-frame_0="y:100%;" data-frame_0_mask="u:t;" data-frame_1="sp:1200;" data-frame_1_mask="u:t;" data-frame_999="o:0;st:w;" data-frame_hover="bgc:#ed1c24;bor:30px,30px,30px,30px;sp:200;" style="z-index:20;background-color:#ed1c24;font-family:Poppins;text-transform:capitalize;">Learn More
-					</rs-layer>
-				</rs-slide> -->
-			</rs-slides>
-		</rs-module>
-		<script type="text/javascript">
-			if (typeof revslider_showDoubleJqueryError === "undefined") {
-				function revslider_showDoubleJqueryError(sliderID) {
-					var err = "<div class='rs_error_message_box'>";
-					err += "<div class='rs_error_message_oops'>Oops...</div>";
-					err += "<div class='rs_error_message_content'>";
-					err += "You have some jquery.js library include that comes after the Slider Revolution files js inclusion.<br>";
-					err += "To fix this, you can:<br>&nbsp;&nbsp;&nbsp; 1. Set 'Module General Options' -> 'Advanced' -> 'jQuery & OutPut Filters' -> 'Put JS to Body' to on";
-					err += "<br>&nbsp;&nbsp;&nbsp; 2. Find the double jQuery.js inclusion and remove it";
-					err += "</div>";
-					err += "</div>";
-					var slider = document.getElementById(sliderID);
-					slider.innerHTML = err;
-					slider.style.display = "block";
-				}
-			}
-		</script>
-	</rs-module-wrap>
+					<!-- <a href="javascript:void(0)" class="theme-btn mt-25">DAFTAR DROPSHIP !</a> -->
+				</div>
+			</div>
+			<div class="col-xl-5 col-lg-6">
+				<div class="hero-img">
+					<div class="d-inline-block hero-img-right">
+						<img src="<?php echo FRONT_ASSETS ?>img/hero-img-1.png" alt="" class="image wow fadeInRight" data-wow-delay=".5s">
+						<!-- <img src="<?php echo FRONT_ASSETS ?>img/hero/dots.shape.svg" alt="" class="dot-shape"> -->
+						<!-- <div class="video-btn">
+							<a href="https://www.youtube.com/watch?v=r44RKWyfcFw&fbclid=IwAR21beSJORalzmzokxDRcGfkZA1AtRTE__l5N4r09HcGS5Y6vOluyouM9EM" class="glightbox"><i class="lni lni-play"></i></a>
+						</div> -->
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
 
-<!-- <section id="app-gym-intro" class="app-gym-intro-section">
+
+<section id="about" class="">
+	<div class="about-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-6 col-lg-6">
+					<div class="about-img-wrapper">
+						<div class="about-img position-relative d-inline-block wow fadeInLeft" data-wow-delay=".3s">
+							<img src="<?php echo FRONT_ASSETS ?>img/lemon.png" alt="">
+						</div>
+					</div>
+				</div>
+				<div class="col-xl-6 col-lg-6">
+					<div class="about-content-wrapper">
+						<div class="section-title">
+							<span class="wow fadeInUp" data-wow-delay=".2s" style="color: black;">Studi mengatakan bagi yang mengkonsumsi Lemon dapat 75% hidup lebih lama dibanding yang tidak, ini dikarenakan Lemon memiliki kandungan Vitamin C yang dimana zat yang sangat dibutuhkan oleh tubuh kita. </span>
+						</div>
+						<div class="about-content">
+							<div class="counter-up wow fadeInUp" data-wow-delay=".5s">
+
+								<a href="javascript:void(0)" class="theme-btn">Lebih lanjut...</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="home" class="hero-section">
 	<div class="container">
-		<div class="app-gym-intro-content">
-			<div class="row justify-content-center">
-				
-				<div class="col-lg-4 col-md-6 wow fadeFromUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-					<div class="app-gym-intro-innerbox text-center">
-						<div class="app-gym-intro-icon position-relative">
-							<i class="flaticon-dumbbell"></i>
+		<div class="row align-items-center">
+			<div class="col-xl-6 col-lg-6">
+				<div class="hero-content-wrapper">
+					<div class="section-title">
+						<span class="wow fadeInUp" data-wow-delay=".2s" style="color: black;">Sekarang minum coklat Enak dan bikin sehat emang ada ?Ada dong.. coklat adalah salah satu makanan/minuman yang banyak sekalii disukai, untuk itu mau nyoklat terus..enak dan sehat ya tentu saja Sarlemjus Chocolate.</span>
+					</div>
+					<a href="javascript:void(0)" class="theme-btn mt-25">Lebih Lanjut...</a>
+				</div>
+			</div>
+			<div class="col-xl-6 col-lg-6">
+				<div class="hero-img">
+					<div class="d-inline-block hero-img-right">
+						<img src="<?php echo FRONT_ASSETS ?>img/chocolate.png" alt="" class="image wow fadeInRight" data-wow-delay=".5s">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="about" class="">
+	<div class="about-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-6 col-lg-6">
+					<div class="about-img-wrapper">
+						<div class="about-img position-relative d-inline-block wow fadeInLeft" data-wow-delay=".3s">
+							<img src="<?php echo FRONT_ASSETS ?>img/cofee.png" alt="">
 						</div>
-						<div class="app-gym-intro-text app-gym-headline pera-content">
-							<h3><a href="#">Awesome Routine</a></h3>
-							<p>Aliquip ex ea commo ute irure dolor in voluptate velit esse tetur adipisic ing elit, sed do eiusmod </p>
-							<div class="app-gym-arrow">
-								<a href="#"><i class="fas fa-arrow-right"></i></a>
+					</div>
+				</div>
+				<div class="col-xl-6 col-lg-6">
+					<div class="about-content-wrapper">
+						<div class="section-title">
+							<span class="wow fadeInUp" data-wow-delay=".2s" style="color: black;">Kopi Sarlemjus kopi herbal perpaduan mix kopi dengan lemon. Sarlemjus Coffe alias kopi lemon bagus untuk yang lagi DIET.. kopi instant gampang banget diminum, buat kamu yang penasaran rasanya seperti apa..yuk tunggu apalagi cobain sekarang !!!</span>
+						</div>
+						<div class="about-content">
+							<div class="counter-up wow fadeInUp" data-wow-delay=".5s">
+
+								<a href="javascript:void(0)" class="theme-btn">Lebih lanjut...</a>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-6 wow fadeFromUp" data-wow-delay="300ms" data-wow-duration="1500ms">
-					<div class="app-gym-intro-innerbox text-center">
-						<div class="app-gym-intro-icon position-relative">
-							<i class="flaticon-exercise-4"></i>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="home" class="hero-section">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-xl-6 col-lg-6">
+				<div class="hero-content-wrapper">
+					<div class="section-title">
+						<span class="wow fadeInUp" data-wow-delay=".2s" style="color: black;">9 dari 10 orang setuju kalau konsumsi yang manis berlebihan itu tidak sehat,tapi coba ganti deh ganti dengan Sarlemjus Ugula aja, gula aren bubuk yang manis nya ga jauh beda dari gula pada umum nya yang tentu saja lebih sehat yaa.</span>
+					</div>
+					<a href="javascript:void(0)" class="theme-btn mt-25">Lebih Lanjut...</a>
+				</div>
+			</div>
+			<div class="col-xl-6 col-lg-6">
+				<div class="hero-img">
+					<div class="d-inline-block hero-img-right">
+						<img src="<?php echo FRONT_ASSETS ?>img/ugula.png" alt="" class="image wow fadeInRight" data-wow-delay=".5s">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="">
+	<div class="about-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-6 col-lg-6">
+					<div class="about-img-wrapper">
+						<div class="about-img position-relative d-inline-block wow fadeInLeft" data-wow-delay=".3s">
+							<img src="<?php echo FRONT_ASSETS ?>img/tea.png" alt="">
 						</div>
-						<div class="app-gym-intro-text app-gym-headline pera-content">
-							<h3><a href="#">Easy Workout Plan</a></h3>
-							<p>Aliquip ex ea commo ute irure dolor in voluptate velit esse tetur adipisic ing elit, sed do eiusmod </p>
-							<div class="app-gym-arrow">
-								<a href="#"><i class="fas fa-arrow-right"></i></a>
+					</div>
+				</div>
+				<div class="col-xl-6 col-lg-6">
+					<div class="about-content-wrapper">
+						<div class="section-title">
+							<span class="wow fadeInUp" data-wow-delay=".2s" style="color: black;">Sarlemjus Tea adalah teh herbal yang terbuat dari ekstrak kulit lemon, sensasi aroma dari kulit lemon yang nikmat dan bikin sehat. Bagus banget untuk Anda yang suka minum teh sekaligus sehat.</span>
+						</div>
+						<div class="about-content">
+							<div class="counter-up wow fadeInUp" data-wow-delay=".5s">
+
+								<a href="javascript:void(0)" class="theme-btn">Lebih lanjut...</a>
 							</div>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-4 col-md-6 wow fadeFromUp" data-wow-delay="600ms" data-wow-duration="1500ms">
-					<div class="app-gym-intro-innerbox text-center">
-						<div class="app-gym-intro-icon position-relative">
-							<i class="flaticon-fitness-1"></i>
-						</div>
-						<div class="app-gym-intro-text app-gym-headline pera-content">
-							<h3><a href="#">Weight Loss Program</a></h3>
-							<p>Aliquip ex ea commo ute irure dolor in voluptate velit esse tetur adipisic ing elit, sed do eiusmod </p>
-							<div class="app-gym-arrow">
-								<a href="#"><i class="fas fa-arrow-right"></i></a>
-							</div>
-						</div>
+			</div>
+		</div>
+
+		<br>
+		<br>
+		<br>
+		<br>
+	</div>
+</section>
+
+<!-- <section class="client-logo-section pt-100">
+	<div class="container">
+		<div class="client-logo-wrapper">
+			<div class="client-logo-carousel d-flex align-items-center justify-content-between">
+				<div class="client-logo">
+					<img src="<?php echo FRONT_ASSETS ?>img/client-logo/uideck-logo.svg" alt="">
+				</div>
+				<div class="client-logo">
+					<img src="<?php echo FRONT_ASSETS ?>img/client-logo/pagebulb-logo.svg" alt="">
+				</div>
+				<div class="client-logo">
+					<img src="<?php echo FRONT_ASSETS ?>img/client-logo/lineicons-logo.svg" alt="">
+				</div>
+				<div class="client-logo">
+					<img src="<?php echo FRONT_ASSETS ?>img/client-logo/graygrids-logo.svg" alt="">
+				</div>
+				<div class="client-logo">
+					<img src="<?php echo FRONT_ASSETS ?>img/client-logo/lineicons-logo.svg" alt="">
+				</div>
+			</div>
+		</div>
+	</div>
+</section> -->
+
+<!-- <section class="feature-section pt-130">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-6 col-lg-7 col-md-9 mx-auto">
+				<div class="section-title text-center mb-55">
+					<span class="wow fadeInDown" data-wow-delay=".2s">Feature</span>
+					<h2 class="wow fadeInUp" data-wow-delay=".4s">Why Chose Us?</h2>
+					<p class="wow fadeInUp" data-wow-delay=".6s">At vero eos et accusamus et iusto odio dignissimos ducimus quiblanditiis praesentium</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-4 col-md-6">
+				<div class="feature-box box-style">
+					<div class="feature-icon box-icon-style">
+						<i class="lni lni-layers"></i>
+					</div>
+					<div class="box-content-style feature-content">
+						<h4>Responsive Design</h4>
+						<p>Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy eirmod tempor ividunt
+							labor dolore magna.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="feature-box box-style">
+					<div class="feature-icon box-icon-style">
+						<i class="lni lni-code-alt"></i>
+					</div>
+					<div class="box-content-style feature-content">
+						<h4>Web Development</h4>
+						<p>Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy eirmod tempor ividunt
+							labor dolore magna.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="feature-box box-style">
+					<div class="feature-icon box-icon-style">
+						<i class="lni lni-agenda"></i>
+					</div>
+					<div class="box-content-style feature-content">
+						<h4>Business Analysis</h4>
+						<p>Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy eirmod tempor ividunt
+							labor dolore magna.</p>
 					</div>
 				</div>
 			</div>
@@ -138,361 +241,281 @@
 	</div>
 </section> -->
 
-<section id="app-gym-about" class="app-gym-about-section">
-	<div class="container">
-		<div class="app-gym-about-content">
-			<div class="row">
-				<!-- <div class="col-lg-7">
-					<div class="app-gym-about-img position-relative">
-						<img src="<?php echo GUEST_ASSETS ?>img/gym/abt1.png" alt="">
-					</div>
-				</div> -->
-				<div class="col-lg-12">
-					<div class="app-gym-about-text-wrap">
-						<div class="app-gym-section-title app-gym-headline pera-content wow fadeFromUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-							<span class="text-uppercase">Do it now or never</span>
-							<h2>Kenapa harus bisnis bareng sarlemjus??</h2>
-							<!-- <p>Aliquip ex ea commo ute irure dolor in repre henderit in velit esse cillumdatat non proident, sunt in culpa qui officia doylore eu fugiat nulla pariatur. </p> -->
-						</div>
-						<div class="app-gym-about-list wow fadeFromUp" data-wow-delay="200ms" data-wow-duration="1500ms">
-							<div class="app-gym-about-icon-text">
-								<!-- <div class="app-gym-about-icon float-left">
-									<i class="flaticon-fitness-2"></i>
-								</div> -->
-								<div class="app-gym-about-text app-gym-headline pera-content">
-									<h3><a href="#">> Karena SARLEMJUS adalah produk kesehatan & berkualitas </a></h3>
-									<h3><a href="#">> Pasar luas & potensi repeat order tinggi alias keuntungan tanpa batas </a></h3>
-									<h3><a href="#">> Pasar luas & potensi repeat order tinggi alias keuntungan tanpa batas </a></h3>
-									<h3><a href="#">> Tersertifikasi BPOM & halal MUI </a></h3>
-									<h3><a href="#">> Ada poin & bonus menarik di setiap transaksi </a></h3>
-									<h3><a href="#">> Free kelas bimbingan/pendampingan bisnis SARLEMJUS selama 30 hari </a></h3>
-									<h3><a href="#">> Bisa join dengan modal 0% </a></h3>
-									<h3><a href="#">> Ada team support & admin yang siap membantu </a></h3>
-									<!-- <p>Sunt in culpa qui officia doylore eu fugi minim veniam, quis nostrud exercitation</p> -->
-								</div>
-							</div>
-							<!-- <div class="app-gym-about-icon-text">
-								<div class="app-gym-about-icon float-left">
-									<i class="flaticon-woman"></i>
-								</div>
-								<div class="app-gym-about-text app-gym-headline pera-content">
-									<h3><a href="#">Workout Tips & Trics</a></h3>
-									<p>Sunt in culpa qui officia doylore eu fugi minim veniam, quis nostrud exercitation</p>
-								</div>
-							</div> -->
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
 
-<section id="app-gym-testimonial" class="app-gym-testimonial-section position-relative">
-	<div class="app-gym-testimonial-bg position-absolute"><img src="<?php echo GUEST_ASSETS ?>img/gym/tst-bg.jpg" alt=""></div>
-	<div class="container">
-		<div class="app-gym-section-title app-gym-headline text-center center-align pera-content">
-			<span class="text-uppercase">Apa kata mereka</span>
-			<h2>Mitra SARLEMJUS</h2>
-			<!-- <p>Aliquip ex ea commo ute irure dolor in repre henderit in velit esse cillumdatat non proident, sunt in culpa </p> -->
-		</div>
-		<div class="app-gym-testimonial-content">
-			<div class="app-gym-testimonial-slider owl-carousel">
-				<div class="app-gym-testimonial-innerbox">
-					<div class="app-gym-testimonial-wrap position-relative p-5">
-						<!-- <div class="app-gym-testimonial-icon position-relative text-center">
-							<img src="<?php echo GUEST_ASSETS ?>img/gym/tst-icon1.png" alt="">
-						</div> -->
-						<div class="app-gym-testimonial-text text-center pera-content app-gym-headline">
-							<p>Lehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui offi cia deserunt mollit anim</p>
-							<div class="app-gym-testimonial-author">
-								<h3><a href="#">Johnson Doe</a></h3>
-								<span>Journalist</span>
-							</div>
-							<div class="app-gym-testimonial-img-wrapper position-relative">
-								<!-- <span class="app-gym-tst-shape1 position-absolute"><img src="<?php echo GUEST_ASSETS ?>img/gym/tst-sh1.png" alt=""></span>
-								<span class="app-gym-tst-shape2 position-absolute"><img src="<?php echo GUEST_ASSETS ?>img/gym/tst-sh2.png" alt=""></span> -->
-								<div class="app-gym-testimonial-img">
-									<img src="<?php echo GUEST_ASSETS ?>img/gym/tst-ah1.jpg">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="app-gym-testimonial-innerbox">
-					<div class="app-gym-testimonial-wrap position-relative p-5">
-						<div class="app-gym-testimonial-text text-center pera-content app-gym-headline">
-							<p>Lehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui offi cia deserunt mollit anim</p>
-							<div class="app-gym-testimonial-author">
-								<h3><a href="#">Johnson Doe</a></h3>
-								<span>Journalist</span>
-							</div>
-							<div class="app-gym-testimonial-img-wrapper position-relative">
-								<div class="app-gym-testimonial-img">
-									<img src="<?php echo GUEST_ASSETS ?>img/gym/tst-ah1.jpg">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="app-gym-testimonial-innerbox">
-					<div class="app-gym-testimonial-wrap position-relative p-5">
-						<div class="app-gym-testimonial-text text-center pera-content app-gym-headline">
-							<p>Lehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui offi cia deserunt mollit anim</p>
-							<div class="app-gym-testimonial-author">
-								<h3><a href="#">Johnson Doe</a></h3>
-								<span>Journalist</span>
-							</div>
-							<div class="app-gym-testimonial-img-wrapper position-relative">
-								<div class="app-gym-testimonial-img">
-									<img src="<?php echo GUEST_ASSETS ?>img/gym/tst-ah1.jpg">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="app-gym-testimonial-innerbox">
-					<div class="app-gym-testimonial-wrap position-relative p-5">
-						<div class="app-gym-testimonial-text text-center pera-content app-gym-headline">
-							<p>Lehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui offi cia deserunt mollit anim</p>
-							<div class="app-gym-testimonial-author">
-								<h3><a href="#">Johnson Doe</a></h3>
-								<span>Journalist</span>
-							</div>
-							<div class="app-gym-testimonial-img-wrapper position-relative">
-								<div class="app-gym-testimonial-img">
-									<img src="<?php echo GUEST_ASSETS ?>img/gym/tst-ah1.jpg">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="app-gym-testimonial-innerbox">
-					<div class="app-gym-testimonial-wrap position-relative p-5">
-						<div class="app-gym-testimonial-text text-center pera-content app-gym-headline">
-							<p>Lehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui offi cia deserunt mollit anim</p>
-							<div class="app-gym-testimonial-author">
-								<h3><a href="#">Johnson Doe</a></h3>
-								<span>Journalist</span>
-							</div>
-							<div class="app-gym-testimonial-img-wrapper position-relative">
-								<div class="app-gym-testimonial-img">
-									<img src="<?php echo GUEST_ASSETS ?>img/gym/tst-ah1.jpg">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="app-gym-testimonial-innerbox">
-					<div class="app-gym-testimonial-wrap position-relative p-5">
-						<div class="app-gym-testimonial-text text-center pera-content app-gym-headline">
-							<p>Lehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui offi cia deserunt mollit anim</p>
-							<div class="app-gym-testimonial-author">
-								<h3><a href="#">Johnson Doe</a></h3>
-								<span>Journalist</span>
-							</div>
-							<div class="app-gym-testimonial-img-wrapper position-relative">
-								<div class="app-gym-testimonial-img">
-									<img src="<?php echo GUEST_ASSETS ?>img/gym/tst-ah1.jpg">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="app-gym-testimonial-innerbox">
-					<div class="app-gym-testimonial-wrap position-relative p-5">
-						<div class="app-gym-testimonial-text text-center pera-content app-gym-headline">
-							<p>Lehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui offi cia deserunt mollit anim</p>
-							<div class="app-gym-testimonial-author">
-								<h3><a href="#">Johnson Doe</a></h3>
-								<span>Journalist</span>
-							</div>
-							<div class="app-gym-testimonial-img-wrapper position-relative">
-								<div class="app-gym-testimonial-img">
-									<img src="<?php echo GUEST_ASSETS ?>img/gym/tst-ah1.jpg">
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-			</div>
-		</div>
-	</div>
-</section>
-
-<section id="app-gym-feature" class="app-gym-feature-section position-relative">
-	<div class="container">
-		<div class="app-gym-feature-content">
-			<div class="row">
-				<div class="col-lg-6">
-					<div class="app-gym-feature-text">
-						<div class="app-gym-section-title app-gym-headline pera-content wow fadeFromUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-							<span class="text-uppercase">Learn anything you want</span>
-							<h2>Masih bagus bisnis di SARLEMJUS? </h2>
-							<h2>Apa aja sih keuntungan nya? </h2>
-							<!-- <p>Aliquip ex ea commo ute irure dolor in repre henderit in velit esse cillumdatat non proident, sunt in culpa qui officia doylore eu fugiat nulla pariatur. </p> -->
-						</div>
-						<!-- <div class="app-gym-feature-list ul-li-block wow fadeFromUp" data-wow-delay="200ms" data-wow-duration="1500ms">
-							<ul>
-								<li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </li>
-								<li>Excepteur sint occaecat cupidatat non proident</li>
-								<li>Sed ut perspiciatis unde omnis iste natus sit</li>
-								<li>Luptatem accusantium dolore quasi architecto</li>
-							</ul>
-						</div> -->
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="app-gym-feature-img position-absolute">
-		<img src="<?php echo GUEST_ASSETS ?>img/section-2.png" alt="">
-	</div>
-</section>
-
-<section id="app-gym-pricing" class="app-gym-pricing-section">
-	<div class="container">
-		<div class="app-gym-section-title app-gym-headline text-center center-align pera-content">
-			<span class="text-uppercase">Learn anything you want</span>
-			<h2>5 Keuntungan Join Bisnis SARLEMJUS</h2>
-		</div>
-		<div class="app-gym-pricing-content">
-			<div class="row">
-				<div class="col-lg-6 wow fadeFromUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-					<div class="app-gym-pricing-innerbox position-relative clearfix">
-						<div class="app-gym-pricing-img float-left">
-							<img src="<?php echo GUEST_ASSETS ?>img/potongan-harga.jpg" alt="">
-						</div>
-						<div class="app-gym-pricing-text app-gym-headline pera-content  position-relative">
-							<h3><a href="#">Potongan Harga Belanja</a></h3>
-							<p>Vumdatat non proident culpa qui officia </p>
-							<div class="app-gym-price-value d-flex">
-								<!-- <span>Starts From</span> -->
-								<h3>1</h3>
-							</div>
-							<!-- <a class="pricing-more-btn float-right text-uppercase" href="#"> Sign up<i class="fas fa-caret-right"></i></a> -->
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6 wow fadeFromUp" data-wow-delay="300ms" data-wow-duration="1500ms">
-					<div class="app-gym-pricing-innerbox position-relative clearfix">
-						<div class="app-gym-pricing-img float-left">
-							<img src="<?php echo GUEST_ASSETS ?>img/reward.jpg" alt="">
-						</div>
-						<div class="app-gym-pricing-text app-gym-headline pera-content  position-relative">
-							<h3><a href="#">Reward Poin Belanja</a></h3>
-							<p>Vumdatat non proident culpa qui officia </p>
-							<div class="app-gym-price-value d-flex">
-								<h3>2</h3>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-lg-6 wow fadeFromUp" data-wow-delay="600ms" data-wow-duration="1500ms">
-					<div class="app-gym-pricing-innerbox position-relative clearfix">
-						<div class="app-gym-pricing-img float-left">
-							<img src="<?php echo GUEST_ASSETS ?>img/referral.jpg" alt="">
-						</div>
-						<div class="app-gym-pricing-text app-gym-headline pera-content  position-relative">
-							<h3><a href="#">Bonus Referal Rekrut</a></h3>
-							<p>Vumdatat non proident culpa qui officia </p>
-							<div class="app-gym-price-value d-flex">
-								<h3>3</h3>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-6 wow fadeFromUp" data-wow-delay="900ms" data-wow-duration="1500ms">
-					<div class="app-gym-pricing-innerbox position-relative clearfix">
-						<div class="app-gym-pricing-img float-left">
-							<img src="<?php echo GUEST_ASSETS ?>img/top-belanja-bulanan.jpg" alt="">
-						</div>
-						<div class="app-gym-pricing-text app-gym-headline pera-content  position-relative">
-							<h3><a href="#">Top Belanja Bulanan</a></h3>
-							<p>Vumdatat non proident culpa qui officia </p>
-							<div class="app-gym-price-value d-flex">
-								<h3>4</h3>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 wow fadeFromUp" data-wow-delay="900ms" data-wow-duration="1500ms">
-				</div>
-				<div class="col-lg-6 wow fadeFromUp" data-wow-delay="900ms" data-wow-duration="1500ms">
-					<div class="app-gym-pricing-innerbox position-relative clearfix">
-						<div class="app-gym-pricing-img float-left">
-							<img src="<?php echo GUEST_ASSETS ?>img/top-rekrut-bulanan.jpg" alt="">
-						</div>
-						<div class="app-gym-pricing-text app-gym-headline pera-content  position-relative">
-							<h3><a href="#">Top Rekrut Bulanan</a></h3>
-							<p>Vumdatat non proident culpa qui officia </p>
-							<div class="app-gym-price-value d-flex">
-								<h3>5</h3>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-3 wow fadeFromUp" data-wow-delay="900ms" data-wow-duration="1500ms">
-				</div>
-			</div>
-		</div>
-	</div>
-</section>
-
-
-<section id="app-gym-blog" class="app-gym-blog-section">
+<!-- <section id="service" class="service-section pt-130 pb-80">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-6">
-				<div class="app-gym-blog-text">
-					<div class="app-gym-section-title app-gym-headline pera-content">
-						<span>From our blog</span>
-						<h2>Learn what is new here in Appilo</h2>
-						<p>Aliquip ex ea commo ute irure dolor in repre henderit in velit esse cillumdatat non proident, sunt in culpa qui officia doylore eu fugiat nulla pariatur.</p>
+			<div class="col-xl-6 col-lg-7 col-md-9 mx-auto">
+				<div class="section-title text-center mb-55">
+					<h2 class="wow fadeInUp" data-wow-delay=".4s">YUK.. Gabung Jadi Dropshiper SARLEMJUS !!</h2>
+					<span class="wow fadeInDown" data-wow-delay=".2s">BISNIS MUDAH BERSAMA Sarlemjus & dapatkan
+						BANYAK Keuntungan nya !!!</span>
+					<a href="javascript:void(0)" class="theme-btn">DAFTAR DROPSHIP !</a>
+				</div>
+			</div>
+		</div> -->
+
+
+<!-- <div class="row">
+			<div class="col-xl-6 col-lg-7 col-md-9 mx-auto">
+				<div class="section-title text-center mb-55">
+					<h2 class="wow fadeInUp" data-wow-delay=".4s">5 KEUNTUNGAN DROPSHIP SARLEMJUS</h2>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-lg-4 col-md-6">
+				<div class="service-box box-style">
+					<div class="service-icon box-icon-style">
+						<i class="lni lni-capsule"></i>
+					</div>
+					<div class="box-content-style service-content">
+						<h4>Refreshing Design</h4>
+						<p>Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy eirmod tempor ividunt
+							labor dolore magna.</p>
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-6">
-				<div class="app-gym-blog-post">
-					<div class="app-gym-blog-innerbox position-relative wow fadeFromUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-						<div class="app-gym-blog-img position-absolute">
-							<img src="<?php echo GUEST_ASSETS ?>img/gym/blg1.jpg" alt="">
-						</div>
-						<div class="app-gym-blog-text app-gym-headline">
-							<div class="app-gym-blog-meta">
-								<span class="blog-ath text-uppercase"><a href="#">Johnson Doe </a></span>
-								<span class="blog-date"><a href="#">Feb 24, 2021</a></span>
-							</div>
-							<h3><a href="#">Didunt ut labore et dolore magna aliqua strud when the music</a></h3>
-						</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="service-box box-style">
+					<div class="service-icon box-icon-style">
+						<i class="lni lni-bootstrap"></i>
 					</div>
-					<div class="app-gym-blog-innerbox position-relative wow fadeFromUp" data-wow-delay="200ms" data-wow-duration="1500ms">
-						<div class="app-gym-blog-img position-absolute">
-							<img src="<?php echo GUEST_ASSETS ?>img/gym/blg1.jpg" alt="">
-						</div>
-						<div class="app-gym-blog-text app-gym-headline">
-							<div class="app-gym-blog-meta">
-								<span class="blog-ath text-uppercase"><a href="#">Johnson Doe </a></span>
-								<span class="blog-date"><a href="#">Feb 24, 2021</a></span>
-							</div>
-							<h3><a href="#">Didunt ut labore et dolore magna aliqua strud when the music</a></h3>
-						</div>
+					<div class="box-content-style service-content">
+						<h4>Solid Bootstrap 5</h4>
+						<p>Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy eirmod tempor ividunt
+							labor dolore magna.</p>
 					</div>
 				</div>
-				<div class="app-gym-blog-btn">
-					<a href="#">Go To Blog</a>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="service-box box-style">
+					<div class="service-icon box-icon-style">
+						<i class="lni lni-shortcode"></i>
+					</div>
+					<div class="box-content-style service-content">
+						<h4>100+ Components</h4>
+						<p>Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy eirmod tempor ividunt
+							labor dolore magna.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="service-box box-style">
+					<div class="service-icon box-icon-style">
+						<i class="lni lni-dashboard"></i>
+					</div>
+					<div class="box-content-style service-content">
+						<h4>Speed Optimized</h4>
+						<p>Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy eirmod tempor ividunt
+							labor dolore magna.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="service-box box-style">
+					<div class="service-icon box-icon-style">
+						<i class="lni lni-layers"></i>
+					</div>
+					<div class="box-content-style service-content">
+						<h4>Fully Customizable</h4>
+						<p>Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy eirmod tempor ividunt
+							labor dolore magna.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-4 col-md-6">
+				<div class="service-box box-style">
+					<div class="service-icon box-icon-style">
+						<i class="lni lni-reload"></i>
+					</div>
+					<div class="box-content-style service-content">
+						<h4>Regular Updates</h4>
+						<p>Lorem ipsum dolor sit amet, adipscing elitr, sed diam nonumy eirmod tempor ividunt
+							labor dolore magna.</p>
+					</div>
+				</div>
+			</div>
+		</div> -->
+
+
+<!-- </div>
+</section> -->
+
+<section id="contact" class="contact-section cta-bg img-bg pt-110 pb-100" style="background-image: url('<?php echo FRONT_ASSETS ?>img/cta-bg.jpg');">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-xl-8 col-lg-7">
+				<div class="section-title mb-60">
+					<h2 class="text-white wow fadeInUp" data-wow-delay=".4s">Anda Mau jadi Reseller Sarlemjus??</h2>
+					<span class="text-white wow fadeInDown" data-wow-delay=".2s">Gabung menjdi Reseller Sarlemjus itu seru banget lohh... ada banyak sekali keuntungan yang bisa anda dapat seperti :</span>
+					<p class="text-white wow fadeInUp" data-wow-delay=".6s" style="margin-bottom: 10px;">1. Menggunakan suport system berupa platfrom Dropship.Sarlemjus.com yang sangat mudah digunakan.</p>
+					<p class="text-white wow fadeInUp" data-wow-delay=".6s" style="margin-bottom: 10px;">2. Anda akan mendapatkan Reward/keuntungan yang terdiri dari Potongan Harga, Bonus Belanja, Bonus Refferal, Top Belanja, & Top Rekrut.</p>
+					<p class="text-white wow fadeInUp" data-wow-delay=".6s" style="margin-bottom: 10px;">3. Baru awam berbisnis?? tenang aja karena di Sarlemjus Anda akan wajib mengikuti kelas yang kita sediakan untuk belajar bisnis dari A-Z.</p>
+					<p class="text-white wow fadeInUp" data-wow-delay=".6s" style="margin-bottom: 10px;">4. Bonus-Bonus lainnya</p>
+					<p class="text-white wow fadeInUp" data-wow-delay=".6s">Dan banyak lagii</p>
+				</div>
+			</div>
+			<div class="col-xl-4 col-lg-5">
+				<div class="contact-btn text-start text-lg-end">
+					<a href="#" class="theme-btn">Pelajari Selengkapnya</a>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+
+<!-- <section id="pricing" class="pricing-section pt-140 pb-100">
+	<div class="container">
+		<div class="row">
+			<div class="col-xl-6 col-lg-7 col-md-10 mx-auto">
+				<div class="section-title text-center mb-60">
+					<span class="wow fadeInDown" data-wow-delay=".2s">Price</span>
+					<h2 class="wow fadeInUp" data-wow-delay=".4s">Our Pricing Plan</h2>
+					<p class="wow fadeInUp" data-wow-delay=".6s">At vero eos et accusamus et iusto odio
+						dignissimos ducimus quiblanditiis praesentium</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xl-12">
+				<div class="pricing-btn text-center wow fadeInUp" data-wow-delay=".3s">
+					<ul class="nav justify-content-center mb-90" id="pills-tab" role="tablist">
+						<li class="nav-item">
+							<a class="nav-link active" id="pills-1-tab" data-bs-toggle="pill" href="#pills-1" role="tab" aria-controls="pills-1" aria-selected="true">Monthly</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="pills-2-tab" data-bs-toggle="pill" href="#pills-2" role="tab" aria-controls="pills-2" aria-selected="false">Yearly</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="tab-content" id="pills-tabContent">
+			<div class="tab-pane fade show active" id="pills-1" role="tabpanel" aria-labelledby="pills-home-tab">
+				<div class="row">
+					<div class="col-xl-4 col-lg-4 col-md-6">
+						<div class="single-pricing mb-50">
+							<h4>Basic</h4>
+							<h3>$15.00</h3>
+							<ul>
+								<li>10 Users</li>
+								<li>Minimal Report</li>
+								<li>100MB Data Storage</li>
+								<li>No Support</li>
+								<li>Single Agent</li>
+							</ul>
+							<a href="javascript:void(0)" class="theme-btn border-btn">Purchase Now</a>
+							<p>No Extra Hidden Charge</p>
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-4 col-md-6">
+						<div class="single-pricing active mb-50">
+							<h4>Standard</h4>
+							<h3>$25.99</h3>
+							<ul>
+								<li>30 Users</li>
+								<li>Minimal Report</li>
+								<li>1GB Data Storage</li>
+								<li>7/24 Support</li>
+								<li>Multiple Agents</li>
+							</ul>
+							<a href="javascript:void(0)" class="theme-btn">Purchase Now</a>
+							<p>No Extra Hidden Charge</p>
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-4 col-md-6">
+						<div class="single-pricing mb-50">
+							<h4>Premium</h4>
+							<h3>$220.00</h3>
+							<ul>
+								<li>Unlimited Users</li>
+								<li>Full Report</li>
+								<li>Unlimited Data Storage</li>
+								<li>7/24 Support</li>
+								<li>Multiple Agents</li>
+							</ul>
+							<a href="javascript:void(0)" class="theme-btn border-btn">Purchase Now</a>
+							<p>No Extra Hidden Charge</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="pills-2" role="tabpanel" aria-labelledby="pills-2-tab">
+				<div class="row">
+					<div class="col-xl-4 col-lg-4 col-md-6">
+						<div class="single-pricing mb-50">
+							<h4>Basic</h4>
+							<h3>$15.00</h3>
+							<ul>
+								<li>10 Users</li>
+								<li>Minimal Report</li>
+								<li>100MB Data Storage</li>
+								<li>No Support</li>
+								<li>Single Agent</li>
+							</ul>
+							<a href="javascript:void(0)" class="theme-btn border-btn">Purchase Now</a>
+							<p>No Extra Hidden Charge</p>
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-4 col-md-6">
+						<div class="single-pricing active mb-50">
+							<h4>Standard</h4>
+							<h3>$25.99</h3>
+							<ul>
+								<li>30 Users</li>
+								<li>Minimal Report</li>
+								<li>1GB Data Storage</li>
+								<li>7/24 Support</li>
+								<li>Multiple Agents</li>
+							</ul>
+							<a href="javascript:void(0)" class="theme-btn">Purchase Now</a>
+							<p>No Extra Hidden Charge</p>
+						</div>
+					</div>
+					<div class="col-xl-4 col-lg-4 col-md-6">
+						<div class="single-pricing mb-50">
+							<h4>Premium</h4>
+							<h3>$220.00</h3>
+							<ul>
+								<li>Unlimited Users</li>
+								<li>Full Report</li>
+								<li>Unlimited Data Storage</li>
+								<li>7/24 Support</li>
+								<li>Multiple Agents</li>
+							</ul>
+							<a href="javascript:void(0)" class="theme-btn border-btn">Purchase Now</a>
+							<p>No Extra Hidden Charge</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</section> -->
+
+<!-- <section class="subscribe-section pt-70 pb-70 img-bg" style="background-image: url('<?php echo FRONT_ASSETS ?>img/bg/common-bg.svg')">
+	<div class="container">
+		<div class="row align-items-center">
+			<div class="col-xl-6 col-lg-6">
+				<div class="section-title mb-30">
+					<span class="text-white wow fadeInDown" data-wow-delay=".2s">Subscribe</span>
+					<h2 class="text-white mb-40 wow fadeInUp" data-wow-delay=".4s">Subscribe Our Newsletter</h2>
+				</div>
+			</div>
+			<div class="col-xl-6 col-lg-6">
+				<form action="#" class="subscribe-form wow fadeInRight" data-wow-delay=".4s">
+					<input type="text" name="subs-email" id="subs-email" placeholder="Your Email">
+					<button type="submit"><i class="lni lni-telegram-original"></i></button>
+				</form>
+			</div>
+		</div>
+	</div>
+</section> -->
+<!-- ========================= subscribe-section end ========================= -->
+
 
 <?php $this->load->view('guest/_/footer'); ?>
