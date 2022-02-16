@@ -118,7 +118,7 @@
                     </div>
                 </div>
 
-                <div class="card table-card">
+                <!-- <div class="card table-card">
                     <div class="card-header">
                         <h5>Top Rekrut</h5>
                         <div class="card-header-right">
@@ -169,7 +169,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
 
         </div>

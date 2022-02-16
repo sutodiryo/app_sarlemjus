@@ -9,6 +9,72 @@ class Transaction_data extends CI_Model
         $this->load->database();
     }
 
+    public function transaction_calculation($shipping_costs, $courier_name)
+    {
+        $member_id = $this->session->userdata('log_id');
+        date_default_timezone_set('Asia/Jakarta');
+        $now = date("Y-m-d h:i:s");
+        $my = date("mY"); // month year
+
+        $count = $this->db->query("SELECT id FROM transaction WHERE id_member='$member_id'")->num_rows();
+        $invoice_number = "INV$member_id$my" . ($count + 1) . "";
+
+        $total = $this->cart->total();
+
+        $q = $this->db->query("SELECT ml.discount FROM member m
+                                LEFT JOIN member_level ml ON m.level=ml.id
+                                WHERE m.id='$member_id'")->row();
+        $discount = $q->discount;
+        $discount_value = $this->get_member_discount_value();
+
+        $data = array(
+            'invoice_number' => $invoice_number,
+            'id_member' => $member_id,
+            'total' => $total,
+            'shipping_costs' => $shipping_costs,
+            'courier_name' => $courier_name,
+            'discount' => $discount,
+            'discount_value' => $discount_value,
+            'date_created' => $now,
+            'type' => 0,
+            'notif_admin' => 1,
+            'status' => 0
+        );
+
+        return $data;
+    }
+
+    function get_member_discount()
+    {
+        $member_id = $this->session->userdata('log_id');
+
+        $q = $this->db->query("SELECT ml.discount FROM member m
+                                LEFT JOIN member_level ml ON m.level=ml.id
+                                WHERE m.id='$member_id'")->row();
+        $discount = $q->discount;
+
+        return $discount;
+    }
+
+    function get_member_discount_value()
+    {
+        $member_id = $this->session->userdata('log_id');
+        $total = $this->cart->total();
+
+        $q = $this->db->query("SELECT ml.discount FROM member m
+                                LEFT JOIN member_level ml ON m.level=ml.id
+                                WHERE m.id='$member_id'")->row();
+        $discount = $q->discount;
+        $discount_value = ($discount / 100) * $total;
+
+        return $discount_value;
+    }
+
+    function get_invoice_detail($invoice_number)
+    {
+        return $this->db->query("SELECT * FROM transaction WHERE invoice_number='$invoice_number'")->row();
+    }
+
     function get_member_list()
     {
         return $this->db->query("SELECT id,name,phone FROM member")->result();
@@ -41,7 +107,6 @@ class Transaction_data extends CI_Model
                                     ORDER BY time DESC")->result();
     }
 
-
     function get_product_list()
     {
         return $this->db->query("SELECT id,name FROM product")->result();
@@ -49,24 +114,20 @@ class Transaction_data extends CI_Model
 
     function get_stat_sales_dashboard()
     {
-        $query = $this->db->query("SELECT   SUM(total) AS tot,
+        return $this->db->query("SELECT   SUM(total) AS tot,
                                             MONTH(tgl_pesan) AS bulan,
                                             YEAR(tgl_pesan) AS th
                                     FROM transaction
                                     WHERE YEAR(tgl_pesan)=YEAR(CURDATE()) AND status IN (3,4)
                                     GROUP BY bulan,th ORDER BY th ASC, bulan ASC")->result();
-
-        return $query;
     }
 
     function get_transaction_stat()
     {
-        $query = $this->db->query("SELECT   id,name,
+        return $this->db->query("SELECT   id,name,
                                             (SELECT COUNT(id) FROM member WHERE level=member_level.id) AS total
                                     FROM member_level
                                     ORDER BY id ASC")->result();
-
-        return $query;
     }
 
     function get_transaction_list()
@@ -78,16 +139,22 @@ class Transaction_data extends CI_Model
         return $query;
     }
 
+    function get_transaction_list_by_member_id($id)
+    {
+        return $this->db->query("SELECT     id,id_member,total,date_created,receipt,point,date_paid,date_accepted,status,
+                                            (SELECT member.name FROM member WHERE member.id=transaction.id_member) AS member
+                                FROM transaction
+                                WHERE id_member='$id'")->result();
+    }
+
     function get_transaction_detail($id)
     {
-        $query = $this->db->query("SELECT 	id_transaction,id_member,nama_promo,nilai_promo,ongkir,total,status,resi,id_kurir,tgl_pesan,tipe,bukti_transfer,
+        return $this->db->query("SELECT 	id_transaction,id_member,nama_promo,nilai_promo,ongkir,total,status,resi,id_kurir,tgl_pesan,tipe,bukti_transfer,
                                             (SELECT nama_kurir FROM kurir WHERE id_kurir=transaction.id_kurir) AS kurir,
                                             (SELECT IF((transaction.tipe=1), (SELECT nama FROM member WHERE id_member=transaction.id_member_to), 0)) AS member_to,
                                             (SELECT nama FROM member WHERE id_member=transaction.id_member) AS member,
                                             (SELECT no_hp FROM member WHERE id_member=transaction.id_member) AS no_hp
                                     FROM transaction WHERE id_transaction='$id'")->row();
-
-        return $query;
     }
 
     function transaction_add($im, $ip, $date, $ongkir, $tipe)
@@ -221,26 +288,22 @@ class Transaction_data extends CI_Model
 
     function get_location_5()
     {
-        $query = $this->db->query("SELECT * FROM location
+        return $this->db->query("SELECT * FROM location
                                             WHERE CHAR_LENGTH(id_location)=5
                                             ORDER BY location_name ASC")->result();
-
-        return $query;
     }
 
     function get_all_event()
     {
-        $query = $this->db->query("SELECT   id_event_schedule,event_name,id_location,lat,lng,address,note,date_start,date_end,status,tipe,
+        return $this->db->query("SELECT   id_event_schedule,event_name,id_location,lat,lng,address,note,date_start,date_end,status,tipe,
                                             (SELECT location_name FROM location WHERE id_location=event_schedule.id_location) AS city
                                             FROM event_schedule
                                             ORDER BY date_start DESC, date_end DESC")->result();
-
-        return $query;
     }
 
     function get_product_purchase_cart($qty, $idp)
     {
-        $query =  $this->db->query("SELECT      p.id,brand,p.name,slug,description,category,point,free_delivery,weight,length,width,height,p.status,p.selling_price,
+        return  $this->db->query("SELECT      p.id,brand,p.name,slug,description,category,point,free_delivery,weight,length,width,height,p.status,p.selling_price,
                                                 (SELECT price FROM product_price WHERE id_product=p.id) AS price,
                                                 (SELECT SUM(psp.stock_update) FROM product_stock psp WHERE psp.id_product=p.id AND psp.type=1) AS stock_plus,
                                                 (SELECT SUM(psp.stock_update) FROM product_stock psp WHERE psp.id_product=p.id AND psp.type!=1) AS stock_min,
@@ -251,7 +314,6 @@ class Transaction_data extends CI_Model
                                         LEFT JOIN product_category pc ON p.category=pc.id
                                         LEFT JOIN product_brand pb ON p.brand=pb.id
                                         WHERE p.id='$idp' AND p.status=1")->row();
-        return $query;
     }
 
     function get_member_shipping_default($id)

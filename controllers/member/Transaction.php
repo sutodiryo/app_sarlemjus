@@ -10,21 +10,44 @@ class Transaction extends CI_Controller
       $this->session->set_flashdata("report", "<div class='alert alert-danger alert-dismissible fade show' role='alert'><small>Anda harus login terlebih dahulu.</small><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button></div>");
       redirect(base_url('login'));
     }
-    $this->load->model('Member_model');
-    // require_once dirname(__DIR__) . '/libraries/Midtrans/Midtrans.php';
+    $this->load->model('Transaction_data');
+    $this->load->model('Master_data');
   }
 
   function index()
   {
-    $data['page']     = array(
+    
+    $data['page'] = array(
       "id" => "transaction",
-      "title" => "Member Area | Dashboard",
-      "stok" => "A",
-      "rowiderror" => "",
-      "realstock" => "",
-      "name" => ""
+      "title" => "Member Area | Transaksi",
+      "header" => "Transaksi",
+      "a" => array("icon" => "fas fa-tachometer-alt", "link" => "dashboard", "title" => "Dashboard"),
+      "b" => array("link" => "member/transaction", "title" => "Transaksi"),
+      "c" => ""
     );
-    $id             = $this->session->userdata('log_id');
+
+    $id = $this->session->userdata('log_id');
+    $data['trans'] = $this->Transaction_data->get_transaction_list_by_member_id($id);
+
     $this->load->view('member/transaction/list', $data);
+  }
+
+  function invoice($invoice_number)
+  {
+    
+    $data['page'] = array(
+      "id" => "transaction",
+      "title" => "Member Area | Transaksi",
+      "header" => "Transaksi",
+      "a" => array("icon" => "fas fa-tachometer-alt", "link" => "dashboard", "title" => "Dashboard"),
+      "b" => array("link" => "member/transaction", "title" => "Transaksi"),
+      "c" => ""
+    );
+
+    // $id = $this->session->userdata('log_id');
+    $data['inv'] = $this->Transaction_data->get_invoice_detail($invoice_number);
+
+    $this->load->view('member/transaction/invoice_detail', $data);
+    // echo $invoice_number;
   }
 }
