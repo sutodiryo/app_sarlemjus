@@ -16,7 +16,6 @@ class Transaction extends CI_Controller
 
   function index()
   {
-    
     $data['page'] = array(
       "id" => "transaction",
       "title" => "Member Area | Transaksi",
@@ -34,7 +33,6 @@ class Transaction extends CI_Controller
 
   function invoice($invoice_number)
   {
-    
     $data['page'] = array(
       "id" => "transaction",
       "title" => "Member Area | Transaksi",
@@ -45,7 +43,10 @@ class Transaction extends CI_Controller
     );
 
     // $id = $this->session->userdata('log_id');
-    $data['inv'] = $this->Transaction_data->get_invoice_detail($invoice_number);
+    $inv = $this->Transaction_data->get_invoice_detail($invoice_number);
+    $data['inv'] = $inv;
+    $data['items'] = $this->Transaction_data->get_invoice_items($inv->id);
+    // $data['address'] = $this->Transaction_data->get_member_shipping_default($id);
 
     $this->load->view('member/transaction/invoice_detail', $data);
     // echo $invoice_number;

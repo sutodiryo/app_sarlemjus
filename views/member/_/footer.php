@@ -78,11 +78,11 @@
     </script>
 
     <script src="<?php echo ASSETS ?>js/pages/dashboard-sale.js"></script>
-<?php } elseif ($page['id'] == "team") { ?>
+<?php } elseif ($page['id'] == "transaction") { ?>
     <script src="<?php echo ASSETS ?>js/plugins/jquery.dataTables.min.js"></script>
     <script src="<?php echo ASSETS ?>js/plugins/dataTables.bootstrap4.min.js"></script>
     <script>
-        $('#table_team').DataTable();
+        $('#table_trans').DataTable();
     </script>
 <?php } elseif ($page['id'] == "store") { ?>
 

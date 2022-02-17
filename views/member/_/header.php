@@ -12,9 +12,21 @@
     <meta name="keywords" content="<?php echo KEYWORDS ?>">
     <meta name="author" content="<?php echo AUTHOR ?>" />
 
+    <style>
+        @media print {
+            .print-scale {
+                scale: 70%;
+            }
+
+            table {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+
     <link href="<?php echo FAVICON ?>" rel="icon">
 
-    <?php if ($page['id'] == "team" || $page['id'] == "store") { ?>
+    <?php if ($page['id'] == "transaction" || $page['id'] == "store") { ?>
         <!-- <link rel="stylesheet" href="<?= ASSETS ?>css/plugins/select2.min.css"> -->
         <link rel="stylesheet" href="<?= ASSETS ?>css/plugins/dataTables.bootstrap4.min.css">
     <?php } ?>
@@ -65,7 +77,7 @@
                                             echo "active";
                                         } ?>"><a href="<?php echo base_url('member/store') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-store"></i></span><span class="pcoded-mtext">Store</span></a></li>
 
-                    <li class="nav-item <?php if ($page == "transaction") {
+                    <li class="nav-item <?php if ($page['id'] == "transaction") {
                                             echo "active";
                                         } ?>"><a href="<?php echo base_url('member/transaction') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-exchange-alt"></i></span><span class="pcoded-mtext">Transaksi</span></a></li>
 

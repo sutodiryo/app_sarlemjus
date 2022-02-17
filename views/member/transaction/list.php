@@ -40,27 +40,40 @@
               </div>
             </div>
             <div class="table-responsive">
-              <table id="table_team" class="table table-bordered table-striped mb-0">
+              <table id="table_trans" class="table table-bordered table-striped mb-0">
                 <thead>
                   <tr>
-                    <th width="5%">ID</th>
-                    <th width="30%">Name</th>
-                    <th width="20%" class="text-center">Kontak</th>
-                    <th width="35%">Transaksi</th>
-                    <th width="10%" class="text-center"></th>
+                    <th width="20%" class="text-center">ID Transaksi</th>
+                    <th width="20%" class="text-center">Total Pesanan</th>
+                    <th width="20%" class="text-center">Tanggal Transaksi</th>
+                    <th width="30%" class="text-center">Status</th>
+                    <th width="10%"></th>
                   </tr>
                 </thead>
                 <tbody>
 
-                  <?php 
+                  <?php
                   foreach ($trans as $t) {
+
+                    $date_created = new DateTime($t->date_created);
+                    // <td><a href='#'>" . substr($t->name, 0, 30) . "</a></td>
+
                     echo "<tr>
-                            <td>#$t->id</td>
-                            <td><a href='#'><img src='" . base_url() . "public/upload/member/$t->img' class='img-radius' width='30px' height='30px'> " . substr($t->name, 0, 30) . "</a></td>
-                            <td class='text-center'><a class='btn btn-sm btn-success' href='https://api.whatsapp.com/send/?phone=62$t->phone'><i class='fab fa-whatsapp'></i> $t->phone</a></td>
-                            <td></td>
+                            <td class='text-center'><a href='" . base_url('member/transaction/invoice/') . "$t->invoice_number'>$t->invoice_number</a></td>
+                            <td class='text-right'>Rp" . number_format($t->total, 0, ',', '.') . "</td>
+                            <td class='text-center'>" . $date_created->format('d M Y') . " <small>Pukul " . $date_created->format('H:i') . "</small></td>
+                            <td class='text-center'>";
+                    if ($t->status == 0) {
+                      echo "<button class='btn btn-sm btn-warning has-ripple'><i class='fas fa-exclamation-circle'></i> Belum Bayar</span></button>";
+                    } elseif ($t->status == 1) {
+                      echo "<button type='button' class='btn btn-sm btn-success has-ripple'><i class='fas fa-play-circle'></i> Diproses</span></button>";
+                    } elseif ($t->status == 2) {
+                      echo "<button type='button' class='btn btn-sm btn-info has-ripple'><i class='fas fa-check-circle'></i> Diterima</span></button>";
+                    }
+
+                    echo "</td>
                             <td class='text-center'>
-                              <button type='button' class='btn btn-icon btn-info has-ripple' title='Lihat detail transaksi'><i class='fas fa-eye'></i><span class='ripple ripple-animate'></span></button>
+                              <a href='" . base_url('member/transaction/invoice/') . "$t->invoice_number' class='btn btn-sm btn-outline-info has-ripple'><i class='fas fa-eye icon-info'></i> Detail</a>
                             </td>
                         </tr>";
                   }
@@ -78,14 +91,3 @@
 </div>
 
 <?php $this->load->view('member/_/footer'); ?>
-
-
-
-<script type="text/javascript">
-  function link_aff() {
-    var copyText = document.getElementById("aff_link");
-    copyText.select();
-    document.execCommand("copy");
-    alert("Link pendaftaran sudah tercopy : " + copyText.value);
-  }
-</script>

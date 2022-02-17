@@ -856,7 +856,7 @@ class Member extends CI_Controller
 
             return $output;
         } elseif ($x == "shipping_address") {
-            $data = $this->db->query("SELECT * FROM member_shipping WHERE id_member_shipping = '$y'")->row();
+            $data = $this->db->query("SELECT * FROM member_shipping WHERE id = '$y'")->row();
             echo json_encode($data);
         } elseif ($x == "cost") { }
     }
@@ -1115,7 +1115,7 @@ class Member extends CI_Controller
             }
 
             $data = [
-                'id_member_shipping' => "ms-" . $id . "-" . ($q + 1),
+                'id' => "ms-" . $id . "-" . ($q + 1),
                 'id_member' => $id,
                 'nama_penerima' => $this->input->post('nama_penerima'),
                 'no_hp_penerima'  => $this->input->post('no_hp_penerima'),
@@ -1133,8 +1133,8 @@ class Member extends CI_Controller
             $this->db->insert('member_shipping', $data);
 
             if ($this->input->post('cart') == 1) {
-                $q = $this->db->query("SELECT id_member_shipping FROM member_shipping WHERE id_member='$id' ORDER BY date_created ASC LIMIT 1")->row();
-                $idsa = $q->id_member_shipping;
+                $q = $this->db->query("SELECT id FROM member_shipping WHERE id_member='$id' ORDER BY date_created ASC LIMIT 1")->row();
+                $idsa = $q->id;
                 $this->load_shipping_address($idsa);
             } else {
                 $this->alert('success', 'Alamat Pengiriman Baru Berhasil Ditambahkan...');
@@ -1363,7 +1363,7 @@ class Member extends CI_Controller
 
     function del_shipping_address($id)
     {
-        $this->db->delete('member_shipping', array('id_member_shipping'  => $id));
+        $this->db->delete('member_shipping', array('id'  => $id));
 
         $this->alert('danger', 'Alamat Pengiriman telah dihapus...');
         redirect(base_url('member/profile'));

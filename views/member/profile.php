@@ -75,8 +75,8 @@
                             echo "</h4>
                                         </div>
                                         <div class='col-2 text-right'>";
-                                            // <button onclick=\"edit_shipping_address('$ms->id_member_shipping')\"  title='Edit Alamat Pengiriman ini' class='btn btn-sm btn-icon-only btn-success'><i class='fa fa-pencil-alt'></i></button>
-                                            echo "<a href='" . base_url('member/del_shipping_address/') . "$ms->id_member_shipping/' onclick=\"return confirm('Anda yakin ingin menghapus data ini?')\" title='Hapus Alamat Pengiriman ini' class='btn btn-sm btn-icon-only btn-danger'><i class='fa fa-trash-alt'></i></a>
+                                            // <button onclick=\"edit_shipping_address('$ms->id')\"  title='Edit Alamat Pengiriman ini' class='btn btn-sm btn-icon-only btn-success'><i class='fa fa-pencil-alt'></i></button>
+                                            echo "<a href='" . base_url('member/del_shipping_address/') . "$ms->id/' onclick=\"return confirm('Anda yakin ingin menghapus data ini?')\" title='Hapus Alamat Pengiriman ini' class='btn btn-sm btn-icon-only btn-danger'><i class='fa fa-trash-alt'></i></a>
                                         </div>
 
                                         <div class='col'>
@@ -568,7 +568,7 @@
     //         type: "GET",
     //         dataType: "JSON",
     //         success: function(data) {
-    //             $('[name="id_member_shipping"]').val(data.id_member_shipping);
+    //             $('[name="id"]').val(data.id);
     //             $('[name="nama_penerima_edt"]').val(data.nama_penerima);
     //             $('[name="no_hp_penerima_edt"]').val(data.no_hp_penerima);
     //             $('[name="id_province_edt"]').val(data.id_province);

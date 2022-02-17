@@ -17,7 +17,7 @@ class Transaction_data extends CI_Model
         $my = date("mY"); // month year
 
         $count = $this->db->query("SELECT id FROM transaction WHERE id_member='$member_id'")->num_rows();
-        $invoice_number = "INV$member_id$my" . ($count + 1) . "";
+        $invoice_number = "TR$member_id$my" . ($count + 1) . "";
 
         $total = $this->cart->total();
 
@@ -72,7 +72,22 @@ class Transaction_data extends CI_Model
 
     function get_invoice_detail($invoice_number)
     {
-        return $this->db->query("SELECT * FROM transaction WHERE invoice_number='$invoice_number'")->row();
+        return $this->db->query("SELECT t.id,t.invoice_number,t.id_member,m.name AS member_name,t.total,t.shipping_costs,t.courier_name,t.discount,t.discount_value,t.receipt,t.point,t.date_created,t.status,
+                                        ms.full_address,ml.discount
+                                        FROM transaction t
+                                        LEFT JOIN member m ON t.id_member=m.id
+                                        LEFT JOIN member_shipping ms ON t.id_member=ms.id_member AND ms.status=1
+                                        LEFT JOIN member_level ml ON m.level=ml.id
+                                    WHERE t.invoice_number='$invoice_number'")->row();
+    }
+
+    function get_invoice_items($id)
+    {
+        return $this->db->query("SELECT tp.transaction_id,tp.product_id,tp.product_name,tp.price,tp.quantity
+                                    FROM transaction_product tp
+                                    LEFT JOIN transaction t ON tp.transaction_id=t.id
+                                    LEFT JOIN member m ON t.id_member=m.id
+                                    WHERE tp.transaction_id='$id'")->result();
     }
 
     function get_member_list()
@@ -141,9 +156,10 @@ class Transaction_data extends CI_Model
 
     function get_transaction_list_by_member_id($id)
     {
-        return $this->db->query("SELECT     id,id_member,total,date_created,receipt,point,date_paid,date_accepted,status,
-                                            (SELECT member.name FROM member WHERE member.id=transaction.id_member) AS member
-                                FROM transaction
+        return $this->db->query("SELECT t.id,t.invoice_number,t.id_member,t.total,t.date_created,t.receipt,t.date_paid,t.date_accepted,t.status,
+                                        m.name AS member_name
+                                FROM transaction t
+                                LEFT JOIN member m ON t.id_member=m.id
                                 WHERE id_member='$id'")->result();
     }
 
@@ -318,16 +334,16 @@ class Transaction_data extends CI_Model
 
     function get_member_shipping_default($id)
     {
-        return $this->db->query("SELECT id_member_shipping,id_member,nama_penerima,no_hp_penerima,id_province,id_district,id_subdistrict,province_name,district_name,subdistrict_name,postal_code,full_address,status
+        return $this->db->query("SELECT id,id_member,nama_penerima,no_hp_penerima,id_province,id_district,id_subdistrict,province_name,district_name,subdistrict_name,postal_code,full_address,status
                                     FROM member_shipping
                                     WHERE id_member='$id' AND status=1")->row();
     }
 
     function get_member_shipping_by_id($idm, $idsa)
     {
-        return $this->db->query("SELECT id_member_shipping,id_member,nama_penerima,no_hp_penerima,id_province,id_district,id_subdistrict,province_name,district_name,subdistrict_name,postal_code,full_address,status
+        return $this->db->query("SELECT id,id_member,nama_penerima,no_hp_penerima,id_province,id_district,id_subdistrict,province_name,district_name,subdistrict_name,postal_code,full_address,status
                                     FROM member_shipping
                                     WHERE id_member='$idm'
-                                    AND id_member_shipping='$idsa'")->row();
+                                    AND id='$idsa'")->row();
     }
 }

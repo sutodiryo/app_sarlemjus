@@ -80,8 +80,8 @@
 
 
         <div class="card" id="cart">
-          <div class="card-header">
-            <h5>Keranjang Belanja</h5>
+          <div class="card-header text-center">
+            <h4>Keranjang Belanja</h4>
           </div>
           <div class="card-body">
             <div class="table-responsive">
@@ -91,7 +91,7 @@
                     <th>Produk</th>
                     <th>Harga</th>
                     <th>Jumlah Barang</th>
-                    <th>Subtotal</th>
+                    <th class="text-right">Subtotal</th>
                     <th></th>
                   </tr>
                 </thead>
@@ -306,11 +306,11 @@
     if (Number.isNaN(shipping_costs) || shipping_costs == "" || shipping_costs === null) {
       var total_tagihan = ((parseInt(subtotal) - parseInt(discount_value)));
 
-      x += ('<td colspan="5"><button form="save" class="btn btn-success btn-lg btn-block" readonly onmouseover="alert(\'Silahkan pilih jasa pengiriman terlebih dahulu\')">Ke Pembayaran <i class="fa fa-arrow-right"></i></button></td>');
+      x += ('<td colspan="5"><button form="save" class="btn btn-success btn-lg btn-block disabled" readonly onclick="alert(\'Silahkan pilih jasa pengiriman terlebih dahulu\')">Ke Pembayaran <i class="fa fa-arrow-right"></i></button></td>');
     } else {
       var total_tagihan = ((parseInt(subtotal) + parseInt(shipping_costs)) - parseInt(discount_value));
       if (typeof shipping_costs == 'undefined') {
-        x += ('<td colspan="5"><button form="save" class="btn btn-success btn-lg btn-block" readonly onmouseover="alert(\'Silahkan pilih jasa pengiriman terlebih dahulu\')">Ke Pembayaran <i class="fa fa-arrow-right"></i></button></td>');
+        x += ('<td colspan="5"><button form="save" class="btn btn-success btn-lg btn-block disabled" readonly onclick="alert(\'Silahkan pilih jasa pengiriman terlebih dahulu\')">Ke Pembayaran <i class="fa fa-arrow-right"></i></button></td>');
       } else {
         x += ('<td colspan="5"><button id="pay-button" onclick="act_checkout()" form="save" class="btn btn-success btn-lg btn-block">Ke Pembayaran <i class="fa fa-arrow-right"></i></button></td>');
       }

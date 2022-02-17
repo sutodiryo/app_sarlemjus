@@ -100,7 +100,7 @@ class Store extends CI_Controller
     $no         = 0;
     $tot_qty    = array_sum(array_column($this->cart->contents(), 'qty'));
 
-    $member_shipping_default    = $this->Transaction_data->get_member_shipping_default($id_member);
+    $member_shipping_default  = $this->Transaction_data->get_member_shipping_default($id_member);
 
     $str        = "'";
     foreach ($this->cart->contents() as $items) {
@@ -122,54 +122,59 @@ class Store extends CI_Controller
     }
 
     $output .= '<tr>
-                      <th colspan="2" style="text-align:right;">Subtotal :</th>
-                      <th colspan="2" style="text-align:right;">' . 'Rp ' . number_format($this->cart->total(), 0, ',', ',') . '</th>
-                  </tr>';
-
+                  <td colspan="2">
+                  <table>
+                  <tbody>';
     if (!empty($member_shipping_default)) {
 
-      $output .= '<tr id="member_shipping_address_selected" style="border:1px;">
-                      <th colspan="4">
-                        <label class="form-control-label" for="alamat"> Alamat Penerima</label>
-                        <h4 class="mb-0">' . $member_shipping_default->nama_penerima . '</h4>
-                        <input type="hidden" name="shipping_selected_name" id="shipping_selected_name" value="' . $member_shipping_default->nama_penerima . '">
-                        <input type="hidden" name="shipping_selected_no_hp" id="shipping_selected_no_hp" value="' . $member_shipping_default->no_hp_penerima . '">
-                        <input type="hidden" name="id_subdistrict" id="id_subdistrict" value="' . $member_shipping_default->id_subdistrict . '">
-                        <small>' . $member_shipping_default->no_hp_penerima . '</small>
-                        <br>
-                        <textarea class="form-control" style="padding: 0px; outline: none !important; border:0px ; font-size: 12px; background-color:transparent;" disabled>' . $member_shipping_default->full_address . ' - ' . $member_shipping_default->postal_code . '</textarea>
-                      </th>
-                  </tr>';
+      $output .= '<tr style="border:1px;">
+                                    <th>
+                                      <label class="form-control-label" for="alamat"> Alamat Penerima</label>
+                                      <h4 class="mb-0">' . $member_shipping_default->nama_penerima . '</h4>
+                                      <input type="hidden" name="shipping_selected_name" id="shipping_selected_name" value="' . $member_shipping_default->nama_penerima . '">
+                                      <input type="hidden" name="shipping_selected_no_hp" id="shipping_selected_no_hp" value="' . $member_shipping_default->no_hp_penerima . '">
+                                      <input type="hidden" name="id_subdistrict" id="id_subdistrict" value="' . $member_shipping_default->id_subdistrict . '">
+                                      <small>' . $member_shipping_default->no_hp_penerima . '</small>
+                                      <br>
+                                      <textarea class="form-control" style="padding: 0px; outline: none !important; border:0px ; font-size: 12px; background-color:transparent;" disabled>' . $member_shipping_default->full_address . ' - ' . $member_shipping_default->postal_code . '</textarea>
+                                    </th>
+                                </tr>';
 
       $tb_gram    = $this->get_weight('return');
       $tb_kg      = $tb_gram / 1000;
 
       $output .= '      <tr>
-                          <th colspan="3">
-                          <label class="form-control-label" for="id_kurir">Pilih Jasa Pengiriman <small><font id="total_weight" color="blue">Total Berat : (' . $tb_kg . ' Kg)</font></small></label>
-                          <select class="form-control form-control-sm" id="kurir" onchange="set_kurir()" required="">
-                              <option value=""> Pilih Kurir</option>
-                              <option value="anteraja">Anteraja</option>
-                              <option value="jne">JNE - Jalur Nugraha Ekakurir</option>
-                              <option value="jnt">JNT</option>
-                              <option value="ninja">Ninja Express</option>
-                              <option value="pos">POS Indonesia</option>
-                              <option value="sicepat">Sicepat</option>
-                              <option value="tiki">Tiki - Titipan Kilat</option>
-                          </select>
-                        </tr>
-                        <tr>
-                           <th colspan="3" id="datakurir"></th>
-                        </tr>';
+                                        <th>
+                                        <label class="form-control-label" for="id_kurir">Pilih Jasa Pengiriman <small><font id="total_weight" color="blue">Total Berat : (' . $tb_kg . ' Kg)</font></small></label>
+                                        <select class="form-control form-control-sm" id="kurir" onchange="set_kurir()" required="">
+                                            <option value=""> Pilih Kurir</option>
+                                            <option value="anteraja">Anteraja</option>
+                                            <option value="jne">JNE - Jalur Nugraha Ekakurir</option>
+                                            <option value="jnt">JNT</option>
+                                            <option value="ninja">Ninja Express</option>
+                                            <option value="pos">POS Indonesia</option>
+                                            <option value="sicepat">Sicepat</option>
+                                            <option value="tiki">Tiki - Titipan Kilat</option>
+                                        </select>
+                                      </tr>
+                                      <tr>
+                                         <th id="datakurir"></th>
+                                      </tr>';
     } else {
 
       $output .= '<tr>
-                          <th colspan="3" style="text-align:right;"><small><font color="red" >Anda belum mengatur alamat pengiriman</font></small></th>
-                          <th style="text-align:right;">
-                              <a data-toggle="modal" href="' . base_url('member/profile/address') . '" title="Tambah Alamat Pengiriman" class="btn btn-sm btn-default"><small>Tambah Alamat</small></a>
-                          </th>
-                      </tr>';
+                                        <th style="text-align:right;"><small><font color="red" >Anda belum mengatur alamat pengiriman</font></small></th>
+                                        <th style="text-align:right;">
+                                            <a data-toggle="modal" href="' . base_url('member/profile/address') . '" title="Tambah Alamat Pengiriman" class="btn btn-sm btn-default"><small>Tambah Alamat</small></a>
+                                        </th>
+                                    </tr>';
     }
+    $output .= '</tbody>
+                </table>
+                </td>
+                  <th style="text-align:right;">Subtotal :</th>
+                  <th style="text-align:right;">' . 'Rp ' . number_format($this->cart->total(), 0, ',', ',') . '</th>
+                </tr>';
 
     $total_cart = $this->cart->total();
 
