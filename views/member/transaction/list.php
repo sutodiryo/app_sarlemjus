@@ -63,6 +63,7 @@
                             <td class='text-right'>Rp" . number_format($t->total, 0, ',', '.') . "</td>
                             <td class='text-center'>" . $date_created->format('d M Y') . " <small>Pukul " . $date_created->format('H:i') . "</small></td>
                             <td class='text-center'>";
+
                     if ($t->status == 0) {
                       echo "<button class='btn btn-sm btn-warning has-ripple'><i class='fas fa-exclamation-circle'></i> Belum Bayar</span></button>";
                     } elseif ($t->status == 1) {
@@ -73,7 +74,7 @@
 
                     echo "</td>
                             <td class='text-center'>
-                              <a href='" . base_url('member/transaction/invoice/') . "$t->invoice_number' class='btn btn-sm btn-outline-info has-ripple'><i class='fas fa-eye icon-info'></i> Detail</a>
+                              <a href='" . base_url('member/transaction/invoice/') . "$t->invoice_number' class='btn btn-sm btn-outline-dark has-ripple'><i class='fas fa-eye icon-info'></i> Detail</a>
                             </td>
                         </tr>";
                   }

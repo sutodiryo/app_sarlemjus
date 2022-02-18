@@ -147,11 +147,10 @@ class Transaction_data extends CI_Model
 
     function get_transaction_list()
     {
-        $query = "SELECT    id,id_member,total,date_created,receipt,point,date_paid,date_accepted,status,
-                            (SELECT member.name FROM member WHERE member.id=transaction.id_member) AS member
-                    FROM transaction";
-
-        return $query;
+        return "SELECT    t.id,t.invoice_number,t.id_member,t.total,t.date_created,t.receipt,t.date_paid,t.date_accepted,t.status,t.type,
+                            m.name AS member_name
+                    FROM transaction t
+                    LEFT JOIN member m ON t.id_member=m.id";
     }
 
     function get_transaction_list_by_member_id($id)

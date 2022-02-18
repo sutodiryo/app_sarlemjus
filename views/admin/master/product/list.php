@@ -34,13 +34,13 @@
               <table id="table_product" class="table table-bordered table-striped mb-0">
                 <thead>
                   <tr>
-                    <th width="5%">No</th>
-                    <th width="30%">Produk</th>
-                    <th width="25%">Deskripsi</th>
-                    <th width="10%">HPP</th>
-                    <th width="10%">Nilai</th>
+                    <th width="5%" class="text-center">No</th>
+                    <th width="30%" class="text-center">Nama Produk</th>
+                    <th width="25%" class="text-center">Deskripsi</th>
+                    <th width="15%" class="text-center">Satuan</th>
+                    <th width="15%" class="text-center">Harga</th>
                     <!-- <th width="10%" class="text-center">Stok</th> -->
-                    <th width="20%" class="text-center"></th>
+                    <th width="10%" class="text-center"></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -50,13 +50,16 @@
                   foreach ($product as $p) {
                     $no++;
                     echo "<tr>
-                    <td>$no</td>
-                    <td><img src='" . ASSETS . "images/upload/member/avatar-1.jpg' class='img-radius' width='30px' height='30px'> $p->name</td>
+                    <td class='align-middle text-center'>$no</td>
+                    <td class='align-middle'>
+                      <img src='" . base_url('public/upload/product/') . "$p->image' alt='contact-img' title='contact-img' class='rounded mr-3' height='48' />
+                      <p class='m-0 d-inline-block align-middle font-16'><a href='".base_url()."' class='text-body'>$p->name</a></p>
+                    </td>
                     <td><textarea class='form-control' disabled style=\"font-size:80%;\">$p->description</textarea></td>
-                    <td>0</td>
-                    <td>$p->point Poin</td>";
-                    // <td class='text-center'>";
+                    <td class='text-center'>$p->unit</td>
+                    <td>Rp " . number_format($p->selling_price, 0, ',', '.') . "</td>";
 
+                    // <td class='text-center'>";
                     // $stock = $this->db->query("SELECT id_unit,type,
                     //                                   SUM(stock_update) AS total,
                     //                                   product_unit.name AS unit
@@ -64,34 +67,32 @@
                     //                                 JOIN product_unit ON product_unit.id=product_stock.id_unit
                     //                                 WHERE id_product='$p->id'
                     //                                 GROUP BY id_unit")->result();
-                                            
-                                            // (SELECT SUM(stock_update) FROM product_stock WHERE type=1) AS total_plus,
-                                            // (SELECT SUM(stock_update) FROM product_stock WHERE type IN (0,2)) AS total_min,
-                                            // var_dump($q);
 
-                                            // foreach ($stock as $sp) {
+                    // (SELECT SUM(stock_update) FROM product_stock WHERE type=1) AS total_plus,
+                    // (SELECT SUM(stock_update) FROM product_stock WHERE type IN (0,2)) AS total_min,
+                    // var_dump($q);
 
-                                            //   if (empty($sp->total) || $sp->total < 1) {
-                                            //     echo "<span class='badge badge-pill badge-dark'>Kosong</span><br>";
-                                            //   } elseif ($sp->total >= 1 && $sp->total <= 10) {
-                                            //     echo "<span class='badge badge-pill badge-danger'>$sp->total $sp->unit</span><br>";
-                                            //   } elseif ($sp->total > 10 && $sp->total <= 50) {
-                                            //     echo "<span class='badge badge-pill badge-warning'>$sp->total $sp->unit</span><br>";
-                                            //   } elseif ($sp->total > 50) {
-                                            //     echo "<span class='badge badge-pill badge-success'>$sp->total $sp->unit</span><br>";
-                                            //   }
-                                            // }
+                    // foreach ($stock as $sp) {
+
+                    //   if (empty($sp->total) || $sp->total < 1) {
+                    //     echo "<span class='badge badge-pill badge-dark'>Kosong</span><br>";
+                    //   } elseif ($sp->total >= 1 && $sp->total <= 10) {
+                    //     echo "<span class='badge badge-pill badge-danger'>$sp->total $sp->unit</span><br>";
+                    //   } elseif ($sp->total > 10 && $sp->total <= 50) {
+                    //     echo "<span class='badge badge-pill badge-warning'>$sp->total $sp->unit</span><br>";
+                    //   } elseif ($sp->total > 50) {
+                    //     echo "<span class='badge badge-pill badge-success'>$sp->total $sp->unit</span><br>";
+                    //   }
+                    // }
 
                     // $stock = $p->stock_plus - $p->stock_min;
-
-                    
-
                     // echo "</td>
-                    echo "<td class='text-center'>
+
+                    echo "<td class='align-middle text-center'>
                       <div class='btn-group mb-2 mr-2'>
                       <button class='btn btn-outline-secondary dropdown-toggle btn-sm has-ripple' type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Action<span class='ripple ripple-animate' style='height: 118.875px; width: 118.875px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(255, 255, 255); opacity: 0.4; top: -31.8125px; left: -7.5px;'></span></button>
                       <div class='dropdown-menu' style=''>
-                          <a class='dropdown-item badge-info' href='".base_url('admin/master/product_stock/')."$p->id' target='_blank'><i class='feather icon-layers'></i> Update Stock</a>
+                          <a class='dropdown-item badge-info' href='" . base_url('admin/master/product_stock/') . "$p->id' target='_blank'><i class='feather icon-layers'></i> Update Stock</a>
                           <a class='dropdown-item badge-secondary' href='#!'><i class='feather icon-tag'></i> Harga Member</a>
                           <a class='dropdown-item badge-success' href='#!'><i class='feather icon-edit'></i> Edit</a>
                           <div class='dropdown-divider'></div>

@@ -38,7 +38,7 @@
                     <th width="15%">Tanggal</th>
                     <th width="20%" class="text-center">Status</th>
                     <th width="10%" class="text-center">Tipe Transaksi</th>
-                    <th width="20%">Total</th>
+                    <th width="20%" class="text-center">Total</th>
                     <th width="15%" class="text-center"></th>
                   </tr>
                 </thead>
@@ -46,14 +46,20 @@
 
                   <?php
                   foreach ($transaction as $t) {
+
+                    $date_created = new DateTime($t->date_created);
+
                     echo "<tr>
-                    <td>$t->id</td>
-                    <td>";
+                    <td><a href='" . base_url('admin/transaction/invoice/') . "$t->invoice_number'>$t->invoice_number</a></td>
+                    <td class='text-right'>" . $date_created->format('d M Y') . " <small>Pukul " . $date_created->format('H:i') . "</small></td>
+                    <td class='text-center'>";
 
                     if ($t->status == 0) {
-                      echo "<span class='badge badge-pill badge-dark'>Online</span>";
+                      echo "<span class='badge badge-pill badge-warning'>Belum Bayar</span>";
                     } elseif ($t->status == 1) {
-                      echo "<span class='badge badge-pill badge-danger'>COD</span>";
+                      echo "<span class='badge badge-pill badge-success'>Diproses</span>";
+                    } elseif ($t->status == 2) {
+                      echo "<span class='badge badge-pill badge-info'>Diterima</span>";
                     }
 
                     echo "</td><td class='text-center'>";
@@ -61,12 +67,13 @@
                     if ($t->type == 0) {
                       echo "<span class='badge badge-pill badge-dark'>Online</span>";
                     } elseif ($t->type == 1) {
-                      echo "<span class='badge badge-pill badge-danger'>COD</span>";
+                      echo "<span class='badge badge-pill badge-light-dark'>COD</span>";
                     }
 
                     echo "</td>
-                    <td>$t->total</td>
+                    <td class='text-right'>Rp" . number_format($t->total, 0, ',', '.') . "</td>
                     <td class='text-center'>
+                      <a href='" . base_url('member/transaction/invoice/') . "$t->invoice_number' class='btn btn-sm btn-outline-dark has-ripple'><i class='fas fa-eye icon-info'></i> Detail</a>
                     </td>
                     </tr>";
                   }
@@ -208,7 +215,7 @@
       counter++;
 
       // $('#id_product_' + counter + '').select2();
-      
+
 
     });
 
@@ -218,11 +225,11 @@
     });
   });
 
-  $('#id_product_0').on('select2:select', function (e) {
+  $('#id_product_0').on('select2:select', function(e) {
     var data = e.params.data.id;
     // console.log(data);
     // alert(data);
-});
+  });
 
   // $(document).ready(function() {
   //   $("#id_member").select2({
@@ -232,6 +239,6 @@
 
 
   // function loadSelect2() {
-    
+
   // }
 </script>

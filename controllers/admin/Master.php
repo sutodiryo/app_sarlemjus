@@ -14,7 +14,7 @@ class Master extends CI_Controller
       $this->alert('danger', 'Akses ditolak');
       redirect(base_url('member'));
     }
-    $this->load->model('admin/Master_data');
+    $this->load->model('Master_data');
   }
 
   function product($x)

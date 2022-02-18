@@ -123,9 +123,9 @@
                                             endif; ?>"><a href="<?= base_url('admin/master/notice') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-bell"></i></span><span class="pcoded-mtext">Pengumuman</span></a>
                     </li>
 
-                    <li class=" nav-item <?php if ($page == 'bonus') : echo "active";
+                    <!-- <li class=" nav-item <?php if ($page == 'bonus') : echo "active";
                                             endif; ?>"><a href="<?= base_url('admin/master/bonus') ?>" class="nav-link"><span class="pcoded-micon"><i class="fas fa-gift"></i></span><span class="pcoded-mtext">Bonus</span></a>
-                    </li>
+                    </li> -->
 
                     <li class=" nav-item pcoded-menu-caption">
                         <label>Laporan</label>

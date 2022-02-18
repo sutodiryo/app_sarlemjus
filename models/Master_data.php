@@ -11,7 +11,7 @@ class Master_data extends CI_Model
 
     function get_product_list($status)
     {
-        $q = "SELECT    p.id,brand,p.name,slug,description,category,point,free_delivery,weight,length,width,height,p.status,p.selling_price,
+        $q = "SELECT    p.id,brand,p.name,slug,description,category,unit,free_delivery,weight,length,width,height,p.status,p.selling_price,
                         (SELECT SUM(psp.stock_update) FROM product_stock psp WHERE psp.id_product=p.id AND psp.type=1) AS stock_plus,
                         (SELECT SUM(psp.stock_update) FROM product_stock psp WHERE psp.id_product=p.id AND psp.type!=1) AS stock_min,
                         pc.name AS category_name,
@@ -32,14 +32,12 @@ class Master_data extends CI_Model
 
     function get_product_by_id($id_product)
     {
-        $q = $this->db->query("SELECT * FROM product WHERE id='$id_product'")->row();
-        return $q;
+        return $this->db->query("SELECT * FROM product WHERE id='$id_product'")->row();
     }
 
     function get_product_stock($id_product)
     {
-        $q = $this->db->query("SELECT * FROM product WHERE id='$id_product'")->result();
-        return $q;
+        return $this->db->query("SELECT * FROM product WHERE id='$id_product'")->result();
     }
 
     function get_product_brand()
@@ -66,8 +64,8 @@ class Master_data extends CI_Model
     function get_course_category_list()
     {
         return $this->db->query("SELECT id,name,cover,status FROM course_category")->result();
-                                        // (SELECT COUNT(*) FROM course_acces WHERE id_course_category=course_category.id) AS tot_access
-                                        // FROM course_category")->result();
+        // (SELECT COUNT(*) FROM course_acces WHERE id_course_category=course_category.id) AS tot_access
+        // FROM course_category")->result();
     }
 
     function get_notice_list()
@@ -76,22 +74,19 @@ class Master_data extends CI_Model
                                             (SELECT COUNT(*) FROM notice_target WHERE id_notice=notice.id) AS tot_target
                                     FROM notice")->result();
     }
-    
+
     function get_course_category_by_id($id_category)
     {
-        $q = $this->db->query("SELECT id,name FROM course_category WHERE id='$id_category'")->row();
-        return $q;
+        return $this->db->query("SELECT id,name FROM course_category WHERE id='$id_category'")->row();
     }
-    
+
     function get_course_list($id_category)
     {
-        $q = $this->db->query("SELECT * FROM course WHERE category='$id_category'")->result();
-        return $q;
+        return $this->db->query("SELECT * FROM course WHERE category='$id_category'")->result();
     }
 
     function get_member_level()
     {
-        $q = $this->db->query("SELECT * FROM member_level ORDER BY id DESC")->result();
-        return $q;
+        return $this->db->query("SELECT * FROM member_level ORDER BY id DESC")->result();
     }
 }

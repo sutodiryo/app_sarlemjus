@@ -12,7 +12,7 @@ class Transaction extends CI_Controller
     } elseif ($this->session->userdata('log_admin') == FALSE) {
       echo "Akses ditolak";
     }
-    $this->load->model('admin/Transaction_data');
+    $this->load->model('Transaction_data');
   }
 
   var $id_transaction;

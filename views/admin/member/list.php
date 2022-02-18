@@ -60,25 +60,27 @@
                                 <thead>
                                     <tr>
                                         <th width="5%">ID</th>
-                                        <th width="20%">Name</th>
-                                        <th width="40%">Alamat</th>
-                                        <th width="10%">Email</th>
-                                        <th width="10%">No HP</th>
-                                        <th width="5%">Level</th>
+                                        <th width="20%" class="text-center">Nama Lengkap</th>
+                                        <th width="40%" class="text-center">Alamat</th>
+                                        <th width="10%" class="text-center">Email</th>
+                                        <th width="10%" class="text-center">No HP</th>
+                                        <th width="5%" class="text-center">Level</th>
                                         <th width="10%" class="text-center"></th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
+                                <!-- <td><img src='" . base_url() . "public/upload/member/$m->img' class='img-radius' width='30px' height='30px'> " . substr($m->name, 0, 30) . "</td> -->
+
                                     <?php
                                     foreach ($member as $m) {
                                         echo "<tr>
-                                        <td>#$m->id</td>
-                                        <td><img src='" . base_url() . "public/upload/member/$m->img' class='img-radius' width='30px' height='30px'> " . substr($m->name, 0, 30) . "</td>
+                                        <td><a href='" . base_url('admin/member/detail/') . "$m->id' target='_blank'>#$m->id</a></td>
+                                        <td><a href='" . base_url('admin/member/detail/') . "$m->id' target='_blank'>" . substr($m->name, 0, 30) . "</a></td>
                                         <td><textarea class='form-control' disabled  style='font-size:80%;'>$m->address</textarea></td>
-                                        <td>$m->email</td>
-                                        <td>$m->phone</td>
-                                        <td>$m->level_name</td>
+                                        <td class='text-center'><a href='mailto:$m->email' class='badge badge-pill badge-light-dark'>$m->email</a></td>
+                                        <td class='text-center'><a href='https://api.whatsapp.com/send/?phone=62$m->phone&text=Halo' class='badge badge-pill badge-light-dark'>$m->phone</a></td>
+                                        <td class='text-center'><span class='badge badge-pill badge-dark'>$m->level_name</span></td>
                                         <td class='text-center'>
                                             <div class='btn-group mb-2 mr-2'>
                                                 <button class='btn btn-outline-secondary dropdown-toggle btn-sm has-ripple' type='button' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false'>Action<span class='ripple ripple-animate' style='height: 118.875px; width: 118.875px; animation-duration: 0.7s; animation-timing-function: linear; background: rgb(255, 255, 255); opacity: 0.4; top: -31.8125px; left: -7.5px;'></span></button>

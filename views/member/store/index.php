@@ -85,14 +85,14 @@
           </div>
           <div class="card-body">
             <div class="table-responsive">
-              <table class="table table-striped">
+              <table class="table">
                 <thead>
                   <tr>
-                    <th>Produk</th>
-                    <th>Harga</th>
-                    <th>Jumlah Barang</th>
-                    <th class="text-right">Subtotal</th>
-                    <th></th>
+                    <th width="40%">Produk</th>
+                    <th width="20%">Harga</th>
+                    <th width="10%">Jumlah Barang</th>
+                    <th width="25%" class="text-right">Subtotal</th>
+                    <th width="5%"></th>
                   </tr>
                 </thead>
 
