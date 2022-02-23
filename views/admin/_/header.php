@@ -108,9 +108,9 @@
                             <li class="<?php if ($title == "Kategori Produk") {
                                             echo "active";
                                         } ?>"><a href="<?= base_url('admin/master/product_category') ?>">Kategori</a></li>
-                            <li class=" <?php if ($title == "Satuan Produk") {
+                            <!-- <li class=" <?php if ($title == "Satuan Produk") {
                                             echo "active";
-                                        } ?>"><a href="<?= base_url('admin/master/product_unit') ?>">Satuan</a></li>
+                                        } ?>"><a href="<?= base_url('admin/master/product_unit') ?>">Satuan</a></li> -->
                         </ul>
                     </li>
 

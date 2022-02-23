@@ -52,12 +52,12 @@
                     echo "<tr>
                     <td class='align-middle text-center'>$no</td>
                     <td class='align-middle'>
-                      <img src='" . base_url('public/upload/product/') . "$p->image' alt='contact-img' title='contact-img' class='rounded mr-3' height='48' />
-                      <p class='m-0 d-inline-block align-middle font-16'><a href='".base_url()."' class='text-body'>$p->name</a></p>
+                      <img src='" . base_url('public/upload/product/') . "$p->image' alt='$p->name' title='$p->name' class='rounded mr-3' height='48' />
+                      <p class='m-0 d-inline-block align-middle font-16'><a href='" . base_url() . "' class='text-body'>$p->name</a></p>
                     </td>
                     <td><textarea class='form-control' disabled style=\"font-size:80%;\">$p->description</textarea></td>
                     <td class='text-center'>$p->unit</td>
-                    <td>Rp " . number_format($p->selling_price, 0, ',', '.') . "</td>";
+                    <td>Rp " . idr($p->selling_price) . "</td>";
 
                     // <td class='text-center'>";
                     // $stock = $this->db->query("SELECT id_unit,type,

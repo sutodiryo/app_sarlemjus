@@ -50,8 +50,8 @@
                     $date_created = new DateTime($t->date_created);
 
                     echo "<tr>
-                    <td><a href='" . base_url('admin/transaction/invoice/') . "$t->invoice_number'>$t->invoice_number</a></td>
-                    <td class='text-right'>" . $date_created->format('d M Y') . " <small>Pukul " . $date_created->format('H:i') . "</small></td>
+                    <td><a href='" . base_url('admin/transaction/invoice/') . "$t->invoice_number' target='_blank'>$t->invoice_number</a></td>
+                    <td class='text-right'>" . date_time_id($date_created) . "</td>
                     <td class='text-center'>";
 
                     if ($t->status == 0) {
@@ -71,9 +71,9 @@
                     }
 
                     echo "</td>
-                    <td class='text-right'>Rp" . number_format($t->total, 0, ',', '.') . "</td>
+                    <td class='text-right'>Rp" . idr($t->total) . "</td>
                     <td class='text-center'>
-                      <a href='" . base_url('member/transaction/invoice/') . "$t->invoice_number' class='btn btn-sm btn-outline-dark has-ripple'><i class='fas fa-eye icon-info'></i> Detail</a>
+                      <a href='" . base_url('admin/transaction/invoice/') . "$t->invoice_number' target='_blank' class='btn btn-sm btn-outline-dark has-ripple'><i class='fas fa-eye icon-info'></i> Detail</a>
                     </td>
                     </tr>";
                   }

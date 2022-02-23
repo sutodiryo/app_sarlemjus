@@ -1,6 +1,13 @@
 <?php
-date_default_timezone_set("Asia/Bangkok");
-function hari_ini() {
+date_default_timezone_set("Asia/Jakarta");
+
+function date_time_id($datetime)
+{
+    return "" . $datetime->format('d M Y') . " <small>Pukul " . $datetime->format('H:i') . "</small>";
+}
+
+function today()
+{
     $hari = date("D");
 
     switch ($hari) {
@@ -39,13 +46,13 @@ function hari_ini() {
     return $hari_ini;
 }
 
-function tanggal_sekarang() {
+function date_now()
+{
     date_default_timezone_set('Asia/Jakarta');
-    $tanggal = mktime(date("m"), date("d"), date("Y"));
-    $tglsekarang = date("Y-m-d", $tanggal);
+    $date = mktime(date("m"), date("d"), date("Y"));
+    $now = date("Y-m-d", $date);
 
-
-    $bulan = array(
+    $month = array(
         1 => 'Januari',
         'Februari',
         'Maret',
@@ -59,16 +66,18 @@ function tanggal_sekarang() {
         'November',
         'Desember'
     );
-    $pecahkan = explode('-', $tglsekarang);
+    $x = explode('-', $now);
 
-    return $pecahkan[2] . ' ' . $bulan[(int) $pecahkan[1]] . ' ' . $pecahkan[0];
+    return $x[2] . ' ' . $month[(int) $x[1]] . ' ' . $x[0];
 }
 
-function date_ind($tanggal) {
-    $a = explode(' ', $tanggal);
-    $newtanggal = $a[0];
+// Format tanggal Indonesia by STRING
+function date_id($date)
+{
+    $d = explode(' ', $date);
+    $new_date = $d[0];
     date_default_timezone_set('Asia/Jakarta');
-    $bulan = array(
+    $month = array(
         1 => 'Januari',
         'Februari',
         'Maret',
@@ -82,54 +91,56 @@ function date_ind($tanggal) {
         'November',
         'Desember'
     );
-    $pecahkan = explode('-', $newtanggal);
-    return $pecahkan[2] . ' ' . $bulan[(int) $pecahkan[1]] . ' ' . $pecahkan[0];
+    $x = explode('-', $new_date);
+    return $x[2] . ' ' . $month[(int) $x[1]] . ' ' . $x[0];
 }
 
-function get_time($timestamp) {
+function get_time($timestamp)
+{
     $splitTimeStamp = explode(" ", $timestamp);
     $time = $splitTimeStamp[1];
     return $time;
 }
 
-function get_bulan($bln){
-                switch ($bln){
-                    case 1: 
-                        return "Januari";
-                        break;
-                    case 2:
-                        return "Februari";
-                        break;
-                    case 3:
-                        return "Maret";
-                        break;
-                    case 4:
-                        return "April";
-                        break;
-                    case 5:
-                        return "Mei";
-                        break;
-                    case 6:
-                        return "Juni";
-                        break;
-                    case 7:
-                        return "Juli";
-                        break;
-                    case 8:
-                        return "Agustus";
-                        break;
-                    case 9:
-                        return "September";
-                        break;
-                    case 10:
-                        return "Oktober";
-                        break;
-                    case 11:
-                        return "November";
-                        break;
-                    case 12:
-                        return "Desember";
-                        break;
-                }
-                return $bln;
-            } 
+function get_date($bln)
+{
+    switch ($bln) {
+        case 1:
+            return "Januari";
+            break;
+        case 2:
+            return "Februari";
+            break;
+        case 3:
+            return "Maret";
+            break;
+        case 4:
+            return "April";
+            break;
+        case 5:
+            return "Mei";
+            break;
+        case 6:
+            return "Juni";
+            break;
+        case 7:
+            return "Juli";
+            break;
+        case 8:
+            return "Agustus";
+            break;
+        case 9:
+            return "September";
+            break;
+        case 10:
+            return "Oktober";
+            break;
+        case 11:
+            return "November";
+            break;
+        case 12:
+            return "Desember";
+            break;
+    }
+    return $bln;
+}

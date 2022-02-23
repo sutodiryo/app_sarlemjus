@@ -294,12 +294,4 @@ class Member extends CI_Controller
 		$this->alert('info', 'JSON DATA : ' . $data_string . '<p>&nbsp;</p> RESULT : ' . $result . '');
 		redirect('admin/push_notification_msg');
 	}
-
-	// Flashdata Report
-	function alert($x, $y)
-	{
-		// $x : warna
-		// $y : pesan
-		return $this->session->set_flashdata("report", "<div class='alert alert-$x alert-dismissible fade show' role='alert'><strong>$y</strong><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button></div>");
-	}
 }

@@ -892,12 +892,4 @@ class Master extends CI_Controller
       redirect($referred_link);
     }
   }
-
-  // Flashdata Report
-  function alert($x, $y)
-  {
-    // $x : warna
-    // $y : pesan
-    return $this->session->set_flashdata("report", "<div class='alert alert-$x alert-dismissible fade show' role='alert'><strong>$y</strong><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button></div>");
-  }
 }
