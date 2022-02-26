@@ -13,6 +13,7 @@ class Dashboard extends CI_Controller
       echo "Akses ditolak";
     }
     $this->load->model('Member_data');
+    $this->load->model('Transaction_data');
   }
 
   function index()

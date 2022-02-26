@@ -71,7 +71,7 @@
                     }
 
                     echo "</td>
-                    <td class='text-right'>Rp" . idr($t->total) . "</td>
+                    <td class='text-right'>" . idr($t->total) . "</td>
                     <td class='text-center'>
                       <a href='" . base_url('admin/transaction/invoice/') . "$t->invoice_number' target='_blank' class='btn btn-sm btn-outline-dark has-ripple'><i class='fas fa-eye icon-info'></i> Detail</a>
                     </td>

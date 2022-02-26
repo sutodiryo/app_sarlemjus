@@ -56,7 +56,7 @@
                               <p class='m-0 d-inline-block align-middle font-16'>
                               <a href='#!' class='text-body'>$p->name</a>
                             </td>
-                            <td class='align-middle'>Rp " . idr($p->selling_price) . "</td>
+                            <td class='align-middle'>" . idr($p->selling_price) . "</td>
                             <td class='align-middle'>
                               0%
                             </td>

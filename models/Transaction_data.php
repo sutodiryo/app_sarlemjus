@@ -122,6 +122,20 @@ class Transaction_data extends CI_Model
                                     ORDER BY time DESC")->result();
     }
 
+    function get_product_stock_by_id($id)
+    {
+        $q = $this->db->query("SELECT ps.id,ps.id_product,ps.id_admin,ps.type,ps.stock_update,ps.time,ps.note,
+                                        p.name AS product
+                                        -- ,(SELECT product_unit.name FROM product_unit WHERE product_unit.id=p.unit) AS unit
+                                    FROM product_stock ps
+                                    LEFT JOIN product p ON ps.id_product=p.id
+                                    WHERE ps.id_product='$id'
+                                    ORDER BY time DESC")->row();
+                                    
+        $stock = $q->stock_plus - $q->stock_min;
+        return $stock;
+    }
+
     function get_product_list()
     {
         return $this->db->query("SELECT id,name FROM product")->result();
@@ -143,6 +157,16 @@ class Transaction_data extends CI_Model
                                             (SELECT COUNT(id) FROM member WHERE level=member_level.id) AS total
                                     FROM member_level
                                     ORDER BY id ASC")->result();
+    }
+
+    function get_top_buyer()
+    {
+        return $this->db->query("SELECT   m.id,m.name,ml.name AS level,
+                                            (SELECT SUM(t.total) FROM transaction t WHERE t.id_member=m.id) AS total
+                                    FROM member m
+                                    LEFT JOIN member_level ml ON m.level=ml.id
+                                    ORDER BY total DESC
+                                    LIMIT 5")->result();
     }
 
     function get_transaction_list()

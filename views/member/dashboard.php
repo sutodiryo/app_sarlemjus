@@ -13,7 +13,8 @@
         </div>
 
         <div class="row">
-            <div class="col-md-12 col-xl-12">
+            
+            <!-- <div class="col-md-12 col-xl-12">
                 <div class="alert alert-primary alert-dismissible fade show" role="alert">
                     <strong>Halooo!</strong> Selamat datang.
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
@@ -26,10 +27,9 @@
                         <div class="progress" style="height: 30px;">
                             <div class="progress-bar progress-bar-striped bg-success" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
                         </div>
-                        <!-- <p class="m-b-0">$5,032 <i class="feather icon-arrow-up m-l-10"></i></p> -->
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- <div class="col-md-12 col-xl-3">
                 <div class="card bg-c-yellow order-card">
@@ -67,7 +67,7 @@
 
                 <div class="card table-card">
                     <div class="card-header">
-                        <h5>Top Pembelian</h5>
+                        <h5>Top Pembelian Bulan Ini</h5>
                         <div class="card-header-right">
                             <div class="btn-group card-option">
                                 <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -86,30 +86,26 @@
                                 <table class="table table-hover m-b-0">
                                     <thead>
                                         <tr>
-                                            <th>Peringkat</th>
-                                            <th>Nama Member</th>
-                                            <th>Level</th>
-                                            <th></th>
+                                            <th class="text-center">Peringkat</th>
+                                            <th class="text-left">Nama Member</th>
+                                            <th class="text-center">Level</th>
+                                            <th class="text-right">Total Pembelian</th>
                                         </tr>
                                     </thead>
                                     <tbody>
 
-                                        <tr>
-                                            <td>
-                                                <h4>1</h4>
-                                            </td>
-                                            <td>
-                                                <h4>Sofa</h4>
-                                            </td>
-                                            <td><label class="badge badge-light-danger">Out Stock</label></td>
-                                            <td>
-                                                <a href="#!"><i class="fa fa-star f-14 text-c-yellow"></i></a>
-                                                <a href="#!"><i class="fa fa-star f-14 text-c-yellow"></i></a>
-                                                <a href="#!"><i class="fa fa-star f-14 text-c-yellow"></i></a>
-                                                <a href="#!"><i class="fa fa-star f-14 text-muted"></i></a>
-                                                <a href="#!"><i class="fa fa-star f-14 text-muted"></i></a>
-                                            </td>
-                                        </tr>
+                                        <?php
+                                        $no = 0;
+                                        foreach ($top as $t) {
+                                            $no++;
+                                            echo "<tr>
+                                                    <td class='text-center'><h5>$no</h5></td>
+                                                    <td><h5>$t->name</h5></td>
+                                                    <td class='text-center'><label class='badge badge-light-dark'>$t->level</label></td>
+                                                    <td class='text-right'><h4>" . idr($t->total) . "</h4></td>
+                                                </tr>";
+                                        }
+                                        ?>
 
                                     </tbody>
                                 </table>

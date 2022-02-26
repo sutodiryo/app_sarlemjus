@@ -57,7 +57,7 @@
                     </td>
                     <td><textarea class='form-control' disabled style=\"font-size:80%;\">$p->description</textarea></td>
                     <td class='text-center'>$p->unit</td>
-                    <td>Rp " . idr($p->selling_price) . "</td>";
+                    <td>" . idr($p->selling_price) . "</td>";
 
                     // <td class='text-center'>";
                     // $stock = $this->db->query("SELECT id_unit,type,

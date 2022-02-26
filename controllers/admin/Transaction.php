@@ -61,14 +61,18 @@ class Transaction extends CI_Controller
 
   function invoice($invoice_number)
   {
-    $data['page'] = array(
-      "id" => "transaction",
-      "title" => "Member Area | Transaksi",
-      "header" => "Transaksi",
-      "a" => array("icon" => "fas fa-tachometer-alt", "link" => "dashboard", "title" => "Dashboard"),
-      "b" => array("link" => "admin/transaction", "title" => "Transaksi"),
-      "c" => ""
-    );
+    
+    $data['page'] = 'transaction';
+    $data['title'] = 'Daftar Transaksi';
+
+    // $data['page'] = array(
+    //   "id" => "transaction",
+    //   "title" => "Member Area | Transaksi",
+    //   "header" => "Transaksi",
+    //   "a" => array("icon" => "fas fa-tachometer-alt", "link" => "dashboard", "title" => "Dashboard"),
+    //   "b" => array("link" => "admin/transaction", "title" => "Transaksi"),
+    //   "c" => ""
+    // );
 
     // $id = $this->session->userdata('log_id');
     $inv = $this->Transaction_data->get_invoice_detail($invoice_number);
@@ -104,5 +108,13 @@ class Transaction extends CI_Controller
       $referred_link = $this->session->userdata('referred_stock_product_list');
       redirect($referred_link);
     }
+  }
+  
+  // Flashdata Report
+  function alert($x, $y)
+  {
+    // $x : warna
+    // $y : pesan
+    return $this->session->set_flashdata("report", "<div class='alert alert-$x alert-dismissible fade show' role='alert'><span class='alert-icon'><i class='ni ni-like-2'></i></span><span class='alert-text'><strong>$y</strong></span><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button></div>");
   }
 }

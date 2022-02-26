@@ -60,7 +60,7 @@
 
                     echo "<tr>
                             <td class='text-center'><a href='" . base_url('member/transaction/invoice/') . "$t->invoice_number'>$t->invoice_number</a></td>
-                            <td class='text-right'>Rp" . idr($t->total) . "</td>
+                            <td class='text-right'>" . idr($t->total) . "</td>
                             <td class='text-center'>" . $date_created->format('d M Y') . " <small>Pukul " . $date_created->format('H:i') . "</small></td>
                             <td class='text-center'>";
 
