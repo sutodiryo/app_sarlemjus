@@ -31,7 +31,7 @@
 
             <div class="row align-items-center m-l-1 mb-3">
               <div class="col-sm-6">
-                <h5>Inventory <?php echo $product->name ?></h5>
+                <!-- <h5>Inventory <?php echo $product->name ?></h5> -->
               </div>
               <div class="col-sm-6 text-right ">
                 <?php $current_stock = $product->stock_plus - $product->stock_min;
@@ -118,7 +118,8 @@
                 <h5>Daftar Transaksi <?php echo $product->name ?></h5>
               </div>
               <div class="col-sm-6 text-right ">
-                <?php $current_stock = $product->stock_plus - $product->stock_min;
+                <?php
+                $total_sell = $product->stock_plus - $product->stock_min;
                   echo "<button type='button' class='btn btn-sm btn-secondary has-ripple'>Total : <span class='badge badge-light'>$current_stock</span><span class='ripple ripple-animate'></span></button>";
                
                 ?>

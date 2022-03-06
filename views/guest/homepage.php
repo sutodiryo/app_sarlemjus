@@ -15,7 +15,7 @@
 			<div class="col-xl-5 col-lg-6">
 				<div class="hero-img">
 					<div class="d-inline-block hero-img-right">
-						<img src="<?php echo FRONT_ASSETS ?>img/hero-img-1.png" alt="" class="image wow fadeInRight" data-wow-delay=".5s">
+						<img src="<?php echo FRONT_ASSETS ?>img/home-1.png" alt="" class="image wow fadeInRight" data-wow-delay=".5s">
 						<!-- <img src="<?php echo FRONT_ASSETS ?>img/hero/dots.shape.svg" alt="" class="dot-shape"> -->
 						<!-- <div class="video-btn">
 							<a href="https://www.youtube.com/watch?v=r44RKWyfcFw&fbclid=IwAR21beSJORalzmzokxDRcGfkZA1AtRTE__l5N4r09HcGS5Y6vOluyouM9EM" class="glightbox"><i class="lni lni-play"></i></a>

@@ -135,6 +135,18 @@ class Transaction_data extends CI_Model
         $stock = $q->stock_plus - $q->stock_min;
         return $stock;
     }
+    
+
+    function get_transaction_by_product($id)
+    {
+        return "SELECT    t.id,t.invoice_number,t.id_member,t.total,t.date_created,t.date_paid,t.date_accepted,t.status,t.type,
+                            m.name AS member_name
+                    FROM transaction t
+                    LEFT JOIN member m ON t.id_member=m.id
+                    WHERE id_product='$id'";
+    }
+
+    // End stock
 
     function get_product_list()
     {
@@ -159,7 +171,7 @@ class Transaction_data extends CI_Model
                                     ORDER BY id ASC")->result();
     }
 
-    function get_top_buyer()
+    function get_top_buyer() // Admin Dashboards
     {
         return $this->db->query("SELECT   m.id,m.name,ml.name AS level,
                                             (SELECT SUM(t.total) FROM transaction t WHERE t.id_member=m.id) AS total

@@ -75,22 +75,18 @@ $total = $subtotal_disc + $inv->shipping_costs;
                                                                             echo "<button type='button' class='btn btn-sm btn-success has-ripple'><i class='fas fa-truck'></i> Diproses</span></button>";
 
                                                                             $s1 = "<img src='" . FRONT_ASSETS . "img/logo-1.png' height='90px'>"; // Tanda tangan 1
-                                                                            $s2 = "<img src='" . FRONT_ASSETS . "img/logo-1.png' height='90px'>"; // Tanda tangan 2
                                                                         } elseif ($inv->status == 2) {
                                                                             echo "<button type='button' class='btn btn-sm btn-info has-ripple'><i class='fas fa-box-open'></i> Diterima</span></button>";
 
                                                                             $s1 = "<img src='" . FRONT_ASSETS . "img/logo-1.png' height='90px'>"; // Tanda tangan 1
-                                                                            $s2 = "<img src='" . FRONT_ASSETS . "img/logo-1.png' height='90px'>"; // Tanda tangan 2
                                                                         } elseif ($inv->status == 3) {
                                                                             echo "<button type='button' class='btn btn-sm btn-info has-ripple'><i class='fas fa-check-circle'></i> Selesai</span></button>";
 
                                                                             $s1 = "<img src='" . FRONT_ASSETS . "img/logo-1.png' height='90px'>"; // Tanda tangan 1
-                                                                            $s2 = "<img src='" . FRONT_ASSETS . "img/logo-1.png' height='90px'>"; // Tanda tangan 2
                                                                         } elseif ($inv->status == 4) {
                                                                             echo "<button type='button' class='btn btn-sm btn-dark has-ripple'><i class='fas fa-times-circle'></i> Dibatalkan</span></button>";
 
                                                                             $s1 = "<img src='" . FRONT_ASSETS . "img/logo-1.png' height='90px'>"; // Tanda tangan 1
-                                                                            $s2 = "<img src='" . FRONT_ASSETS . "img/logo-1.png' height='90px'>"; // Tanda tangan 2
                                                                         }  ?>
                                                         </td>
                                                     </tr>
@@ -224,19 +220,13 @@ $total = $subtotal_disc + $inv->shipping_costs;
                                 </div>
                                 <hr>
                                 <div class="row" style="margin-top:30px;">
-                                    <div class="col-sm-4 text-center">
+                                    <div class="col-sm-6 text-center">
                                         <p>Dibuat Oleh :</p>
                                         <?php echo $s1; ?>
-                                        <h6><u>Anjelita</u></h6>
+                                        <h6><u>Anjelita Rizkina</u></h6>
                                         <p>Keuangan</p>
                                     </div>
-                                    <div class="col-sm-4 text-center">
-                                        <p>Disetujui Oleh :</p>
-                                        <?php echo $s2; ?>
-                                        <h6><u>Efri Korina</u></h6>
-                                        <p>Direktur</p>
-                                    </div>
-                                    <div class="col-sm-4 text-center">
+                                    <div class="col-sm-6 text-center">
                                         <p>Konfirmasi :</p>
                                         <br>
                                         <br>
