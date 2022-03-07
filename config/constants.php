@@ -34,7 +34,7 @@ define('MAIN_DESC', 'Sarlemjus');
 define('KEYWORDS', 'Sarlemjus');
 define('AUTHOR', 'Sarlemjus');
 
-define('FAVICON', 'http://localhost/sarlemjus/public/guest/img/favicon.png');
+define('FAVICON', 'http://localhost/sarlemjus.com/public/guest/img/favicon.png');
 
 define('LOGIN_TITLE', 'Sarlemjus | Log In Page');
 define('LOGIN_DESC', 'Halaman Login Sarlemjus');
@@ -42,7 +42,7 @@ define('REG_TITLE', 'Sarlemjus | Registration Page');
 
 define('FOOTER', 'Sarlemjus');
 
-define('ASSETS', 'http://localhost/sarlemjus/public/back/');
-define('GUEST_ASSETS', 'http://localhost/sarlemjus/public/guest/');
-define('FRONT_ASSETS', 'http://localhost/sarlemjus/public/front/');
+define('ASSETS', 'http://localhost/sarlemjus.com/public/back/');
+define('GUEST_ASSETS', 'http://localhost/sarlemjus.com/public/guest/');
+define('FRONT_ASSETS', 'http://localhost/sarlemjus.com/public/front/');
 define('LP_ASSETS', 'https://lp.sarlemjus.com/');
