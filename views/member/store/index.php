@@ -23,6 +23,32 @@
     <div class="row">
 
       <div class="col-lg-12">
+        <div class="row">
+
+          <?php foreach ($product as $p) { ?>
+
+            <div class="col-md-6 col-xl-4">
+              <div class="card mb-3">
+                <img class="img-fluid card-img-top" src="<?= "" . base_url('public/upload/product/') . "$p->image" ?>" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title"><?= $p->name ?></h5>
+                  <p class="card-text"><?= " . idr($p->selling_price) . " ?></p>
+                  <!-- <p class="card-text"><?= substr($c->article, 0, 200) ?> . . .</p> -->
+                  <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                  <!-- <a class="btn btn-primary btn-sm has-ripple" href="<?= base_url('member/course/detail/') . $c->slug ?>">Read More<span class="ripple ripple-animate"></span></a> -->
+                </div>
+              </div>
+            </div>
+
+          <?php } ?>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+
+      <div class="col-lg-12">
 
         <div class="card">
           <div class="card-body">
@@ -329,9 +355,9 @@
     var courier = document.getElementById("shiping");
     var courier_name = $('input[name="shiping"]:checked').parent().text();
 
-    document.getElementById('shipping_costs_text').value=shipping_costs;
-    document.getElementById('shipping_costs_checkout').value=shipping_costs;
-    document.getElementById('courier_name').value=courier_name;
+    document.getElementById('shipping_costs_text').value = shipping_costs;
+    document.getElementById('shipping_costs_checkout').value = shipping_costs;
+    document.getElementById('courier_name').value = courier_name;
 
     // var nama_penerima = $('#shipping_selected_name').val();
     // var no_hp_penerima = $('#shipping_selected_no_hp').val();
