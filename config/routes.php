@@ -18,7 +18,7 @@ $route['reg/(:num)']            = 'auth/reg/$1';
 $route['api/get/(:any)/(:any)'] = 'api/get/index/$1/$2';
 
 $route['admin']                 = 'admin/dashboard';
-$route['admin/stock/(:any)']    = 'admin/transaction/stock/$1';
+$route['admin/stock/(:any)']    = 'admin/transaction/product_stock/$1';
 
 $route['member']                = 'member/dashboard';
 

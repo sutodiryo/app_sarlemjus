@@ -37,7 +37,7 @@ class Transaction extends CI_Controller
     $this->load->view('admin/transaction/list', $data);
   }
 
-  function stock($x)
+  function product_stock($x)
   {
     $data['page'] = 'stock';
 
@@ -49,11 +49,12 @@ class Transaction extends CI_Controller
 
       $this->load->view('admin/transaction/stock_product', $data);
     } else {
+      $p = $this->Transaction_data->get_product_by_id($x); // Get product detail stock
 
-      $data['title'] = 'Stok Produk ';
-      $data['product'] = $this->Transaction_data->get_product_by_id($x);
-      // $data['product_list'] = $this->Transaction_data->get_product_list();
+      $data['product'] = $p;
+      $data['title'] = 'Update Stok ' . $p->name . '';
       $data['stock'] = $this->Transaction_data->get_stock_by_product_id($x);
+      $data['transaction_list'] = $this->Transaction_data->get_transaction_by_product($x);
 
       $this->load->view('admin/transaction/stock_product_list', $data);
     }
@@ -61,7 +62,6 @@ class Transaction extends CI_Controller
 
   function invoice($invoice_number)
   {
-    
     $data['page'] = 'transaction';
     $data['title'] = 'Daftar Transaksi';
 
@@ -109,7 +109,7 @@ class Transaction extends CI_Controller
       redirect($referred_link);
     }
   }
-  
+
   // Flashdata Report
   function alert($x, $y)
   {

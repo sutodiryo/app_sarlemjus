@@ -35,11 +35,6 @@ class Master_data extends CI_Model
         return $this->db->query("SELECT * FROM product WHERE id='$id_product'")->row();
     }
 
-    function get_product_stock($id_product)
-    {
-        return $this->db->query("SELECT * FROM product WHERE id='$id_product'")->result();
-    }
-
     function get_product_brand()
     {
         return $this->db->query("SELECT * FROM product_brand")->result();
